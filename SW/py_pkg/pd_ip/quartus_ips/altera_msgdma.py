@@ -16,7 +16,7 @@ class  altera_msgdma():
         self.dma_descr_base = component_dict["DESCRIPTOR_SLAVE_BASE"]
         self.dma_descr_span = component_dict["DESCRIPTOR_SLAVE_SPAN"]
         self.dma_descr_end = component_dict["DESCRIPTOR_SLAVE_END"]
-        self.max_transfer = component_dict["DESCRIPTOR_SLAVE_MAX_BYTE"] 
+        self.max_transfer = int(component_dict["DESCRIPTOR_SLAVE_MAX_BYTE"]) 
         self.dma_fh = dma_fh
 
     def get_dma_words(self, num_words, word_bytes):

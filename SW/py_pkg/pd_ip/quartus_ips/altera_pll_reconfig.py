@@ -158,7 +158,7 @@ class altera_pll_reconfig(pd_ip):
 
         # Configure word
         word = 0
-        word = (word      ) | (self.c_params["phase_updn"] & 0x1)
+        word = (word      ) | (self.c_params["phase_updn"][cntsel] & 0x1)
         word = (word << 5 ) | (cntsel & 0x1F)
         word = (word << 16) | (amt & 0xFFFF)
 
@@ -175,7 +175,7 @@ class altera_pll_reconfig(pd_ip):
         amt = self.c_params["phase_amt"][cntsel]
         if(amt == 0):
             return 0
-        while(phase_bump_temp > ((2**16)-1)):
+        while(amt > ((2**16)-1)):
             self.__phase_bump_partial__(cntsel, ((2**16)-1))
             amt = amt - ((2**16)-1)
         if(amt > 0):
@@ -198,6 +198,14 @@ class altera_pll_reconfig(pd_ip):
             = self.__calc_low_high_50__(self.m)
         self.n_params["high"], self.n_params["low"],  self.n_params["odd_div"] \
             = self.__calc_low_high_50__(self.n)
+        self.c_params = {
+                "bypass" : [None] * self.num_out,
+                "low" : [None] * self.num_out,
+                "high" : [None] * self.num_out,
+                "odd_div" : [None] * self.num_out,
+                "phase_updn" : [None] * self.num_out,
+                "phase_amt" : [None] * self.num_out
+        }
         for i in range(self.num_out):
             self.c_params["high"][i], self.c_params["low"][i], self.c_params["odd_div"][i] \
                 =  self.__calc_low_high_50__(self.c[i])
