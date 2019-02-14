@@ -175,9 +175,9 @@ class altera_pll_reconfig(pd_ip):
         amt = self.c_params["phase_amt"][cntsel]
         if(amt == 0):
             return 0
-        while(amt > ((2**16)-1)):
-            self.__phase_bump_partial__(cntsel, ((2**16)-1))
-            amt = amt - ((2**16)-1)
+        while(amt > ((2**14)-1)):
+            self.__phase_bump_partial__(cntsel, ((2**14)-1))
+            amt = amt - ((2**14)-1)
         if(amt > 0):
             self.__phase_bump_partial__(cntsel, amt)
 
