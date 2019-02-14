@@ -151,7 +151,7 @@ class TunableTDCSweeper():
             if(delay_ps > delay_lower_bound and delay_ps < delay_upper_bound):
 
                 self.pulsegen.hold_reset()
-                phase_shift = [{"phase_updn":0, "phase_amt":0},{"phase_updn":0,"phase_amt":ps_bumps}]
+                phase_shift = [{"phase_updn":0,"phase_amt":ps_bumps}, {"phase_updn":0, "phase_amt":0}]
                 self.theta_cfg.update_all_50(m, n, [c,c], "high", 1, phase_shift)
                 self.pulsegen.reset()
 
