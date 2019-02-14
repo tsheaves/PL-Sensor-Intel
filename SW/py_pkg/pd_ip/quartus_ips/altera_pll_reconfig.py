@@ -19,6 +19,7 @@ class altera_pll_reconfig(pd_ip):
         self.locked_pio = locked_pio
         self.lock_min_time = lock_min_time
         self.m = m
+        self.num_out = num_out
         self.m_params = {
                 "bypass" : None,
                 "low" : None,
@@ -54,13 +55,14 @@ class altera_pll_reconfig(pd_ip):
         status_offset = 0x1 << 2
         ready = 0
         while(ready == 0):
-            ready = self.read_csr(status_offset, 4, 0x1)
+            ready = self.read_csr(status_offset, 4)
         return True
 
     def __commit_pll_changes__(self):
         dyn_reconfig_offset = 0x2 << 2
         # Commit phase bump
         self.write_csr(dyn_reconfig_offset, 4, 0x1)
+        self.__wait_ready__()
 
     def __wait_pll_lock__(self):
         time.sleep(self.lock_min_time)
@@ -212,7 +214,53 @@ class altera_pll_reconfig(pd_ip):
             self.c_params["bypass"][i] = self.c[i] == 1
             self.c_params["phase_updn"][i] = phase_bumps[i]["phase_updn"]
             self.c_params["phase_amt"][i] = phase_bumps[i]["phase_amt"]
-
+    
+    def check_params(self):
+        '''
+        Check PLL parameters
+        '''
+        # Check M
+        pll_m_offset = 0x4 << 2
+        word = 0
+        word = word        | (self.m_params["odd_div"] & 0x1)
+        word = (word << 1) | (self.m_params["bypass"] & 0x1)
+        word = (word << 8) | (self.m_params["high"] & 0xFF)
+        word = (word << 8) | (self.m_params["low"] & 0xFF)
+        measured = self.read_csr(pll_m_offset, 4)
+        if((word  & 0xFFFF) == measured):
+            print("M validated")
+        else:
+            warnings.warn(f"M counter mismatch expectectd 0x{word:08x} got 0x{measured:08x}")
+            
+        # Check N
+        pll_n_offset = 0x3 << 2
+        word = 0
+        word = word        | (self.n_params["odd_div"] & 0x1)
+        word = (word << 1) | (self.n_params["bypass"] & 0x1)
+        word = (word << 8) | (self.n_params["high"] & 0xFF)
+        word = (word << 8) | (self.n_params["low"] & 0xFF)
+        measured = self.read_csr(pll_n_offset, 4)
+        if((word & 0xFFFF) == measured ):
+            print("N validated")
+        else:
+            warnings.warn(f"N counter mismatch expectectd 0x{word:08x} got 0x{measured:08x}")
+            
+        # Check Cs
+        cnsel_rd_addr = range(10, 27)
+        for cnt in range(self.num_out):
+            pll_c_offset = cnsel_rd_addr[cnt] << 2
+            word = 0
+            word = word        | (self.c_params["odd_div"][cnt] & 0x1)
+            word = (word << 1) | (self.c_params["bypass"][cnt] & 0x1)
+            word = (word << 8) | (self.c_params["high"][cnt] & 0xFF)
+            word = (word << 8) | (self.c_params["low"][cnt] & 0xFF)
+            measured = self.read_csr(pll_c_offset, 4)
+            if((word & 0xFFFF) == measured ):
+                print(f"C[{cnt}] validated!")
+            else:
+                warnings.warn(f"C[{cnt}] counter mismatch expectectd 0x{word:08x} got 0x{measured:08x}")
+        return 0
+    
     def __update_all_params_50__(self):
         self.__prime_polling__()
         # Update lf and cp from m
@@ -229,7 +277,7 @@ class altera_pll_reconfig(pd_ip):
             self.__prime_polling__()
             self.__update_c__(cntsel)
             self.__commit_pll_changes__()
-        self.reset_pll()
+            self.reset_pll()
         # Automatically performs prime/commit/lock check
         for cntsel in range(self.num_out):
             self.__phase_bump_full__(cntsel)
@@ -263,7 +311,6 @@ class altera_pll_reconfig(pd_ip):
         self.m = m
         self.n = n
         self.c = c
-        self.phase_bumps = phase_bumps
         self.bw = bw
         self.post_div = post_div
         self.__calc_params_50_all__(phase_bumps)
