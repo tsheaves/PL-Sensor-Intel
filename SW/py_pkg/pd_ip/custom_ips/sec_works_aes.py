@@ -17,6 +17,9 @@ class sec_works_aes(pd_ip):
     def reset(self):
         self.reset_pio.write_csr(0,4,1)
         self.reset_pio.write_csr(0,4,0)
+        
+    def hold_reset(self):
+        self.reset_pio.write_csr(0,4,1)
     
     def __word_combine__(self, arr, n, len_wrd):
         long_word = 0

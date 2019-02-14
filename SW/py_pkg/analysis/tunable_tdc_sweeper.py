@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 import numpy as np
+from math import ceil
 from math import floor
 import progressbar
 import matplotlib.pyplot as plt
@@ -16,6 +17,16 @@ class TunableTDCSweeper():
         self.pulsegen = pulsegen
         self.dma = dma
         self.tdc_len = tdc_len
+        self.tuned_theta_m        = 0
+        self.tuned_theta_n        = 0
+        self.tuned_theta_c        = 0
+        self.tuned_ps_bumps_theta = 0
+        self.tuned_theta_avg_rise = 0
+        self.tuned_theta_avg_fall = 0
+        self.tuned_theta_maxvar_rise = 0
+        self.tuned_theta_maxvar_fall = 0
+        self.tuned_theta_minvar_rise = 0
+        self.tuned_theta_minvar_fall = 0
 
     def __closest_idx__(self, lst, K):
         return min(range(len(lst)), key=lambda i: abs(lst[i]-K))
@@ -117,16 +128,18 @@ class TunableTDCSweeper():
                var_firsts_fall, mean_lasts_rise, var_lasts_rise, \
                mean_lasts_fall, var_lasts_fall
 
-    def tune_theta(self, theta_cfg_params, phi_cfg_params,
+    def sweep_theta(self, theta_cfg_params, phi_cfg_params,
                     theta_samples, sweep_params, tune_param="mid",
                     sweep_data_fh="theta_sweep.csv", debug=0):
         
-        num_seq = floor(theta_samples*int(self.tdc_len/8)/self.dma.max_transfer)
-        delay_lower_bound = sweep_params["delay_lower_bound"]
-        delay_upper_bound = sweep_params["delay_upper_bound"]
-        target_mu         = sweep_params["target rising mu"]
-        min_pd            = sweep_params["min var prop dist"]
-        max_pd            = sweep_params["max var prop dist"]
+        tdc_sample_bytes     = ceil(self.tdc_len/8)
+        theta_samples_bytes  = theta_samples * tdc_sample_bytes
+        max_transfer_samples = floor(self.dma.max_transfer/tdc_sample_bytes)
+        delay_lower_bound    = sweep_params["delay_lower_bound"]
+        delay_upper_bound    = sweep_params["delay_upper_bound"]
+        target_mu            = sweep_params["target rising mu"]
+        min_pd               = sweep_params["min var prop dist"]
+        max_pd               = sweep_params["max var prop dist"]
         
         output_dir = os.path.dirname(os.path.realpath(sweep_data_fh))
         isExist = os.path.exists(output_dir)
@@ -175,16 +188,25 @@ class TunableTDCSweeper():
                     phase_shift = [{"phase_updn":0, "phase_amt":0},{"phase_updn":0,"phase_amt":ps_bumps}]
                     self.theta_cfg.update_all_50(m, n, [c,c], "high", 1, phase_shift)
                     self.pulsegen.reset()
-
+                    
+                    
                     # Collect samples, and calculate averages
                     samples = []
+                    theta_samples_temp = theta_samples
+                    
                     # Sample n_seq sample sequences
-                    for i in range(num_seq + 1):
+                    while(theta_samples_temp > max_transfer_samples):
                         # Prime pulse generator
-                        self.pulsegen.prime(0, theta_samples)
+                        self.pulsegen.prime(0, max_transfer_samples)
                         # Collect TDC traces and append to samples
-                        samples = samples + self.dma.get_dma_words(theta_samples, int(self.tdc_len/8))
-
+                        samples = samples + self.dma.get_dma_words(max_transfer_samples, tdc_sample_bytes)
+                        theta_samples_temp -= max_transfer_samples
+                    
+                    # Prime pulse generator
+                    self.pulsegen.prime(0, theta_samples_temp)
+                    # Collect TDC traces and append to samples
+                    samples = samples + self.dma.get_dma_words(theta_samples_temp, tdc_sample_bytes)                    
+                    
                     if(debug):
                         for i in range(len(samples)):
                             print(f"IDX{i:5d}: {samples[i]:064x}")
@@ -194,8 +216,8 @@ class TunableTDCSweeper():
                         = self.__decode_samples__(samples)
                     if(debug):
                         for i in range(int(len(samples)/4)):
-                            print(f"Falling IDX{i:5d}: {falling_samples[i]:064x}")
-                            print(f" Rising IDX{i:5d}: {rising_samples[i]:064x}")
+                            print(f"Sample Falling IDX{i:5d}: {falling_samples[i]:064x}")
+                            print(f" Sample Rising IDX{i:5d}: {rising_samples[i]:064x}")
 
                     # Calculate pop counts
                     pop_counts_rising, pop_counts_falling \
@@ -208,7 +230,15 @@ class TunableTDCSweeper():
                     # Calculate firsts lasts
                     firsts_rising, firsts_falling, lasts_rising, lasts_falling \
                         = self.__calc_firsts_lasts__(falling_samples, rising_samples)
-                    
+                    if(debug):
+                        for i in range(int(len(samples)/4)):
+                            print(f"First Falling IDX{i:5d}: {pop_counts_falling[i]:03d}")
+                            print(f" First Rising IDX{i:5d}: {pop_counts_rising[i]:03d}")
+                    if(debug):
+                        for i in range(int(len(samples)/4)):
+                            print(f"Last Falling IDX{i:5d}: {pop_counts_falling[i]:03d}")
+                            print(f" Last Rising IDX{i:5d}: {pop_counts_rising[i]:03d}")
+                            
                     # Calculate mean of pop counts
                     mean_falling_pop, mean_rising_pop, var_pop_falling, var_pop_rising \
                         = self.__process_pop_counts__(pop_counts_rising, pop_counts_falling )
@@ -221,8 +251,12 @@ class TunableTDCSweeper():
                                                         lasts_rising, lasts_falling)
                     
                     if(debug):
-                        print(f"   mu PC Falling: {mean_falling_pop:03f}")
-                        print(f"    mu PC Rising: {mean_rising_pop:03f}")
+                        print(   f"Avg PC Falling: {mean_falling_pop:03f}")
+                        print(   f" Avg PC Rising: {mean_rising_pop:03f}")
+                        print(f"Avg First Falling: {mean_firsts_fall:03f}")
+                        print(f" Avg First Rising: {mean_firsts_rise:03f}")
+                        print(f" Avg Last Falling: {mean_lasts_fall:03f}")
+                        print(f"  Avg Last Rising: {mean_lasts_rise:03f}")
                         break
 
                     theta_sweep_plot_data["theta mu pop rise"].append(mean_rising_pop)
@@ -245,30 +279,117 @@ class TunableTDCSweeper():
                     theta_sweep_plot_data["c"].append(c)
                     theta_sweep_plot_data["ps_bumps"].append(ps_bumps)
                     theta_sweep_plot_data["theta delay (ps)"].append(delay_ps)
-
-            if(debug == 0):
-                theta_sweep_df = pd.DataFrame(theta_sweep_plot_data)
-                theta_sweep_df.to_csv(sweep_data_fh)
-
-                if tune_param == "mid":
-                    idx_select     = \
-                        self.__closest_idx__(theta_sweep_plot_data["theta mu pop rise"], target_mu)
-                if tune_param == "max var":
-                    idx_select     = \
-                        self.__max_var__(min_pd, max_pd, theta_sweep_plot_data["theta var pop rise"], \
-                                theta_sweep_plot_data["theta mu pop rise"])
-                if tune_param == "min var":
-                    idx_select     = \
-                        self.__max_var__(min_pd, max_pd, theta_sweep_plot_data["theta var pop rise"], \
-                                theta_sweep_plot_data["theta mu pop rise"])
-
-                theta_avg_rise = theta_sweep_plot_data["theta mu pop rise"][idx_select]
-                theta_avg_fall = theta_sweep_plot_data["theta mu pop fall"][idx_select]
-                theta_m        = theta_sweep_plot_data["m"][idx_select]
-                theta_n        = theta_sweep_plot_data["n"][idx_select]
-                theta_c        = theta_sweep_plot_data["c"][idx_select]
-                ps_bumps_theta = theta_sweep_plot_data["ps_bumps"][idx_select]
     
+    def pop_tune_theta(self, theta_cfg_params, phi_cfg_params, 
+                       theta_samples, sweep_params, tune_rise=False, tune_param="mid"):
+        '''
+        This function is for fast theta tuning on popcounts only, it won't yield any plot data
+            and has no debug support
+        '''
+        tdc_sample_bytes     = ceil(self.tdc_len/8)
+        theta_samples_bytes  = theta_samples * tdc_sample_bytes
+        max_transfer_samples = floor(self.dma.max_transfer/tdc_sample_bytes)
+        delay_lower_bound    = sweep_params["delay_lower_bound"]
+        delay_upper_bound    = sweep_params["delay_upper_bound"]
+        target_mu            = sweep_params["target rising mu"]
+        min_pd               = sweep_params["min var prop dist"]
+        max_pd               = sweep_params["max var prop dist"]
+        
+        if tuning_param == "mid":
+            min_mid_diff = self.tdc_len
+            mid = self.tdc_len/2
+        elif tuning_param == "max var":
+            max_var = 0
+        elif tuning_param == "min_var":
+            min_var = self.tdc_len**2
+        
+        with progressbar.ProgressBar(max_value=len(theta_cfg_params.index)) as bar:    
+            # Sweep through theta PLL configurations to generate a calibrated theta offset
+            for index, row in theta_cfg_params.iterrows():
+                bar.update(index)
+                check = 0
+                # Pull config from DF
+                m        = int(row['M'])
+                n        = int(row['D'])
+                c        = int(row['O'])
+                ps_bumps = int(row['n'])
+                delay_ps = row['delay (ps)']
+
+                if(delay_ps > delay_lower_bound and delay_ps < delay_upper_bound):
+
+                    self.pulsegen.hold_reset()
+                    phase_shift = [{"phase_updn":0, "phase_amt":0},{"phase_updn":0,"phase_amt":ps_bumps}]
+                    self.theta_cfg.update_all_50(m, n, [c,c], "high", 1, phase_shift)
+                    self.pulsegen.reset()
+                
+                # Collect samples, and calculate averages
+                samples = []
+                theta_samples_temp = theta_samples
+
+                # Sample n_seq sample sequences
+                while(theta_samples_temp > max_transfer_samples):
+                    # Prime pulse generator
+                    self.pulsegen.prime(0, max_transfer_samples)
+                    # Collect TDC traces and append to samples
+                    samples = samples + self.dma.get_dma_words(max_transfer_samples, tdc_sample_bytes)
+                    theta_samples_temp -= max_transfer_samples
+
+                # Prime pulse generator
+                self.pulsegen.prime(0, theta_samples_temp)
+                # Collect TDC traces and append to samples
+                samples = samples + self.dma.get_dma_words(theta_samples_temp, tdc_sample_bytes)   
+                
+                # Calculate pop counts
+                pop_counts_rising, pop_counts_falling \
+                    = self.__calc_pop_counts__(falling_samples, rising_samples)
+                
+                if tuning_param == "mid":
+                    if tune_rise:
+                        mean_pop = np.mean(pop_counts_rising)
+                    else:
+                        mean_pop = np.mean(pop_counts_falling)
+                    if((mean_pop - mid) < min_mid_diff):
+                        min_mid_diff = mean_pop
+                        target_idx = index
+                elif tuning_param == "max var":
+                    if tune_rise:
+                        var_pop = np.var(pop_counts_rising, ddof=0)
+                    else:
+                        var_pop = np.var(pop_counts_falling, ddof=0)
+                    if(var_pop > max_var):
+                        max_var = var_pop
+                        target_idx = index
+                elif tuning_param == "min_var":
+                    if tune_rise:
+                        var_pop = np.var(pop_counts_rising, ddof=0)
+                    else:
+                        var_pop = np.var(pop_counts_falling, ddof=0)
+                    if(var_pop < min_var):
+                        min_var = var_pop
+                        target_idx = index
+                        
+        target_row                = theta_cfg_params.iloc[[4]]
+        self.tuned_theta_m        = target_row["m"]
+        self.tuned_theta_n        = target_row["n"]
+        self.tuned_theta_c        = target_row["c"]
+        self.tuned_ps_bumps_theta = target_row["n"]
+        
+        if tuning_param == "mid":
+            if tune_rise:
+                self.tuned_theta_avg_rise = min_mid_diff + mid
+            else:
+                self.tuned_theta_avg_fall = min_mid_diff + mid
+        elif tuning_param == "max var":
+            if tune_rise:
+                self.tuned_theta_maxvar_rise = max_var
+            else:
+                self.tuned_theta_maxvar_fall = max_var
+        elif tuning_param == "min_var":
+            if tune_rise:
+                self.tuned_theta_minvar_rise = min_var
+            else:
+                self.tuned_theta_minvar_fall = min_var
+                
     def __trim_theta_sweep__(self, thetas, metrics, variances):
         # Find first zero position
         init = metrics.index(0)
@@ -344,7 +465,7 @@ class TunableTDCSweeper():
         rise_vars_first = theta_sweep_dict["theta var first rise"]
         plt.clf()
         fig, (ax1) = plt.subplots(1)
-        fig.set_size_inches(10, 4)
+        fig.set_size_inches(7, 3)
         plt.figure(dpi=300)
         self.__plot_formatted_theta_sweep__( \
             ax1, "DE10-Nano", thetas, \
@@ -357,7 +478,7 @@ class TunableTDCSweeper():
         rise_vars_last = theta_sweep_dict["theta var last rise"]
         plt.clf()
         fig, (ax1) = plt.subplots(1)
-        fig.set_size_inches(10, 4)
+        fig.set_size_inches(7, 3)
         plt.figure(dpi=300)
         self.__plot_formatted_theta_sweep__( \
             ax1, "DE10-Nano", thetas, \
@@ -370,9 +491,10 @@ class TunableTDCSweeper():
         rise_vars_pop = theta_sweep_dict["theta var pop rise"]
         plt.clf()
         fig, (ax1) = plt.subplots(1)
-        fig.set_size_inches(10, 4)
+        fig.set_size_inches(7, 3)
         plt.figure(dpi=300)
         self.__plot_formatted_theta_sweep__( \
             ax1, "DE10-Nano", thetas, \
             fall_vars_pop, rise_vars_pop, \
             fall_pop, rise_pop, "Hamming Weight")
+        ax1.set_xlabel(r"$\theta$ ps")
