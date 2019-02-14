@@ -56,6 +56,51 @@
          type = "String";
       }
    }
+   element aes
+   {
+      datum _sortIndex
+      {
+         value = "28";
+         type = "int";
+      }
+   }
+   element aes.avalon_slave_0_1
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+   }
+   element aes_reset_controller
+   {
+      datum _sortIndex
+      {
+         value = "31";
+         type = "int";
+      }
+   }
+   element aes_reset_pio
+   {
+      datum _sortIndex
+      {
+         value = "30";
+         type = "int";
+      }
+   }
+   element aes_reset_pio.s1
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "16785408";
+         type = "String";
+      }
+   }
    element hps_0
    {
       datum _sortIndex
@@ -95,11 +140,72 @@
          type = "boolean";
       }
    }
+   element ip_sync
+   {
+      datum _sortIndex
+      {
+         value = "26";
+         type = "int";
+      }
+   }
+   element ip_sync.avalon_slave
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+   }
+   element ip_sync_to_pulsegenerator_cdc
+   {
+      datum _sortIndex
+      {
+         value = "25";
+         type = "int";
+      }
+   }
+   element ipsync_bridge
+   {
+      datum _sortIndex
+      {
+         value = "29";
+         type = "int";
+      }
+   }
+   element ipsync_bridge.s0
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "16780288";
+         type = "String";
+      }
+   }
+   element ipsync_to_aes_delay
+   {
+      datum _sortIndex
+      {
+         value = "27";
+         type = "int";
+      }
+   }
+   element ipsync_to_aes_delay.s0
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+   }
    element phi_clk
    {
       datum _sortIndex
       {
-         value = "18";
+         value = "21";
          type = "int";
       }
    }
@@ -115,7 +221,7 @@
    {
       datum _sortIndex
       {
-         value = "21";
+         value = "24";
          type = "int";
       }
    }
@@ -136,7 +242,7 @@
    {
       datum _sortIndex
       {
-         value = "17";
+         value = "20";
          type = "int";
       }
    }
@@ -152,7 +258,7 @@
    {
       datum _sortIndex
       {
-         value = "16";
+         value = "19";
          type = "int";
       }
    }
@@ -173,7 +279,7 @@
    {
       datum _sortIndex
       {
-         value = "19";
+         value = "22";
          type = "int";
       }
    }
@@ -181,7 +287,7 @@
    {
       datum _sortIndex
       {
-         value = "20";
+         value = "23";
          type = "int";
       }
    }
@@ -240,15 +346,7 @@
          type = "String";
       }
    }
-   element pulsegenerator_reset_bridge
-   {
-      datum _sortIndex
-      {
-         value = "7";
-         type = "int";
-      }
-   }
-   element pulsegenerator_reset_pio
+   element reset_bridge_capt
    {
       datum _sortIndex
       {
@@ -256,17 +354,28 @@
          type = "int";
       }
    }
-   element pulsegenerator_reset_pio.s1
+   element reset_bridge_launch
    {
-      datum _lockedAddress
+      datum _sortIndex
       {
-         value = "1";
-         type = "boolean";
+         value = "9";
+         type = "int";
       }
-      datum baseAddress
+   }
+   element reset_bridge_shell
+   {
+      datum _sortIndex
       {
-         value = "16785408";
-         type = "String";
+         value = "10";
+         type = "int";
+      }
+   }
+   element reset_bridge_tdc
+   {
+      datum _sortIndex
+      {
+         value = "11";
+         type = "int";
       }
    }
    element shell_pll
@@ -629,6 +738,198 @@
          type = "String";
       }
    }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
+   element soc_system
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone V";
+         type = "String";
+      }
+   }
    element tdc_0
    {
       datum _sortIndex
@@ -637,11 +938,32 @@
          type = "int";
       }
    }
+   element tdc_reset_pio
+   {
+      datum _sortIndex
+      {
+         value = "12";
+         type = "int";
+      }
+   }
+   element tdc_reset_pio.s1
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "16779264";
+         type = "String";
+      }
+   }
    element tdc_to_dma_dc_fifo
    {
       datum _sortIndex
       {
-         value = "9";
+         value = "7";
          type = "int";
       }
    }
@@ -649,7 +971,7 @@
    {
       datum _sortIndex
       {
-         value = "10";
+         value = "13";
          type = "int";
       }
    }
@@ -657,7 +979,7 @@
    {
       datum _sortIndex
       {
-         value = "15";
+         value = "18";
          type = "int";
       }
    }
@@ -678,7 +1000,7 @@
    {
       datum _sortIndex
       {
-         value = "14";
+         value = "17";
          type = "int";
       }
    }
@@ -699,7 +1021,7 @@
    {
       datum _sortIndex
       {
-         value = "13";
+         value = "16";
          type = "int";
       }
    }
@@ -720,7 +1042,7 @@
    {
       datum _sortIndex
       {
-         value = "11";
+         value = "14";
          type = "int";
       }
    }
@@ -728,7 +1050,7 @@
    {
       datum _sortIndex
       {
-         value = "12";
+         value = "15";
          type = "int";
       }
    }
@@ -766,6 +1088,16 @@
  <parameter name="timeStamp" value="0" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
+ <interface
+   name="aes_reset_in"
+   internal="aes_reset_controller.reset_in0"
+   type="reset"
+   dir="end" />
+ <interface
+   name="aes_reset_out"
+   internal="aes_reset_pio.external_connection"
+   type="conduit"
+   dir="end" />
  <interface name="clk" internal="input_clk.clk_in" type="clock" dir="end" />
  <interface name="hps_0_f2h_cold_reset_req" internal="hps_0.f2h_cold_reset_req" />
  <interface name="hps_0_f2h_debug_reset_req" internal="hps_0.f2h_debug_reset_req" />
@@ -796,21 +1128,6 @@
    dir="end" />
  <interface name="memory" internal="hps_0.memory" type="conduit" dir="end" />
  <interface
-   name="pulse_gen_reset_in"
-   internal="pulsegenerator_reset_bridge.reset_in0"
-   type="reset"
-   dir="end" />
- <interface
-   name="pulse_gen_reset_out"
-   internal="pulsegenerator_reset_pio.external_connection"
-   type="conduit"
-   dir="end" />
- <interface
-   name="pulsegenerator_avalon_streaming_sink"
-   internal="pulsegenerator.avalon_streaming_sink"
-   type="avalon_streaming"
-   dir="end" />
- <interface
    name="reset_phi_in"
    internal="phi_pll_reset_bridge.reset_in0"
    type="reset"
@@ -828,6 +1145,16 @@
  <interface
    name="reset_theta_out"
    internal="theta_pll_reset_pio.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="tdc_reset_in"
+   internal="reset_bridge_tdc.reset_in0"
+   type="reset"
+   dir="end" />
+ <interface
+   name="tdc_reset_out"
+   internal="tdc_reset_pio.external_connection"
    type="conduit"
    dir="end" />
  <interface
@@ -852,19 +1179,19 @@
   <parameter name="AUTO_MM_WRITE_ADDRESS_MAP"><![CDATA[<address-map><slave name='hps_0_bridges.f2h_sdram0_data' start='0x0' end='0x100000000' /></address-map>]]></parameter>
   <parameter name="AUTO_MM_WRITE_ADDRESS_WIDTH" value="AddressWidth = 32" />
   <parameter name="BURST_ENABLE" value="1" />
-  <parameter name="BURST_WRAPPING_SUPPORT" value="0" />
+  <parameter name="BURST_WRAPPING_SUPPORT" value="1" />
   <parameter name="CHANNEL_ENABLE" value="0" />
   <parameter name="CHANNEL_WIDTH" value="8" />
-  <parameter name="DATA_FIFO_DEPTH" value="4096" />
+  <parameter name="DATA_FIFO_DEPTH" value="2048" />
   <parameter name="DATA_WIDTH" value="256" />
-  <parameter name="DESCRIPTOR_FIFO_DEPTH" value="256" />
+  <parameter name="DESCRIPTOR_FIFO_DEPTH" value="32" />
   <parameter name="ENHANCED_FEATURES" value="0" />
   <parameter name="ERROR_ENABLE" value="0" />
   <parameter name="ERROR_WIDTH" value="8" />
   <parameter name="EXPOSE_ST_PORT" value="0" />
   <parameter name="FIX_ADDRESS_WIDTH" value="32" />
-  <parameter name="MAX_BURST_COUNT" value="16" />
-  <parameter name="MAX_BYTE" value="131072" />
+  <parameter name="MAX_BURST_COUNT" value="8" />
+  <parameter name="MAX_BYTE" value="65536" />
   <parameter name="MAX_STRIDE" value="1" />
   <parameter name="MODE" value="2" />
   <parameter name="PACKET_ENABLE" value="0" />
@@ -877,6 +1204,55 @@
   <parameter name="STRIDE_ENABLE" value="0" />
   <parameter name="TRANSFER_TYPE">Full Word Accesses Only</parameter>
   <parameter name="USE_FIX_ADDRESS_WIDTH" value="0" />
+ </module>
+ <module name="aes" kind="aes" version="1.0" enabled="1" />
+ <module
+   name="aes_reset_controller"
+   kind="altera_reset_controller"
+   version="22.1"
+   enabled="1">
+  <parameter name="MIN_RST_ASSERTION_TIME" value="3" />
+  <parameter name="NUM_RESET_INPUTS" value="1" />
+  <parameter name="OUTPUT_RESET_SYNC_EDGES" value="deassert" />
+  <parameter name="RESET_REQUEST_PRESENT" value="0" />
+  <parameter name="RESET_REQ_EARLY_DSRT_TIME" value="1" />
+  <parameter name="RESET_REQ_WAIT_TIME" value="1" />
+  <parameter name="SYNC_DEPTH" value="2" />
+  <parameter name="USE_RESET_REQUEST_IN0" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN1" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN10" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN11" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN12" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN13" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN14" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN15" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN2" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN3" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN4" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN5" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN6" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN7" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN8" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN9" value="0" />
+  <parameter name="USE_RESET_REQUEST_INPUT" value="0" />
+ </module>
+ <module
+   name="aes_reset_pio"
+   kind="altera_avalon_pio"
+   version="22.1"
+   enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="100000000" />
+  <parameter name="direction" value="Output" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="32" />
  </module>
  <module name="hps_0" kind="altera_hps" version="22.1" enabled="1">
   <parameter name="ABSTRACT_REAL_COMPARE_TEST" value="false" />
@@ -1414,6 +1790,62 @@
   <parameter name="inputClockFrequency" value="0" />
   <parameter name="resetSynchronousEdges" value="NONE" />
  </module>
+ <module name="ip_sync" kind="ip_sync" version="1.0" enabled="1">
+  <parameter name="ADDR_TRIGGER" value="8" />
+  <parameter name="DATA_TRIGGER" value="2" />
+ </module>
+ <module
+   name="ip_sync_to_pulsegenerator_cdc"
+   kind="altera_avalon_dc_fifo"
+   version="22.1"
+   enabled="1">
+  <parameter name="BITS_PER_SYMBOL" value="8" />
+  <parameter name="CHANNEL_WIDTH" value="0" />
+  <parameter name="ENABLE_EXPLICIT_MAXCHANNEL" value="false" />
+  <parameter name="ERROR_WIDTH" value="0" />
+  <parameter name="EXPLICIT_MAXCHANNEL" value="0" />
+  <parameter name="FIFO_DEPTH" value="16" />
+  <parameter name="RD_SYNC_DEPTH" value="8" />
+  <parameter name="SYMBOLS_PER_BEAT" value="1" />
+  <parameter name="USE_IN_FILL_LEVEL" value="0" />
+  <parameter name="USE_OUT_FILL_LEVEL" value="0" />
+  <parameter name="USE_PACKETS" value="0" />
+  <parameter name="WR_SYNC_DEPTH" value="8" />
+ </module>
+ <module
+   name="ipsync_bridge"
+   kind="altera_avalon_mm_clock_crossing_bridge"
+   version="22.1"
+   enabled="1">
+  <parameter name="ADDRESS_UNITS" value="SYMBOLS" />
+  <parameter name="ADDRESS_WIDTH" value="10" />
+  <parameter name="COMMAND_FIFO_DEPTH" value="8" />
+  <parameter name="DATA_WIDTH" value="32" />
+  <parameter name="MASTER_SYNC_DEPTH" value="8" />
+  <parameter name="MAX_BURST_SIZE" value="1" />
+  <parameter name="RESPONSE_FIFO_DEPTH" value="8" />
+  <parameter name="SLAVE_SYNC_DEPTH" value="8" />
+  <parameter name="SYMBOL_WIDTH" value="8" />
+  <parameter name="SYSINFO_ADDR_WIDTH" value="10" />
+  <parameter name="USE_AUTO_ADDRESS_WIDTH" value="1" />
+ </module>
+ <module
+   name="ipsync_to_aes_delay"
+   kind="altera_avalon_mm_clock_crossing_bridge"
+   version="22.1"
+   enabled="1">
+  <parameter name="ADDRESS_UNITS" value="SYMBOLS" />
+  <parameter name="ADDRESS_WIDTH" value="10" />
+  <parameter name="COMMAND_FIFO_DEPTH" value="8" />
+  <parameter name="DATA_WIDTH" value="32" />
+  <parameter name="MASTER_SYNC_DEPTH" value="16" />
+  <parameter name="MAX_BURST_SIZE" value="1" />
+  <parameter name="RESPONSE_FIFO_DEPTH" value="8" />
+  <parameter name="SLAVE_SYNC_DEPTH" value="16" />
+  <parameter name="SYMBOL_WIDTH" value="8" />
+  <parameter name="SYSINFO_ADDR_WIDTH" value="10" />
+  <parameter name="USE_AUTO_ADDRESS_WIDTH" value="0" />
+ </module>
  <module name="phi_clk" kind="altera_pll" version="22.1" enabled="1">
   <parameter name="debug_print_output" value="false" />
   <parameter name="debug_use_rbc_taf_method" value="false" />
@@ -1650,10 +2082,10 @@
   <parameter name="ADDRESS_WIDTH" value="6" />
   <parameter name="COMMAND_FIFO_DEPTH" value="8" />
   <parameter name="DATA_WIDTH" value="32" />
-  <parameter name="MASTER_SYNC_DEPTH" value="4" />
+  <parameter name="MASTER_SYNC_DEPTH" value="8" />
   <parameter name="MAX_BURST_SIZE" value="1" />
   <parameter name="RESPONSE_FIFO_DEPTH" value="8" />
-  <parameter name="SLAVE_SYNC_DEPTH" value="4" />
+  <parameter name="SLAVE_SYNC_DEPTH" value="8" />
   <parameter name="SYMBOL_WIDTH" value="8" />
   <parameter name="SYSINFO_ADDR_WIDTH" value="8" />
   <parameter name="USE_AUTO_ADDRESS_WIDTH" value="1" />
@@ -1712,6 +2144,7 @@
    version="1.0"
    enabled="1">
   <parameter name="C_SELECT_BIT" value="1" />
+  <parameter name="PIPELINE_OUTPUT" value="4" />
  </module>
  <module
    name="pulsegenerator_cdc"
@@ -1722,16 +2155,16 @@
   <parameter name="ADDRESS_WIDTH" value="12" />
   <parameter name="COMMAND_FIFO_DEPTH" value="8" />
   <parameter name="DATA_WIDTH" value="32" />
-  <parameter name="MASTER_SYNC_DEPTH" value="4" />
+  <parameter name="MASTER_SYNC_DEPTH" value="8" />
   <parameter name="MAX_BURST_SIZE" value="1" />
   <parameter name="RESPONSE_FIFO_DEPTH" value="8" />
-  <parameter name="SLAVE_SYNC_DEPTH" value="4" />
+  <parameter name="SLAVE_SYNC_DEPTH" value="8" />
   <parameter name="SYMBOL_WIDTH" value="8" />
-  <parameter name="SYSINFO_ADDR_WIDTH" value="12" />
+  <parameter name="SYSINFO_ADDR_WIDTH" value="4" />
   <parameter name="USE_AUTO_ADDRESS_WIDTH" value="1" />
  </module>
  <module
-   name="pulsegenerator_reset_bridge"
+   name="reset_bridge_capt"
    kind="altera_reset_controller"
    version="22.1"
    enabled="1">
@@ -1761,22 +2194,94 @@
   <parameter name="USE_RESET_REQUEST_INPUT" value="0" />
  </module>
  <module
-   name="pulsegenerator_reset_pio"
-   kind="altera_avalon_pio"
+   name="reset_bridge_launch"
+   kind="altera_reset_controller"
    version="22.1"
    enabled="1">
-  <parameter name="bitClearingEdgeCapReg" value="false" />
-  <parameter name="bitModifyingOutReg" value="false" />
-  <parameter name="captureEdge" value="false" />
-  <parameter name="clockRate" value="100000000" />
-  <parameter name="direction" value="Output" />
-  <parameter name="edgeType" value="RISING" />
-  <parameter name="generateIRQ" value="false" />
-  <parameter name="irqType" value="LEVEL" />
-  <parameter name="resetValue" value="0" />
-  <parameter name="simDoTestBenchWiring" value="false" />
-  <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="32" />
+  <parameter name="MIN_RST_ASSERTION_TIME" value="3" />
+  <parameter name="NUM_RESET_INPUTS" value="1" />
+  <parameter name="OUTPUT_RESET_SYNC_EDGES" value="deassert" />
+  <parameter name="RESET_REQUEST_PRESENT" value="0" />
+  <parameter name="RESET_REQ_EARLY_DSRT_TIME" value="1" />
+  <parameter name="RESET_REQ_WAIT_TIME" value="1" />
+  <parameter name="SYNC_DEPTH" value="2" />
+  <parameter name="USE_RESET_REQUEST_IN0" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN1" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN10" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN11" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN12" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN13" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN14" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN15" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN2" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN3" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN4" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN5" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN6" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN7" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN8" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN9" value="0" />
+  <parameter name="USE_RESET_REQUEST_INPUT" value="0" />
+ </module>
+ <module
+   name="reset_bridge_shell"
+   kind="altera_reset_controller"
+   version="22.1"
+   enabled="1">
+  <parameter name="MIN_RST_ASSERTION_TIME" value="3" />
+  <parameter name="NUM_RESET_INPUTS" value="1" />
+  <parameter name="OUTPUT_RESET_SYNC_EDGES" value="deassert" />
+  <parameter name="RESET_REQUEST_PRESENT" value="0" />
+  <parameter name="RESET_REQ_EARLY_DSRT_TIME" value="1" />
+  <parameter name="RESET_REQ_WAIT_TIME" value="1" />
+  <parameter name="SYNC_DEPTH" value="2" />
+  <parameter name="USE_RESET_REQUEST_IN0" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN1" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN10" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN11" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN12" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN13" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN14" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN15" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN2" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN3" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN4" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN5" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN6" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN7" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN8" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN9" value="0" />
+  <parameter name="USE_RESET_REQUEST_INPUT" value="0" />
+ </module>
+ <module
+   name="reset_bridge_tdc"
+   kind="altera_reset_controller"
+   version="22.1"
+   enabled="1">
+  <parameter name="MIN_RST_ASSERTION_TIME" value="3" />
+  <parameter name="NUM_RESET_INPUTS" value="1" />
+  <parameter name="OUTPUT_RESET_SYNC_EDGES" value="deassert" />
+  <parameter name="RESET_REQUEST_PRESENT" value="0" />
+  <parameter name="RESET_REQ_EARLY_DSRT_TIME" value="1" />
+  <parameter name="RESET_REQ_WAIT_TIME" value="1" />
+  <parameter name="SYNC_DEPTH" value="2" />
+  <parameter name="USE_RESET_REQUEST_IN0" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN1" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN10" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN11" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN12" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN13" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN14" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN15" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN2" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN3" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN4" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN5" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN6" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN7" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN8" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN9" value="0" />
+  <parameter name="USE_RESET_REQUEST_INPUT" value="0" />
  </module>
  <module name="shell_pll" kind="altera_pll" version="22.1" enabled="1">
   <parameter name="debug_print_output" value="false" />
@@ -1842,8 +2347,8 @@
   <parameter name="gui_channel_spacing" value="0.0" />
   <parameter name="gui_clk_bad" value="false" />
   <parameter name="gui_device_speed_grade" value="2" />
-  <parameter name="gui_divide_factor_c0" value="1" />
-  <parameter name="gui_divide_factor_c1" value="1" />
+  <parameter name="gui_divide_factor_c0" value="16" />
+  <parameter name="gui_divide_factor_c1" value="64" />
   <parameter name="gui_divide_factor_c10" value="1" />
   <parameter name="gui_divide_factor_c11" value="1" />
   <parameter name="gui_divide_factor_c12" value="1" />
@@ -1883,7 +2388,7 @@
   <parameter name="gui_duty_cycle7" value="50" />
   <parameter name="gui_duty_cycle8" value="50" />
   <parameter name="gui_duty_cycle9" value="50" />
-  <parameter name="gui_en_adv_params" value="false" />
+  <parameter name="gui_en_adv_params" value="true" />
   <parameter name="gui_en_dps_ports" value="false" />
   <parameter name="gui_en_phout_ports" value="false" />
   <parameter name="gui_en_reconf" value="false" />
@@ -1894,7 +2399,7 @@
   <parameter name="gui_frac_multiply_factor" value="1" />
   <parameter name="gui_fractional_cout" value="32" />
   <parameter name="gui_mif_generate" value="false" />
-  <parameter name="gui_multiply_factor" value="1" />
+  <parameter name="gui_multiply_factor" value="32" />
   <parameter name="gui_number_of_clocks" value="2" />
   <parameter name="gui_operation_mode" value="direct" />
   <parameter name="gui_output_clock_frequency0" value="100.0" />
@@ -1982,9 +2487,28 @@
   <parameter name="gui_use_locked" value="false" />
  </module>
  <module name="tdc_0" kind="tdk" version="1.0" enabled="1">
-  <parameter name="C_OUT_WIDTH" value="256" />
-  <parameter name="C_SYNC_DEPTH" value="1" />
+  <parameter name="C_OUT_WIDTH" value="128" />
+  <parameter name="C_SYNC_DEPTH" value="4" />
+  <parameter name="REVERSE" value="1" />
   <parameter name="TECHNOLOGY" value="28nm" />
+ </module>
+ <module
+   name="tdc_reset_pio"
+   kind="altera_avalon_pio"
+   version="22.1"
+   enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="100000000" />
+  <parameter name="direction" value="Output" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="32" />
  </module>
  <module
    name="tdc_to_dma_dc_fifo"
@@ -1996,13 +2520,13 @@
   <parameter name="ENABLE_EXPLICIT_MAXCHANNEL" value="false" />
   <parameter name="ERROR_WIDTH" value="0" />
   <parameter name="EXPLICIT_MAXCHANNEL" value="0" />
-  <parameter name="FIFO_DEPTH" value="64" />
-  <parameter name="RD_SYNC_DEPTH" value="4" />
+  <parameter name="FIFO_DEPTH" value="16" />
+  <parameter name="RD_SYNC_DEPTH" value="8" />
   <parameter name="SYMBOLS_PER_BEAT" value="32" />
   <parameter name="USE_IN_FILL_LEVEL" value="0" />
   <parameter name="USE_OUT_FILL_LEVEL" value="0" />
   <parameter name="USE_PACKETS" value="0" />
-  <parameter name="WR_SYNC_DEPTH" value="4" />
+  <parameter name="WR_SYNC_DEPTH" value="8" />
  </module>
  <module name="theta_clks" kind="altera_pll" version="22.1" enabled="1">
   <parameter name="debug_print_output" value="false" />
@@ -2122,7 +2646,7 @@
   <parameter name="gui_mif_generate" value="false" />
   <parameter name="gui_multiply_factor" value="32" />
   <parameter name="gui_number_of_clocks" value="2" />
-  <parameter name="gui_operation_mode" value="direct" />
+  <parameter name="gui_operation_mode" value="normal" />
   <parameter name="gui_output_clock_frequency0" value="300.0" />
   <parameter name="gui_output_clock_frequency1" value="100.0" />
   <parameter name="gui_output_clock_frequency10" value="100.0" />
@@ -2244,10 +2768,10 @@
   <parameter name="ADDRESS_WIDTH" value="6" />
   <parameter name="COMMAND_FIFO_DEPTH" value="8" />
   <parameter name="DATA_WIDTH" value="32" />
-  <parameter name="MASTER_SYNC_DEPTH" value="4" />
+  <parameter name="MASTER_SYNC_DEPTH" value="8" />
   <parameter name="MAX_BURST_SIZE" value="1" />
   <parameter name="RESPONSE_FIFO_DEPTH" value="8" />
-  <parameter name="SLAVE_SYNC_DEPTH" value="4" />
+  <parameter name="SLAVE_SYNC_DEPTH" value="8" />
   <parameter name="SYMBOL_WIDTH" value="8" />
   <parameter name="SYSINFO_ADDR_WIDTH" value="8" />
   <parameter name="USE_AUTO_ADDRESS_WIDTH" value="1" />
@@ -2303,6 +2827,15 @@
  <connection
    kind="avalon"
    version="22.1"
+   start="ip_sync.avalon_master"
+   end="ipsync_to_aes_delay.s0">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="22.1"
    start="hps_0.h2f_axi_master"
    end="theta_pll_reconfig_cdc.s0">
   <parameter name="arbitrationPriority" value="1" />
@@ -2325,6 +2858,15 @@
    end="pulsegenerator_cdc.s0">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x01001000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="22.1"
+   start="hps_0.h2f_axi_master"
+   end="ipsync_bridge.s0">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x01000c00" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -2367,7 +2909,16 @@
    kind="avalon"
    version="22.1"
    start="hps_0.h2f_axi_master"
-   end="pulsegenerator_reset_pio.s1">
+   end="tdc_reset_pio.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x01000800" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="22.1"
+   start="hps_0.h2f_axi_master"
+   end="aes_reset_pio.s1">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x01002000" />
   <parameter name="defaultConnection" value="false" />
@@ -2395,6 +2946,24 @@
    version="22.1"
    start="pulsegenerator_cdc.m0"
    end="pulsegenerator.altera_axi4lite_slave">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="22.1"
+   start="ipsync_bridge.m0"
+   end="ip_sync.avalon_slave">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="22.1"
+   start="ipsync_to_aes_delay.m0"
+   end="aes.avalon_slave_0_1">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x0000" />
   <parameter name="defaultConnection" value="false" />
@@ -2436,6 +3005,16 @@
    version="22.1"
    start="tdc_0.avalon_streaming_source"
    end="tdc_to_dma_dc_fifo.in" />
+ <connection
+   kind="avalon_streaming"
+   version="22.1"
+   start="ip_sync.avalon_streaming_source"
+   end="ip_sync_to_pulsegenerator_cdc.in" />
+ <connection
+   kind="avalon_streaming"
+   version="22.1"
+   start="ip_sync_to_pulsegenerator_cdc.out"
+   end="pulsegenerator.avalon_streaming_sink" />
  <connection
    kind="avalon_streaming"
    version="22.1"
@@ -2510,12 +3089,27 @@
    kind="clock"
    version="22.1"
    start="shell_pll.outclk0"
-   end="pulsegenerator_reset_pio.clk" />
+   end="tdc_reset_pio.clk" />
+ <connection
+   kind="clock"
+   version="22.1"
+   start="theta_clks.outclk0"
+   end="reset_bridge_launch.clk" />
  <connection
    kind="clock"
    version="22.1"
    start="shell_pll.outclk0"
-   end="pulsegenerator_reset_bridge.clk" />
+   end="reset_bridge_shell.clk" />
+ <connection
+   kind="clock"
+   version="22.1"
+   start="shell_pll.outclk0"
+   end="reset_bridge_tdc.clk" />
+ <connection
+   kind="clock"
+   version="22.1"
+   start="shell_pll.outclk0"
+   end="aes_reset_pio.clk" />
  <connection
    kind="clock"
    version="22.1"
@@ -2554,6 +3148,11 @@
  <connection
    kind="clock"
    version="22.1"
+   start="theta_clks.outclk0"
+   end="ip_sync_to_pulsegenerator_cdc.out_clk" />
+ <connection
+   kind="clock"
+   version="22.1"
    start="shell_pll.outclk0"
    end="theta_pll_reconfig_cdc.s0_clk" />
  <connection
@@ -2569,13 +3168,54 @@
  <connection
    kind="clock"
    version="22.1"
+   start="shell_pll.outclk0"
+   end="ipsync_bridge.s0_clk" />
+ <connection
+   kind="clock"
+   version="22.1"
+   start="theta_clks.outclk1"
+   end="reset_bridge_capt.clk" />
+ <connection
+   kind="clock"
+   version="22.1"
+   start="shell_pll.outclk1"
+   end="aes_reset_controller.clk" />
+ <connection
+   kind="clock"
+   version="22.1"
    start="theta_clks.outclk1"
    end="tdc_0.clk_capt" />
+ <connection kind="clock" version="22.1" start="shell_pll.outclk1" end="aes.clock" />
+ <connection
+   kind="clock"
+   version="22.1"
+   start="shell_pll.outclk1"
+   end="ip_sync.clock" />
  <connection
    kind="clock"
    version="22.1"
    start="theta_clks.outclk1"
    end="tdc_to_dma_dc_fifo.in_clk" />
+ <connection
+   kind="clock"
+   version="22.1"
+   start="shell_pll.outclk1"
+   end="ip_sync_to_pulsegenerator_cdc.in_clk" />
+ <connection
+   kind="clock"
+   version="22.1"
+   start="shell_pll.outclk1"
+   end="ipsync_bridge.m0_clk" />
+ <connection
+   kind="clock"
+   version="22.1"
+   start="shell_pll.outclk1"
+   end="ipsync_to_aes_delay.m0_clk" />
+ <connection
+   kind="clock"
+   version="22.1"
+   start="shell_pll.outclk1"
+   end="ipsync_to_aes_delay.s0_clk" />
  <connection
    kind="conduit"
    version="22.1"
@@ -2652,6 +3292,11 @@
    kind="reset"
    version="22.1"
    start="input_clk.clk_reset"
+   end="ip_sync_to_pulsegenerator_cdc.in_clk_reset" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="input_clk.clk_reset"
    end="theta_pll_reconfig_cdc.m0_reset" />
  <connection
    kind="reset"
@@ -2667,6 +3312,16 @@
    kind="reset"
    version="22.1"
    start="input_clk.clk_reset"
+   end="ipsync_bridge.m0_reset" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="input_clk.clk_reset"
+   end="ipsync_to_aes_delay.m0_reset" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="input_clk.clk_reset"
    end="theta_pll_reconfig.mgmt_reset" />
  <connection
    kind="reset"
@@ -2678,6 +3333,11 @@
    version="22.1"
    start="input_clk.clk_reset"
    end="tdc_to_dma_dc_fifo.out_clk_reset" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="input_clk.clk_reset"
+   end="ip_sync_to_pulsegenerator_cdc.out_clk_reset" />
  <connection
    kind="reset"
    version="22.1"
@@ -2717,7 +3377,22 @@
    kind="reset"
    version="22.1"
    start="input_clk.clk_reset"
-   end="pulsegenerator_reset_pio.reset" />
+   end="tdc_reset_pio.reset" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="input_clk.clk_reset"
+   end="aes.reset" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="input_clk.clk_reset"
+   end="ip_sync.reset" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="input_clk.clk_reset"
+   end="aes_reset_pio.reset" />
  <connection
    kind="reset"
    version="22.1"
@@ -2741,6 +3416,16 @@
  <connection
    kind="reset"
    version="22.1"
+   start="input_clk.clk_reset"
+   end="ipsync_bridge.s0_reset" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="input_clk.clk_reset"
+   end="ipsync_to_aes_delay.s0_reset" />
+ <connection
+   kind="reset"
+   version="22.1"
    start="hps_0.h2f_reset"
    end="pulsegenerator.axi_s_resetn" />
  <connection
@@ -2753,6 +3438,11 @@
    version="22.1"
    start="hps_0.h2f_reset"
    end="tdc_to_dma_dc_fifo.in_clk_reset" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="hps_0.h2f_reset"
+   end="ip_sync_to_pulsegenerator_cdc.in_clk_reset" />
  <connection
    kind="reset"
    version="22.1"
@@ -2772,6 +3462,16 @@
    kind="reset"
    version="22.1"
    start="hps_0.h2f_reset"
+   end="ipsync_bridge.m0_reset" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="hps_0.h2f_reset"
+   end="ipsync_to_aes_delay.m0_reset" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="hps_0.h2f_reset"
    end="theta_pll_reconfig.mgmt_reset" />
  <connection
    kind="reset"
@@ -2783,6 +3483,11 @@
    version="22.1"
    start="hps_0.h2f_reset"
    end="tdc_to_dma_dc_fifo.out_clk_reset" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="hps_0.h2f_reset"
+   end="ip_sync_to_pulsegenerator_cdc.out_clk_reset" />
  <connection kind="reset" version="22.1" start="hps_0.h2f_reset" end="tdc_0.reset" />
  <connection
    kind="reset"
@@ -2823,7 +3528,18 @@
    kind="reset"
    version="22.1"
    start="hps_0.h2f_reset"
-   end="pulsegenerator_reset_pio.reset" />
+   end="tdc_reset_pio.reset" />
+ <connection kind="reset" version="22.1" start="hps_0.h2f_reset" end="aes.reset" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="hps_0.h2f_reset"
+   end="ip_sync.reset" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="hps_0.h2f_reset"
+   end="aes_reset_pio.reset" />
  <connection
    kind="reset"
    version="22.1"
@@ -2847,8 +3563,43 @@
  <connection
    kind="reset"
    version="22.1"
-   start="pulsegenerator_reset_bridge.reset_out"
+   start="hps_0.h2f_reset"
+   end="ipsync_bridge.s0_reset" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="hps_0.h2f_reset"
+   end="ipsync_to_aes_delay.s0_reset" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="reset_bridge_launch.reset_out"
    end="pulsegenerator.axi_s_resetn" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="reset_bridge_capt.reset_out"
+   end="tdc_to_dma_dc_fifo.in_clk_reset" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="reset_bridge_launch.reset_out"
+   end="pulsegenerator_cdc.m0_reset" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="aes_reset_controller.reset_out"
+   end="ipsync_to_aes_delay.m0_reset" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="aes_reset_controller.reset_out"
+   end="ipsync_bridge.m0_reset" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="reset_bridge_shell.reset_out"
+   end="tdc_to_dma_dc_fifo.out_clk_reset" />
  <connection
    kind="reset"
    version="22.1"
@@ -2859,6 +3610,46 @@
    version="22.1"
    start="phi_pll_reset_bridge.reset_out"
    end="phi_clk.reset" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="reset_bridge_capt.reset_out"
+   end="tdc_0.reset" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="aes_reset_controller.reset_out"
+   end="aes.reset" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="aes_reset_controller.reset_out"
+   end="ip_sync.reset" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="reset_bridge_tdc.reset_out"
+   end="reset_bridge_shell.reset_in0" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="reset_bridge_tdc.reset_out"
+   end="reset_bridge_launch.reset_in0" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="reset_bridge_tdc.reset_out"
+   end="reset_bridge_capt.reset_in0" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="reset_bridge_shell.reset_out"
+   end="pulsegenerator_cdc.s0_reset" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="aes_reset_controller.reset_out"
+   end="ipsync_to_aes_delay.s0_reset" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="1" />
 </system>
