@@ -1,18 +1,24 @@
 from dissect.cstruct import cstruct
 import warnings
 import importlib
+from periphery import MMIO
 
 class pd_system():
 
     def __init__(
-        self, pd_system_name=None, header_files=[], sys_offset=0x0000
+        self, pd_system_name=None, header_files=[], 
+        ifc_base=0x0000, mmio_path=""
     ):
         self.pd_system_name=pd_system_name
         self.header_files=header_files
-        self.sys_offset=sys_offset
         self.components = {}
-        self.pd_ip_insts={}
-
+        self.pd_ip_insts = {}
+        self.ifc_base = ifc_base
+        self.mmio_path = mmio_path
+    
+    def close_pd_system(self):
+        self.mmio.close()
+    
     def initialize(self, debug=False):
         for header_file in self.header_files:
             print(f"Imported from {header_file}")
@@ -67,6 +73,6 @@ class pd_system():
             except:
                 component_module = importlib.import_module(f"pd_ip.quartus_ips.{component_type}")
                 ComponentClass = getattr(component_module, component_type)
-            component_obj = ComponentClass(component_dict)
+            component_obj = ComponentClass(component_dict, self.ifc_base, self.mmio_path)
             self.pd_ip_insts[component_key] = component_obj
 

@@ -5,16 +5,16 @@ sys.path.append('../../pd_ip')
 from pd_ip.pd_ip import pd_ip
 import warnings
 import time
+import math
 
 class altera_pll_reconfig(pd_ip):
     def __init__(
-        self, ip_dict={}, mmio=None, num_out=1,
-        m=None, n=None, c=[], phase_bump=[],
-        post_div=None, bw="", lf=None,
-        reset_pio=None, locked_pio=None,
-        lock_min_time=0.001
+        self, ip_dict={}, ifc_base=0x0000, mmio_path="",
+        mmio_init=True, num_out=1, m=None, n=None, c=[],
+        phase_bump=[], post_div=None, bw="", lf=None, 
+        reset_pio=None, locked_pio=None, lock_min_time=0.001
     ):
-        super().__init__(ip_dict, mmio)
+        super().__init__(ip_dict, ifc_base, mmio_path, mmio_init)
         self.reset_pio = reset_pio
         self.locked_pio = locked_pio
         self.lock_min_time = lock_min_time
@@ -47,18 +47,18 @@ class altera_pll_reconfig(pd_ip):
         self.lf = lf
 
     def __prime_polling__(self):
-        poll_offset = self.ip_dict["BASE"]
+        poll_offset = 0x0
         self.write_csr(poll_offset, 4, 0x1)
 
     def __wait_ready__(self):
-        status_offset = self.ip_dict["BASE"] + (0x1 << 2)
+        status_offset = 0x1 << 2
         ready = 0
         while(ready == 0):
             ready = self.read_csr(status_offset, 4, 0x1)
         return True
 
     def __commit_pll_changes__(self):
-        dyn_reconfig_offset = self.ip_dict["BASE"] + (0x2 << 2)
+        dyn_reconfig_offset = 0x2 << 2
         # Commit phase bump
         self.write_csr(dyn_reconfig_offset, 4, 0x1)
 
@@ -74,7 +74,7 @@ class altera_pll_reconfig(pd_ip):
             return True
 
     def __update_lf__(self):
-        lf_offset = self.ip_dict["BASE"] + (8 << 2)
+        lf_offset = 8 << 2
         if(self.lf >= 0 and self.lf < 2**4):
             self.write_csr(lf_offset, 4, self.lf)
             return 0
@@ -82,8 +82,8 @@ class altera_pll_reconfig(pd_ip):
             warning(f"Warning: PLL {ip_dict['COMPONENT_NAME']} cannot drive lf setting of {self.lf}!")
             return -1
 
-    def __update_cp__(self, val):
-        cp_offset = self.ip_dict["BASE"] + (9 << 2)
+    def __update_cp__(self):
+        cp_offset = 9 << 2
         if(self.cp >= 0 and self.cp < 2**3):
             self.write_csr(cp_offset, 4, self.cp)
             return 0
@@ -92,7 +92,7 @@ class altera_pll_reconfig(pd_ip):
             return -1
 
     def __update_vco_post_div_setting__(self):
-        vco_pd_offset = self.ip_dict["BASE"] + (28 << 2)
+        vco_pd_offset = 28 << 2
         if(self.post_div == 0 or self.post_div == 1):
             self.write_csr(vco_pd_offset, 4, self.post_div)
             return 0
@@ -124,35 +124,35 @@ class altera_pll_reconfig(pd_ip):
                 return 0
 
     def __update_m__(self):
-        pll_m_offset = self.ip_dict["BASE"] + (0x4 << 2)
+        pll_m_offset = 0x4 << 2
         word = 0
         word = word        | (self.m_params["odd_div"] & 0x1)
         word = (word << 1) | (self.m_params["bypass"] & 0x1)
         word = (word << 8) | (self.m_params["high"] & 0xFF)
         word = (word << 8) | (self.m_params["low"] & 0xFF)
-        self.mmio.write_csr(pll_m_offset, 4, word)
+        self.write_csr(pll_m_offset, 4, word)
 
     def __update_n__(self):
-        pll_m_offset = self.ip_dict["BASE"] + (0x3 << 2)
+        pll_n_offset = 0x3 << 2
         word = 0
         word = word        | (self.n_params["odd_div"] & 0x1)
         word = (word << 1) | (self.n_params["bypass"] & 0x1)
         word = (word << 8) | (self.n_params["high"] & 0xFF)
         word = (word << 8) | (self.n_params["low"] & 0xFF)
-        self.mmio.write_csr(pll_n_offset, 4, word)
+        self.write_csr(pll_n_offset, 4, word)
 
     def __update_c__(self, cntsel):
-        pll_c_offset = self.ip_dict["BASE"] + (0x5 << 2)
+        pll_c_offset = 0x5 << 2
         word = 0
         word = (word     ) | (cntsel & 0x1F)
         word = (word << 1) | (self.c_params["odd_div"][cntsel] & 0x1)
         word = (word << 1) | (self.c_params["bypass"][cntsel] & 0x1)
         word = (word << 8) | (self.c_params["high"][cntsel] & 0xFF)
         word = (word << 8) | (self.c_params["low"][cntsel] & 0xFF)
-        self.mmio.write_csr(pll_c_offset, 4, word)
+        self.write_csr(pll_c_offset, 4, word)
 
     def __phase_bump_partial__(self, cntsel, amt):
-        phase_bump_offset   = self.ip_dict["BASE"] + (0x6 << 2)
+        phase_bump_offset   = 0x6 << 2
 
         self.__prime_polling__()
 
@@ -172,16 +172,16 @@ class altera_pll_reconfig(pd_ip):
         self.__wait_pll_lock__()
 
     def __phase_bump_full__(self, cntsel):
-        if(self.phase_bump == 0):
-            return 0
         amt = self.c_params["phase_amt"][cntsel]
+        if(amt == 0):
+            return 0
         while(phase_bump_temp > ((2**16)-1)):
             self.__phase_bump_partial__(cntsel, ((2**16)-1))
             amt = amt - ((2**16)-1)
         if(amt > 0):
             self.__phase_bump_partial__(cntsel, amt)
 
-    def __calc_low_high_50__(num):
+    def __calc_low_high_50__(self, num):
         num = int(num)
         if num % 2 == 0:
             odd_div = 0
@@ -195,12 +195,12 @@ class altera_pll_reconfig(pd_ip):
         self.m_params["bypass"] = self.m == 1
         self.n_params["bypass"] = self.n == 1
         self.m_params["high"], self.m_params["low"],  self.m_params["odd_div"] \
-            = __calc_low_high_50__(self.m)
+            = self.__calc_low_high_50__(self.m)
         self.n_params["high"], self.n_params["low"],  self.n_params["odd_div"] \
-            = __calc_low_high_50__(self.n)
+            = self.__calc_low_high_50__(self.n)
         for i in range(self.num_out):
             self.c_params["high"][i], self.c_params["low"][i], self.c_params["odd_div"][i] \
-                =  __calc_low_high_50__(self.c[i])
+                =  self.__calc_low_high_50__(self.c[i])
             self.c_params["bypass"][i] = self.c[i] == 1
             self.c_params["phase_updn"][i] = phase_bumps[i]["phase_updn"]
             self.c_params["phase_amt"][i] = phase_bumps[i]["phase_amt"]
@@ -217,31 +217,31 @@ class altera_pll_reconfig(pd_ip):
         # Reset to initiate lock
         self.reset_pll()
         # Update each output c counter
-        for cntsel in (num_out):
+        for cntsel in range(self.num_out):
             self.__prime_polling__()
             self.__update_c__(cntsel)
-            self.__commit_pll_changes___()
+            self.__commit_pll_changes__()
         self.reset_pll()
         # Automatically performs prime/commit/lock check
-        for cntsel in (num_out):
+        for cntsel in range(self.num_out):
             self.__phase_bump_full__(cntsel)
 
     def reset_pll(self):
         if(self.reset_pio == None):
-            warning(f"Warning: PLL {ip_dict['COMPONENT_NAME']} does not have an associated reset PIO!")
+            warning(f"Warning: PLL {self.ip_dict['COMPONENT_NAME']} does not have an associated reset PIO!")
             return -1
         else:
-            self.reset_pio = self.reset_pio.write_csr(0, 4, 1)
-            self.reset_pio = self.reset_pio.write_csr(0, 4, 0)
+            self.reset_pio.write_csr(0, 4, 1)
+            self.reset_pio.write_csr(0, 4, 0)
             self.__wait_pll_lock__()
             return 0
 
     def hold_reset(self):
         if(self.reset_pio == None):
-            warning(f"Warning: PLL {ip_dict['COMPONENT_NAME']} does not have an associated reset PIO!")
+            warning(f"Warning: PLL {self.ip_dict['COMPONENT_NAME']} does not have an associated reset PIO!")
             return -1
         else:
-            self.reset_pio = self.reset_pio.write_csr(0, 4, 1)
+            self.reset_pio.write_csr(0, 4, 1)
             return 0
 
     def update_all_50(self, m, n, c, bw, post_div, phase_bumps):
@@ -258,7 +258,5 @@ class altera_pll_reconfig(pd_ip):
         self.phase_bumps = phase_bumps
         self.bw = bw
         self.post_div = post_div
-        self.__calc_params_50_all__()
+        self.__calc_params_50_all__(phase_bumps)
         self.__update_all_params_50__()
-
-
