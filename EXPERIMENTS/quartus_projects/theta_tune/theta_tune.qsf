@@ -1,0 +1,1063 @@
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CSEBA6U23I7
+set_global_assignment -name TOP_LEVEL_ENTITY "top"
+set_global_assignment -name LAST_QUARTUS_VERSION "22.1std.1 Standard Edition"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "17:14:54 MARCH 04,2015"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+
+#============================================================
+# CLOCK
+#============================================================
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FPGA_CLK1_50
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FPGA_CLK2_50
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FPGA_CLK3_50
+set_location_assignment PIN_V11 -to FPGA_CLK1_50
+set_location_assignment PIN_Y13 -to FPGA_CLK2_50
+set_location_assignment PIN_E11 -to FPGA_CLK3_50
+
+#============================================================
+# HDMI
+#============================================================
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_I2C_SCL
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_I2C_SDA
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_I2S
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_LRCLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_MCLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_SCLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_CLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_DE
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_D[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_D[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_D[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_D[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_D[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_D[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_D[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_D[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_D[8]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_D[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_D[10]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_D[11]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_D[12]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_D[13]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_D[14]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_D[15]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_D[16]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_D[17]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_D[18]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_D[19]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_D[20]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_D[21]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_D[22]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_D[23]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_HS
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_INT
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_VS
+set_location_assignment PIN_U10 -to HDMI_I2C_SCL
+set_location_assignment PIN_AA4 -to HDMI_I2C_SDA
+set_location_assignment PIN_T13 -to HDMI_I2S
+set_location_assignment PIN_T11 -to HDMI_LRCLK
+set_location_assignment PIN_U11 -to HDMI_MCLK
+set_location_assignment PIN_T12 -to HDMI_SCLK
+set_location_assignment PIN_AG5 -to HDMI_TX_CLK
+set_location_assignment PIN_AD19 -to HDMI_TX_DE
+set_location_assignment PIN_AD12 -to HDMI_TX_D[0]
+set_location_assignment PIN_AE12 -to HDMI_TX_D[1]
+set_location_assignment PIN_W8 -to HDMI_TX_D[2]
+set_location_assignment PIN_Y8 -to HDMI_TX_D[3]
+set_location_assignment PIN_AD11 -to HDMI_TX_D[4]
+set_location_assignment PIN_AD10 -to HDMI_TX_D[5]
+set_location_assignment PIN_AE11 -to HDMI_TX_D[6]
+set_location_assignment PIN_Y5 -to HDMI_TX_D[7]
+set_location_assignment PIN_AF10 -to HDMI_TX_D[8]
+set_location_assignment PIN_Y4 -to HDMI_TX_D[9]
+set_location_assignment PIN_AE9 -to HDMI_TX_D[10]
+set_location_assignment PIN_AB4 -to HDMI_TX_D[11]
+set_location_assignment PIN_AE7 -to HDMI_TX_D[12]
+set_location_assignment PIN_AF6 -to HDMI_TX_D[13]
+set_location_assignment PIN_AF8 -to HDMI_TX_D[14]
+set_location_assignment PIN_AF5 -to HDMI_TX_D[15]
+set_location_assignment PIN_AE4 -to HDMI_TX_D[16]
+set_location_assignment PIN_AH2 -to HDMI_TX_D[17]
+set_location_assignment PIN_AH4 -to HDMI_TX_D[18]
+set_location_assignment PIN_AH5 -to HDMI_TX_D[19]
+set_location_assignment PIN_AH6 -to HDMI_TX_D[20]
+set_location_assignment PIN_AG6 -to HDMI_TX_D[21]
+set_location_assignment PIN_AF9 -to HDMI_TX_D[22]
+set_location_assignment PIN_AE8 -to HDMI_TX_D[23]
+set_location_assignment PIN_T8 -to HDMI_TX_HS
+set_location_assignment PIN_AF11 -to HDMI_TX_INT
+set_location_assignment PIN_V13 -to HDMI_TX_VS
+
+#============================================================
+# HPS
+#============================================================
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_CONV_USB_N
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[0] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[1] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[2] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[3] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[4] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[5] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[6] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[7] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[8] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[9] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[10] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[11] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[12] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[13] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[14] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_BA[0] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_BA[1] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_BA[2] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_CAS_N -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_CKE -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_CK_N -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_CK_P -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_CS_N -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DM[0] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DM[1] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DM[2] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DM[3] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[0] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[1] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[2] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[3] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[4] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[5] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[6] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[7] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[8] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[9] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[10] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[11] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[12] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[13] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[14] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[15] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[16] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[17] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[18] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[19] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[20] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[21] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[22] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[23] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[24] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[25] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[26] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[27] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[28] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[29] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[30] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[31] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_DQS_N[0] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_DQS_N[1] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_DQS_N[2] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_DQS_N[3] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_DQS_P[0] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_DQS_P[1] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_DQS_P[2] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_DQS_P[3] -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ODT -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_RAS_N -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_RESET_N -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_RZQ -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_WE_N -tag __hps_sdram_p0
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_GTX_CLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_INT_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_MDC
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_MDIO
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_RX_CLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_RX_DATA[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_RX_DATA[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_RX_DATA[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_RX_DATA[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_RX_DV
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_TX_DATA[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_TX_DATA[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_TX_DATA[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_TX_DATA[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_TX_EN
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_GSENSOR_INT
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_I2C0_SCLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_I2C0_SDAT
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_I2C1_SCLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_I2C1_SDAT
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_KEY
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_LED
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_LTC_GPIO
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_SD_CLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_SD_CMD
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_SD_DATA[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_SD_DATA[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_SD_DATA[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_SD_DATA[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_SPIM_CLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_SPIM_MISO
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_SPIM_MOSI
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_SPIM_SS
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_UART_RX
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_UART_TX
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_CLKOUT
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_DATA[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_DATA[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_DATA[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_DATA[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_DATA[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_DATA[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_DATA[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_DATA[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_DIR
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_NXT
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_STP
+
+#============================================================
+# KEY
+#============================================================
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[1]
+set_location_assignment PIN_AH17 -to KEY[0]
+set_location_assignment PIN_AH16 -to KEY[1]
+
+#============================================================
+# LED
+#============================================================
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[7]
+set_location_assignment PIN_W15 -to LED[0]
+set_location_assignment PIN_AA24 -to LED[1]
+set_location_assignment PIN_V16 -to LED[2]
+set_location_assignment PIN_V15 -to LED[3]
+set_location_assignment PIN_AF26 -to LED[4]
+set_location_assignment PIN_AE26 -to LED[5]
+set_location_assignment PIN_Y16 -to LED[6]
+set_location_assignment PIN_AA23 -to LED[7]
+
+#============================================================
+# SW
+#============================================================
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[3]
+set_location_assignment PIN_Y24 -to SW[0]
+set_location_assignment PIN_W24 -to SW[1]
+set_location_assignment PIN_W21 -to SW[2]
+set_location_assignment PIN_W20 -to SW[3]
+
+
+
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP "-40"
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[0] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[0] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[1] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[1] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[2] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[2] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[3] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[3] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[4] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[4] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[5] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[5] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[6] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[6] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[7] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[7] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[8] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[8] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[9] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[9] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[10] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[10] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[11] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[11] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[12] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[12] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[13] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[13] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[14] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[14] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[15] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[15] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[16] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[16] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[17] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[17] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[18] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[18] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[19] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[19] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[20] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[20] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[21] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[21] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[22] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[22] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[23] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[23] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[24] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[24] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[25] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[25] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[26] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[26] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[27] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[27] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[28] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[28] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[29] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[29] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[30] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[30] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[31] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[31] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[0] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[0] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[1] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[1] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[2] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[2] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[3] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[3] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[0] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[0] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[1] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[1] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[2] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[2] -tag __hps_sdram_p0
+set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[3] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[3] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITHOUT CALIBRATION" -to HPS_DDR3_CK_P -tag __hps_sdram_p0
+set_instance_assignment -name D5_DELAY 2 -to HPS_DDR3_CK_P -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITHOUT CALIBRATION" -to HPS_DDR3_CK_N -tag __hps_sdram_p0
+set_instance_assignment -name D5_DELAY 2 -to HPS_DDR3_CK_N -tag __hps_sdram_p0
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[0] -tag __hps_sdram_p0
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[10] -tag __hps_sdram_p0
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[11] -tag __hps_sdram_p0
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[12] -tag __hps_sdram_p0
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[13] -tag __hps_sdram_p0
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[14] -tag __hps_sdram_p0
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[1] -tag __hps_sdram_p0
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[2] -tag __hps_sdram_p0
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[3] -tag __hps_sdram_p0
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[4] -tag __hps_sdram_p0
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[5] -tag __hps_sdram_p0
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[6] -tag __hps_sdram_p0
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[7] -tag __hps_sdram_p0
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[8] -tag __hps_sdram_p0
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[9] -tag __hps_sdram_p0
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_BA[0] -tag __hps_sdram_p0
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_BA[1] -tag __hps_sdram_p0
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_BA[2] -tag __hps_sdram_p0
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_CAS_N -tag __hps_sdram_p0
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_CKE -tag __hps_sdram_p0
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_CS_N -tag __hps_sdram_p0
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ODT -tag __hps_sdram_p0
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_RAS_N -tag __hps_sdram_p0
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_WE_N -tag __hps_sdram_p0
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_RESET_N -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DM[0] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DM[1] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DM[2] -tag __hps_sdram_p0
+set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DM[3] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[0] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[1] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[2] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[3] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[4] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[5] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[6] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[7] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[8] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[9] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[10] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[11] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[12] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[13] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[14] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[15] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[16] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[17] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[18] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[19] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[20] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[21] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[22] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[23] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[24] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[25] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[26] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[27] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[28] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[29] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[30] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[31] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DM[0] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DM[1] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DM[2] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DM[3] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_P[0] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_P[1] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_P[2] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_P[3] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_N[0] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_N[1] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_N[2] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_N[3] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[0] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[10] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[11] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[12] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[13] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[14] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[1] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[2] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[3] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[4] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[5] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[6] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[7] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[8] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[9] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_BA[0] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_BA[1] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_BA[2] -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_CAS_N -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_CKE -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_CS_N -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ODT -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_RAS_N -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_WE_N -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_RESET_N -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_CK_P -tag __hps_sdram_p0
+set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_CK_N -tag __hps_sdram_p0
+set_instance_assignment -name GLOBAL_SIGNAL OFF -to u0|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|ureset|phy_reset_mem_stable_n -tag __hps_sdram_p0
+set_instance_assignment -name GLOBAL_SIGNAL OFF -to u0|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|ureset|phy_reset_n -tag __hps_sdram_p0
+set_instance_assignment -name GLOBAL_SIGNAL OFF -to u0|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uio_pads|dq_ddio[0].read_capture_clk_buffer -tag __hps_sdram_p0
+set_instance_assignment -name GLOBAL_SIGNAL OFF -to u0|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_write_side[0] -tag __hps_sdram_p0
+set_instance_assignment -name GLOBAL_SIGNAL OFF -to u0|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_wraddress[0] -tag __hps_sdram_p0
+set_instance_assignment -name GLOBAL_SIGNAL OFF -to u0|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uio_pads|dq_ddio[1].read_capture_clk_buffer -tag __hps_sdram_p0
+set_instance_assignment -name GLOBAL_SIGNAL OFF -to u0|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_write_side[1] -tag __hps_sdram_p0
+set_instance_assignment -name GLOBAL_SIGNAL OFF -to u0|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_wraddress[1] -tag __hps_sdram_p0
+set_instance_assignment -name GLOBAL_SIGNAL OFF -to u0|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uio_pads|dq_ddio[2].read_capture_clk_buffer -tag __hps_sdram_p0
+set_instance_assignment -name GLOBAL_SIGNAL OFF -to u0|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_write_side[2] -tag __hps_sdram_p0
+set_instance_assignment -name GLOBAL_SIGNAL OFF -to u0|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_wraddress[2] -tag __hps_sdram_p0
+set_instance_assignment -name GLOBAL_SIGNAL OFF -to u0|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uio_pads|dq_ddio[3].read_capture_clk_buffer -tag __hps_sdram_p0
+set_instance_assignment -name GLOBAL_SIGNAL OFF -to u0|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_write_side[3] -tag __hps_sdram_p0
+set_instance_assignment -name GLOBAL_SIGNAL OFF -to u0|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_wraddress[3] -tag __hps_sdram_p0
+set_instance_assignment -name ENABLE_BENEFICIAL_SKEW_OPTIMIZATION_FOR_NON_GLOBAL_CLOCKS ON -to u0|hps_0|hps_io|border|hps_sdram_inst -tag __hps_sdram_p0
+set_instance_assignment -name PLL_COMPENSATION_MODE DIRECT -to u0|hps_0|hps_io|border|hps_sdram_inst|pll0|fbout -tag __hps_sdram_p0
+set_global_assignment -name USE_DLL_FREQUENCY_FOR_DQS_DELAY_CHAIN ON
+set_global_assignment -name UNIPHY_SEQUENCER_DQS_CONFIG_ENABLE ON
+set_global_assignment -name OPTIMIZE_MULTI_CORNER_TIMING ON
+set_global_assignment -name ECO_REGENERATE_REPORT ON
+set_location_assignment LABCELL_X35_Y29_N0 -to u0|tdc_0|carry0|cc|lcell_0
+set_location_assignment FF_X35_Y29_N1 -to u0|tdc_0|carry0|cc|gen_reg_cc[1].reg_i
+set_location_assignment LABCELL_X35_Y29_N3 -to u0|tdc_0|carry0|cc|gen_reg_cc[1].lcell_i
+set_location_assignment FF_X35_Y29_N4 -to u0|tdc_0|carry0|cc|gen_reg_cc[2].reg_i
+set_location_assignment LABCELL_X35_Y29_N6 -to u0|tdc_0|carry0|cc|gen_reg_cc[2].lcell_i
+set_location_assignment FF_X35_Y29_N7 -to u0|tdc_0|carry0|cc|gen_reg_cc[3].reg_i
+set_location_assignment LABCELL_X35_Y29_N9 -to u0|tdc_0|carry0|cc|gen_reg_cc[3].lcell_i
+set_location_assignment FF_X35_Y29_N10 -to u0|tdc_0|carry0|cc|gen_reg_cc[4].reg_i
+set_location_assignment LABCELL_X35_Y29_N12 -to u0|tdc_0|carry0|cc|gen_reg_cc[4].lcell_i
+set_location_assignment FF_X35_Y29_N13 -to u0|tdc_0|carry0|cc|gen_reg_cc[5].reg_i
+set_location_assignment LABCELL_X35_Y29_N15 -to u0|tdc_0|carry0|cc|gen_reg_cc[5].lcell_i
+set_location_assignment FF_X35_Y29_N16 -to u0|tdc_0|carry0|cc|gen_reg_cc[6].reg_i
+set_location_assignment LABCELL_X35_Y29_N18 -to u0|tdc_0|carry0|cc|gen_reg_cc[6].lcell_i
+set_location_assignment FF_X35_Y29_N19 -to u0|tdc_0|carry0|cc|gen_reg_cc[7].reg_i
+set_location_assignment LABCELL_X35_Y29_N21 -to u0|tdc_0|carry0|cc|gen_reg_cc[7].lcell_i
+set_location_assignment FF_X35_Y29_N22 -to u0|tdc_0|carry0|cc|gen_reg_cc[8].reg_i
+set_location_assignment LABCELL_X35_Y29_N24 -to u0|tdc_0|carry0|cc|gen_reg_cc[8].lcell_i
+set_location_assignment FF_X35_Y29_N25 -to u0|tdc_0|carry0|cc|gen_reg_cc[9].reg_i
+set_location_assignment LABCELL_X35_Y29_N27 -to u0|tdc_0|carry0|cc|gen_reg_cc[9].lcell_i
+set_location_assignment FF_X35_Y29_N28 -to u0|tdc_0|carry0|cc|gen_reg_cc[10].reg_i
+set_location_assignment LABCELL_X35_Y29_N30 -to u0|tdc_0|carry0|cc|gen_reg_cc[10].lcell_i
+set_location_assignment FF_X35_Y29_N31 -to u0|tdc_0|carry0|cc|gen_reg_cc[11].reg_i
+set_location_assignment LABCELL_X35_Y29_N33 -to u0|tdc_0|carry0|cc|gen_reg_cc[11].lcell_i
+set_location_assignment FF_X35_Y29_N34 -to u0|tdc_0|carry0|cc|gen_reg_cc[12].reg_i
+set_location_assignment LABCELL_X35_Y29_N36 -to u0|tdc_0|carry0|cc|gen_reg_cc[12].lcell_i
+set_location_assignment FF_X35_Y29_N37 -to u0|tdc_0|carry0|cc|gen_reg_cc[13].reg_i
+set_location_assignment LABCELL_X35_Y29_N39 -to u0|tdc_0|carry0|cc|gen_reg_cc[13].lcell_i
+set_location_assignment FF_X35_Y29_N40 -to u0|tdc_0|carry0|cc|gen_reg_cc[14].reg_i
+set_location_assignment LABCELL_X35_Y29_N42 -to u0|tdc_0|carry0|cc|gen_reg_cc[14].lcell_i
+set_location_assignment FF_X35_Y29_N43 -to u0|tdc_0|carry0|cc|gen_reg_cc[15].reg_i
+set_location_assignment LABCELL_X35_Y29_N45 -to u0|tdc_0|carry0|cc|gen_reg_cc[15].lcell_i
+set_location_assignment FF_X35_Y29_N46 -to u0|tdc_0|carry0|cc|gen_reg_cc[16].reg_i
+set_location_assignment LABCELL_X35_Y29_N48 -to u0|tdc_0|carry0|cc|gen_reg_cc[16].lcell_i
+set_location_assignment FF_X35_Y29_N49 -to u0|tdc_0|carry0|cc|gen_reg_cc[17].reg_i
+set_location_assignment LABCELL_X35_Y29_N51 -to u0|tdc_0|carry0|cc|gen_reg_cc[17].lcell_i
+set_location_assignment FF_X35_Y29_N52 -to u0|tdc_0|carry0|cc|gen_reg_cc[18].reg_i
+set_location_assignment LABCELL_X35_Y29_N54 -to u0|tdc_0|carry0|cc|gen_reg_cc[18].lcell_i
+set_location_assignment FF_X35_Y29_N55 -to u0|tdc_0|carry0|cc|gen_reg_cc[19].reg_i
+set_location_assignment LABCELL_X35_Y29_N57 -to u0|tdc_0|carry0|cc|gen_reg_cc[19].lcell_i
+set_location_assignment FF_X35_Y29_N58 -to u0|tdc_0|carry0|cc|gen_reg_cc[20].reg_i
+set_location_assignment LABCELL_X35_Y28_N0 -to u0|tdc_0|carry0|cc|gen_reg_cc[20].lcell_i
+set_location_assignment FF_X35_Y28_N1 -to u0|tdc_0|carry0|cc|gen_reg_cc[21].reg_i
+set_location_assignment LABCELL_X35_Y28_N3 -to u0|tdc_0|carry0|cc|gen_reg_cc[21].lcell_i
+set_location_assignment FF_X35_Y28_N4 -to u0|tdc_0|carry0|cc|gen_reg_cc[22].reg_i
+set_location_assignment LABCELL_X35_Y28_N6 -to u0|tdc_0|carry0|cc|gen_reg_cc[22].lcell_i
+set_location_assignment FF_X35_Y28_N7 -to u0|tdc_0|carry0|cc|gen_reg_cc[23].reg_i
+set_location_assignment LABCELL_X35_Y28_N9 -to u0|tdc_0|carry0|cc|gen_reg_cc[23].lcell_i
+set_location_assignment FF_X35_Y28_N10 -to u0|tdc_0|carry0|cc|gen_reg_cc[24].reg_i
+set_location_assignment LABCELL_X35_Y28_N12 -to u0|tdc_0|carry0|cc|gen_reg_cc[24].lcell_i
+set_location_assignment FF_X35_Y28_N13 -to u0|tdc_0|carry0|cc|gen_reg_cc[25].reg_i
+set_location_assignment LABCELL_X35_Y28_N15 -to u0|tdc_0|carry0|cc|gen_reg_cc[25].lcell_i
+set_location_assignment FF_X35_Y28_N16 -to u0|tdc_0|carry0|cc|gen_reg_cc[26].reg_i
+set_location_assignment LABCELL_X35_Y28_N18 -to u0|tdc_0|carry0|cc|gen_reg_cc[26].lcell_i
+set_location_assignment FF_X35_Y28_N19 -to u0|tdc_0|carry0|cc|gen_reg_cc[27].reg_i
+set_location_assignment LABCELL_X35_Y28_N21 -to u0|tdc_0|carry0|cc|gen_reg_cc[27].lcell_i
+set_location_assignment FF_X35_Y28_N22 -to u0|tdc_0|carry0|cc|gen_reg_cc[28].reg_i
+set_location_assignment LABCELL_X35_Y28_N24 -to u0|tdc_0|carry0|cc|gen_reg_cc[28].lcell_i
+set_location_assignment FF_X35_Y28_N25 -to u0|tdc_0|carry0|cc|gen_reg_cc[29].reg_i
+set_location_assignment LABCELL_X35_Y28_N27 -to u0|tdc_0|carry0|cc|gen_reg_cc[29].lcell_i
+set_location_assignment FF_X35_Y28_N28 -to u0|tdc_0|carry0|cc|gen_reg_cc[30].reg_i
+set_location_assignment LABCELL_X35_Y28_N30 -to u0|tdc_0|carry0|cc|gen_reg_cc[30].lcell_i
+set_location_assignment FF_X35_Y28_N31 -to u0|tdc_0|carry0|cc|gen_reg_cc[31].reg_i
+set_location_assignment LABCELL_X35_Y28_N33 -to u0|tdc_0|carry0|cc|gen_reg_cc[31].lcell_i
+set_location_assignment FF_X35_Y28_N34 -to u0|tdc_0|carry0|cc|gen_reg_cc[32].reg_i
+set_location_assignment LABCELL_X35_Y28_N36 -to u0|tdc_0|carry0|cc|gen_reg_cc[32].lcell_i
+set_location_assignment FF_X35_Y28_N37 -to u0|tdc_0|carry0|cc|gen_reg_cc[33].reg_i
+set_location_assignment LABCELL_X35_Y28_N39 -to u0|tdc_0|carry0|cc|gen_reg_cc[33].lcell_i
+set_location_assignment FF_X35_Y28_N40 -to u0|tdc_0|carry0|cc|gen_reg_cc[34].reg_i
+set_location_assignment LABCELL_X35_Y28_N42 -to u0|tdc_0|carry0|cc|gen_reg_cc[34].lcell_i
+set_location_assignment FF_X35_Y28_N43 -to u0|tdc_0|carry0|cc|gen_reg_cc[35].reg_i
+set_location_assignment LABCELL_X35_Y28_N45 -to u0|tdc_0|carry0|cc|gen_reg_cc[35].lcell_i
+set_location_assignment FF_X35_Y28_N46 -to u0|tdc_0|carry0|cc|gen_reg_cc[36].reg_i
+set_location_assignment LABCELL_X35_Y28_N48 -to u0|tdc_0|carry0|cc|gen_reg_cc[36].lcell_i
+set_location_assignment FF_X35_Y28_N49 -to u0|tdc_0|carry0|cc|gen_reg_cc[37].reg_i
+set_location_assignment LABCELL_X35_Y28_N51 -to u0|tdc_0|carry0|cc|gen_reg_cc[37].lcell_i
+set_location_assignment FF_X35_Y28_N52 -to u0|tdc_0|carry0|cc|gen_reg_cc[38].reg_i
+set_location_assignment LABCELL_X35_Y28_N54 -to u0|tdc_0|carry0|cc|gen_reg_cc[38].lcell_i
+set_location_assignment FF_X35_Y28_N55 -to u0|tdc_0|carry0|cc|gen_reg_cc[39].reg_i
+set_location_assignment LABCELL_X35_Y28_N57 -to u0|tdc_0|carry0|cc|gen_reg_cc[39].lcell_i
+set_location_assignment FF_X35_Y28_N58 -to u0|tdc_0|carry0|cc|gen_reg_cc[40].reg_i
+set_location_assignment LABCELL_X35_Y27_N0 -to u0|tdc_0|carry0|cc|gen_reg_cc[40].lcell_i
+set_location_assignment FF_X35_Y27_N1 -to u0|tdc_0|carry0|cc|gen_reg_cc[41].reg_i
+set_location_assignment LABCELL_X35_Y27_N3 -to u0|tdc_0|carry0|cc|gen_reg_cc[41].lcell_i
+set_location_assignment FF_X35_Y27_N4 -to u0|tdc_0|carry0|cc|gen_reg_cc[42].reg_i
+set_location_assignment LABCELL_X35_Y27_N6 -to u0|tdc_0|carry0|cc|gen_reg_cc[42].lcell_i
+set_location_assignment FF_X35_Y27_N7 -to u0|tdc_0|carry0|cc|gen_reg_cc[43].reg_i
+set_location_assignment LABCELL_X35_Y27_N9 -to u0|tdc_0|carry0|cc|gen_reg_cc[43].lcell_i
+set_location_assignment FF_X35_Y27_N10 -to u0|tdc_0|carry0|cc|gen_reg_cc[44].reg_i
+set_location_assignment LABCELL_X35_Y27_N12 -to u0|tdc_0|carry0|cc|gen_reg_cc[44].lcell_i
+set_location_assignment FF_X35_Y27_N13 -to u0|tdc_0|carry0|cc|gen_reg_cc[45].reg_i
+set_location_assignment LABCELL_X35_Y27_N15 -to u0|tdc_0|carry0|cc|gen_reg_cc[45].lcell_i
+set_location_assignment FF_X35_Y27_N16 -to u0|tdc_0|carry0|cc|gen_reg_cc[46].reg_i
+set_location_assignment LABCELL_X35_Y27_N18 -to u0|tdc_0|carry0|cc|gen_reg_cc[46].lcell_i
+set_location_assignment FF_X35_Y27_N19 -to u0|tdc_0|carry0|cc|gen_reg_cc[47].reg_i
+set_location_assignment LABCELL_X35_Y27_N21 -to u0|tdc_0|carry0|cc|gen_reg_cc[47].lcell_i
+set_location_assignment FF_X35_Y27_N22 -to u0|tdc_0|carry0|cc|gen_reg_cc[48].reg_i
+set_location_assignment LABCELL_X35_Y27_N24 -to u0|tdc_0|carry0|cc|gen_reg_cc[48].lcell_i
+set_location_assignment FF_X35_Y27_N25 -to u0|tdc_0|carry0|cc|gen_reg_cc[49].reg_i
+set_location_assignment LABCELL_X35_Y27_N27 -to u0|tdc_0|carry0|cc|gen_reg_cc[49].lcell_i
+set_location_assignment FF_X35_Y27_N28 -to u0|tdc_0|carry0|cc|gen_reg_cc[50].reg_i
+set_location_assignment LABCELL_X35_Y27_N30 -to u0|tdc_0|carry0|cc|gen_reg_cc[50].lcell_i
+set_location_assignment FF_X35_Y27_N31 -to u0|tdc_0|carry0|cc|gen_reg_cc[51].reg_i
+set_location_assignment LABCELL_X35_Y27_N33 -to u0|tdc_0|carry0|cc|gen_reg_cc[51].lcell_i
+set_location_assignment FF_X35_Y27_N34 -to u0|tdc_0|carry0|cc|gen_reg_cc[52].reg_i
+set_location_assignment LABCELL_X35_Y27_N36 -to u0|tdc_0|carry0|cc|gen_reg_cc[52].lcell_i
+set_location_assignment FF_X35_Y27_N37 -to u0|tdc_0|carry0|cc|gen_reg_cc[53].reg_i
+set_location_assignment LABCELL_X35_Y27_N39 -to u0|tdc_0|carry0|cc|gen_reg_cc[53].lcell_i
+set_location_assignment FF_X35_Y27_N40 -to u0|tdc_0|carry0|cc|gen_reg_cc[54].reg_i
+set_location_assignment LABCELL_X35_Y27_N42 -to u0|tdc_0|carry0|cc|gen_reg_cc[54].lcell_i
+set_location_assignment FF_X35_Y27_N43 -to u0|tdc_0|carry0|cc|gen_reg_cc[55].reg_i
+set_location_assignment LABCELL_X35_Y27_N45 -to u0|tdc_0|carry0|cc|gen_reg_cc[55].lcell_i
+set_location_assignment FF_X35_Y27_N46 -to u0|tdc_0|carry0|cc|gen_reg_cc[56].reg_i
+set_location_assignment LABCELL_X35_Y27_N48 -to u0|tdc_0|carry0|cc|gen_reg_cc[56].lcell_i
+set_location_assignment FF_X35_Y27_N49 -to u0|tdc_0|carry0|cc|gen_reg_cc[57].reg_i
+set_location_assignment LABCELL_X35_Y27_N51 -to u0|tdc_0|carry0|cc|gen_reg_cc[57].lcell_i
+set_location_assignment FF_X35_Y27_N52 -to u0|tdc_0|carry0|cc|gen_reg_cc[58].reg_i
+set_location_assignment LABCELL_X35_Y27_N54 -to u0|tdc_0|carry0|cc|gen_reg_cc[58].lcell_i
+set_location_assignment FF_X35_Y27_N55 -to u0|tdc_0|carry0|cc|gen_reg_cc[59].reg_i
+set_location_assignment LABCELL_X35_Y27_N57 -to u0|tdc_0|carry0|cc|gen_reg_cc[59].lcell_i
+set_location_assignment FF_X35_Y27_N58 -to u0|tdc_0|carry0|cc|gen_reg_cc[60].reg_i
+set_location_assignment LABCELL_X35_Y26_N0 -to u0|tdc_0|carry0|cc|gen_reg_cc[60].lcell_i
+set_location_assignment FF_X35_Y26_N1 -to u0|tdc_0|carry0|cc|gen_reg_cc[61].reg_i
+set_location_assignment LABCELL_X35_Y26_N3 -to u0|tdc_0|carry0|cc|gen_reg_cc[61].lcell_i
+set_location_assignment FF_X35_Y26_N4 -to u0|tdc_0|carry0|cc|gen_reg_cc[62].reg_i
+set_location_assignment LABCELL_X35_Y26_N6 -to u0|tdc_0|carry0|cc|gen_reg_cc[62].lcell_i
+set_location_assignment FF_X35_Y26_N7 -to u0|tdc_0|carry0|cc|gen_reg_cc[63].reg_i
+set_location_assignment LABCELL_X35_Y26_N9 -to u0|tdc_0|carry0|cc|gen_reg_cc[63].lcell_i
+set_location_assignment FF_X35_Y17_N46 -to u0|tdc_0|carry0|cc|reg_last
+set_global_assignment -name OPTIMIZATION_MODE BALANCED
+set_location_assignment FF_X35_Y26_N10 -to u0|tdc_0|carry0|cc|gen_reg_cc[64].reg_i
+set_location_assignment LABCELL_X35_Y26_N12 -to u0|tdc_0|carry0|cc|gen_reg_cc[64].lcell_i
+set_location_assignment FF_X35_Y26_N13 -to u0|tdc_0|carry0|cc|gen_reg_cc[65].reg_i
+set_location_assignment LABCELL_X35_Y26_N15 -to u0|tdc_0|carry0|cc|gen_reg_cc[65].lcell_i
+set_location_assignment FF_X35_Y26_N16 -to u0|tdc_0|carry0|cc|gen_reg_cc[66].reg_i
+set_location_assignment LABCELL_X35_Y26_N18 -to u0|tdc_0|carry0|cc|gen_reg_cc[66].lcell_i
+set_location_assignment FF_X35_Y26_N19 -to u0|tdc_0|carry0|cc|gen_reg_cc[67].reg_i
+set_location_assignment LABCELL_X35_Y26_N21 -to u0|tdc_0|carry0|cc|gen_reg_cc[67].lcell_i
+set_location_assignment FF_X35_Y26_N22 -to u0|tdc_0|carry0|cc|gen_reg_cc[68].reg_i
+set_location_assignment LABCELL_X35_Y26_N24 -to u0|tdc_0|carry0|cc|gen_reg_cc[68].lcell_i
+set_location_assignment FF_X35_Y26_N25 -to u0|tdc_0|carry0|cc|gen_reg_cc[69].reg_i
+set_location_assignment LABCELL_X35_Y26_N27 -to u0|tdc_0|carry0|cc|gen_reg_cc[69].lcell_i
+set_location_assignment FF_X35_Y26_N28 -to u0|tdc_0|carry0|cc|gen_reg_cc[70].reg_i
+set_location_assignment LABCELL_X35_Y26_N30 -to u0|tdc_0|carry0|cc|gen_reg_cc[70].lcell_i
+set_location_assignment FF_X35_Y26_N31 -to u0|tdc_0|carry0|cc|gen_reg_cc[71].reg_i
+set_location_assignment LABCELL_X35_Y26_N33 -to u0|tdc_0|carry0|cc|gen_reg_cc[71].lcell_i
+set_location_assignment FF_X35_Y26_N34 -to u0|tdc_0|carry0|cc|gen_reg_cc[72].reg_i
+set_location_assignment LABCELL_X35_Y26_N36 -to u0|tdc_0|carry0|cc|gen_reg_cc[72].lcell_i
+set_location_assignment FF_X35_Y26_N37 -to u0|tdc_0|carry0|cc|gen_reg_cc[73].reg_i
+set_location_assignment LABCELL_X35_Y26_N39 -to u0|tdc_0|carry0|cc|gen_reg_cc[73].lcell_i
+set_location_assignment FF_X35_Y26_N40 -to u0|tdc_0|carry0|cc|gen_reg_cc[74].reg_i
+set_location_assignment LABCELL_X35_Y26_N42 -to u0|tdc_0|carry0|cc|gen_reg_cc[74].lcell_i
+set_location_assignment FF_X35_Y26_N43 -to u0|tdc_0|carry0|cc|gen_reg_cc[75].reg_i
+set_location_assignment LABCELL_X35_Y26_N45 -to u0|tdc_0|carry0|cc|gen_reg_cc[75].lcell_i
+set_location_assignment FF_X35_Y26_N46 -to u0|tdc_0|carry0|cc|gen_reg_cc[76].reg_i
+set_location_assignment LABCELL_X35_Y26_N48 -to u0|tdc_0|carry0|cc|gen_reg_cc[76].lcell_i
+set_location_assignment FF_X35_Y26_N49 -to u0|tdc_0|carry0|cc|gen_reg_cc[77].reg_i
+set_location_assignment LABCELL_X35_Y26_N51 -to u0|tdc_0|carry0|cc|gen_reg_cc[77].lcell_i
+set_location_assignment FF_X35_Y26_N52 -to u0|tdc_0|carry0|cc|gen_reg_cc[78].reg_i
+set_location_assignment LABCELL_X35_Y26_N54 -to u0|tdc_0|carry0|cc|gen_reg_cc[78].lcell_i
+set_location_assignment FF_X35_Y26_N55 -to u0|tdc_0|carry0|cc|gen_reg_cc[79].reg_i
+set_location_assignment LABCELL_X35_Y26_N57 -to u0|tdc_0|carry0|cc|gen_reg_cc[79].lcell_i
+set_location_assignment FF_X35_Y26_N58 -to u0|tdc_0|carry0|cc|gen_reg_cc[80].reg_i
+set_location_assignment LABCELL_X35_Y25_N0 -to u0|tdc_0|carry0|cc|gen_reg_cc[80].lcell_i
+set_location_assignment FF_X35_Y25_N1 -to u0|tdc_0|carry0|cc|gen_reg_cc[81].reg_i
+set_location_assignment LABCELL_X35_Y25_N3 -to u0|tdc_0|carry0|cc|gen_reg_cc[81].lcell_i
+set_location_assignment FF_X35_Y25_N4 -to u0|tdc_0|carry0|cc|gen_reg_cc[82].reg_i
+set_location_assignment LABCELL_X35_Y25_N6 -to u0|tdc_0|carry0|cc|gen_reg_cc[82].lcell_i
+set_location_assignment FF_X35_Y25_N7 -to u0|tdc_0|carry0|cc|gen_reg_cc[83].reg_i
+set_location_assignment LABCELL_X35_Y25_N9 -to u0|tdc_0|carry0|cc|gen_reg_cc[83].lcell_i
+set_location_assignment FF_X35_Y25_N10 -to u0|tdc_0|carry0|cc|gen_reg_cc[84].reg_i
+set_location_assignment LABCELL_X35_Y25_N12 -to u0|tdc_0|carry0|cc|gen_reg_cc[84].lcell_i
+set_location_assignment FF_X35_Y25_N13 -to u0|tdc_0|carry0|cc|gen_reg_cc[85].reg_i
+set_location_assignment LABCELL_X35_Y25_N15 -to u0|tdc_0|carry0|cc|gen_reg_cc[85].lcell_i
+set_location_assignment FF_X35_Y25_N16 -to u0|tdc_0|carry0|cc|gen_reg_cc[86].reg_i
+set_location_assignment LABCELL_X35_Y25_N18 -to u0|tdc_0|carry0|cc|gen_reg_cc[86].lcell_i
+set_location_assignment FF_X35_Y25_N19 -to u0|tdc_0|carry0|cc|gen_reg_cc[87].reg_i
+set_location_assignment LABCELL_X35_Y25_N21 -to u0|tdc_0|carry0|cc|gen_reg_cc[87].lcell_i
+set_location_assignment FF_X35_Y25_N22 -to u0|tdc_0|carry0|cc|gen_reg_cc[88].reg_i
+set_location_assignment LABCELL_X35_Y25_N24 -to u0|tdc_0|carry0|cc|gen_reg_cc[88].lcell_i
+set_location_assignment FF_X35_Y25_N25 -to u0|tdc_0|carry0|cc|gen_reg_cc[89].reg_i
+set_location_assignment LABCELL_X35_Y25_N27 -to u0|tdc_0|carry0|cc|gen_reg_cc[89].lcell_i
+set_location_assignment FF_X35_Y25_N28 -to u0|tdc_0|carry0|cc|gen_reg_cc[90].reg_i
+set_location_assignment LABCELL_X35_Y25_N30 -to u0|tdc_0|carry0|cc|gen_reg_cc[90].lcell_i
+set_location_assignment FF_X35_Y25_N31 -to u0|tdc_0|carry0|cc|gen_reg_cc[91].reg_i
+set_location_assignment LABCELL_X35_Y25_N33 -to u0|tdc_0|carry0|cc|gen_reg_cc[91].lcell_i
+set_location_assignment FF_X35_Y25_N34 -to u0|tdc_0|carry0|cc|gen_reg_cc[92].reg_i
+set_location_assignment LABCELL_X35_Y25_N36 -to u0|tdc_0|carry0|cc|gen_reg_cc[92].lcell_i
+set_location_assignment FF_X35_Y25_N37 -to u0|tdc_0|carry0|cc|gen_reg_cc[93].reg_i
+set_location_assignment LABCELL_X35_Y25_N39 -to u0|tdc_0|carry0|cc|gen_reg_cc[93].lcell_i
+set_location_assignment FF_X35_Y25_N40 -to u0|tdc_0|carry0|cc|gen_reg_cc[94].reg_i
+set_location_assignment LABCELL_X35_Y25_N42 -to u0|tdc_0|carry0|cc|gen_reg_cc[94].lcell_i
+set_location_assignment FF_X35_Y25_N43 -to u0|tdc_0|carry0|cc|gen_reg_cc[95].reg_i
+set_location_assignment LABCELL_X35_Y25_N45 -to u0|tdc_0|carry0|cc|gen_reg_cc[95].lcell_i
+set_location_assignment FF_X35_Y25_N46 -to u0|tdc_0|carry0|cc|gen_reg_cc[96].reg_i
+set_location_assignment LABCELL_X35_Y25_N48 -to u0|tdc_0|carry0|cc|gen_reg_cc[96].lcell_i
+set_location_assignment FF_X35_Y25_N49 -to u0|tdc_0|carry0|cc|gen_reg_cc[97].reg_i
+set_location_assignment LABCELL_X35_Y25_N51 -to u0|tdc_0|carry0|cc|gen_reg_cc[97].lcell_i
+set_location_assignment FF_X35_Y25_N52 -to u0|tdc_0|carry0|cc|gen_reg_cc[98].reg_i
+set_location_assignment LABCELL_X35_Y25_N54 -to u0|tdc_0|carry0|cc|gen_reg_cc[98].lcell_i
+set_location_assignment FF_X35_Y25_N55 -to u0|tdc_0|carry0|cc|gen_reg_cc[99].reg_i
+set_location_assignment LABCELL_X35_Y25_N57 -to u0|tdc_0|carry0|cc|gen_reg_cc[99].lcell_i
+set_location_assignment FF_X35_Y25_N58 -to u0|tdc_0|carry0|cc|gen_reg_cc[100].reg_i
+set_location_assignment LABCELL_X35_Y24_N0 -to u0|tdc_0|carry0|cc|gen_reg_cc[100].lcell_i
+set_location_assignment FF_X35_Y24_N1 -to u0|tdc_0|carry0|cc|gen_reg_cc[101].reg_i
+set_location_assignment LABCELL_X35_Y24_N3 -to u0|tdc_0|carry0|cc|gen_reg_cc[101].lcell_i
+set_location_assignment FF_X35_Y24_N4 -to u0|tdc_0|carry0|cc|gen_reg_cc[102].reg_i
+set_location_assignment LABCELL_X35_Y24_N6 -to u0|tdc_0|carry0|cc|gen_reg_cc[102].lcell_i
+set_location_assignment FF_X35_Y24_N7 -to u0|tdc_0|carry0|cc|gen_reg_cc[103].reg_i
+set_location_assignment LABCELL_X35_Y24_N9 -to u0|tdc_0|carry0|cc|gen_reg_cc[103].lcell_i
+set_location_assignment FF_X35_Y24_N10 -to u0|tdc_0|carry0|cc|gen_reg_cc[104].reg_i
+set_location_assignment LABCELL_X35_Y24_N12 -to u0|tdc_0|carry0|cc|gen_reg_cc[104].lcell_i
+set_location_assignment FF_X35_Y24_N13 -to u0|tdc_0|carry0|cc|gen_reg_cc[105].reg_i
+set_location_assignment LABCELL_X35_Y24_N15 -to u0|tdc_0|carry0|cc|gen_reg_cc[105].lcell_i
+set_location_assignment FF_X35_Y24_N16 -to u0|tdc_0|carry0|cc|gen_reg_cc[106].reg_i
+set_location_assignment LABCELL_X35_Y24_N18 -to u0|tdc_0|carry0|cc|gen_reg_cc[106].lcell_i
+set_location_assignment FF_X35_Y24_N19 -to u0|tdc_0|carry0|cc|gen_reg_cc[107].reg_i
+set_location_assignment LABCELL_X35_Y24_N21 -to u0|tdc_0|carry0|cc|gen_reg_cc[107].lcell_i
+set_location_assignment FF_X35_Y24_N22 -to u0|tdc_0|carry0|cc|gen_reg_cc[108].reg_i
+set_location_assignment LABCELL_X35_Y24_N24 -to u0|tdc_0|carry0|cc|gen_reg_cc[108].lcell_i
+set_location_assignment FF_X35_Y24_N25 -to u0|tdc_0|carry0|cc|gen_reg_cc[109].reg_i
+set_location_assignment LABCELL_X35_Y24_N27 -to u0|tdc_0|carry0|cc|gen_reg_cc[109].lcell_i
+set_location_assignment FF_X35_Y24_N28 -to u0|tdc_0|carry0|cc|gen_reg_cc[110].reg_i
+set_location_assignment LABCELL_X35_Y24_N30 -to u0|tdc_0|carry0|cc|gen_reg_cc[110].lcell_i
+set_location_assignment FF_X35_Y24_N31 -to u0|tdc_0|carry0|cc|gen_reg_cc[111].reg_i
+set_location_assignment LABCELL_X35_Y24_N33 -to u0|tdc_0|carry0|cc|gen_reg_cc[111].lcell_i
+set_location_assignment FF_X35_Y24_N34 -to u0|tdc_0|carry0|cc|gen_reg_cc[112].reg_i
+set_location_assignment LABCELL_X35_Y24_N36 -to u0|tdc_0|carry0|cc|gen_reg_cc[112].lcell_i
+set_location_assignment FF_X35_Y24_N37 -to u0|tdc_0|carry0|cc|gen_reg_cc[113].reg_i
+set_location_assignment LABCELL_X35_Y24_N39 -to u0|tdc_0|carry0|cc|gen_reg_cc[113].lcell_i
+set_location_assignment FF_X35_Y24_N40 -to u0|tdc_0|carry0|cc|gen_reg_cc[114].reg_i
+set_location_assignment LABCELL_X35_Y24_N42 -to u0|tdc_0|carry0|cc|gen_reg_cc[114].lcell_i
+set_location_assignment FF_X35_Y24_N43 -to u0|tdc_0|carry0|cc|gen_reg_cc[115].reg_i
+set_location_assignment LABCELL_X35_Y24_N45 -to u0|tdc_0|carry0|cc|gen_reg_cc[115].lcell_i
+set_location_assignment FF_X35_Y24_N46 -to u0|tdc_0|carry0|cc|gen_reg_cc[116].reg_i
+set_location_assignment LABCELL_X35_Y24_N48 -to u0|tdc_0|carry0|cc|gen_reg_cc[116].lcell_i
+set_location_assignment FF_X35_Y24_N49 -to u0|tdc_0|carry0|cc|gen_reg_cc[117].reg_i
+set_location_assignment LABCELL_X35_Y24_N51 -to u0|tdc_0|carry0|cc|gen_reg_cc[117].lcell_i
+set_location_assignment FF_X35_Y24_N52 -to u0|tdc_0|carry0|cc|gen_reg_cc[118].reg_i
+set_location_assignment LABCELL_X35_Y24_N54 -to u0|tdc_0|carry0|cc|gen_reg_cc[118].lcell_i
+set_location_assignment FF_X35_Y24_N55 -to u0|tdc_0|carry0|cc|gen_reg_cc[119].reg_i
+set_location_assignment LABCELL_X35_Y24_N57 -to u0|tdc_0|carry0|cc|gen_reg_cc[119].lcell_i
+set_location_assignment FF_X35_Y24_N58 -to u0|tdc_0|carry0|cc|gen_reg_cc[120].reg_i
+set_location_assignment LABCELL_X35_Y23_N0 -to u0|tdc_0|carry0|cc|gen_reg_cc[120].lcell_i
+set_location_assignment FF_X35_Y23_N1 -to u0|tdc_0|carry0|cc|gen_reg_cc[121].reg_i
+set_location_assignment LABCELL_X35_Y23_N3 -to u0|tdc_0|carry0|cc|gen_reg_cc[121].lcell_i
+set_location_assignment FF_X35_Y23_N4 -to u0|tdc_0|carry0|cc|gen_reg_cc[122].reg_i
+set_location_assignment LABCELL_X35_Y23_N6 -to u0|tdc_0|carry0|cc|gen_reg_cc[122].lcell_i
+set_location_assignment FF_X35_Y23_N7 -to u0|tdc_0|carry0|cc|gen_reg_cc[123].reg_i
+set_location_assignment LABCELL_X35_Y23_N9 -to u0|tdc_0|carry0|cc|gen_reg_cc[123].lcell_i
+set_location_assignment FF_X35_Y23_N10 -to u0|tdc_0|carry0|cc|gen_reg_cc[124].reg_i
+set_location_assignment LABCELL_X35_Y23_N12 -to u0|tdc_0|carry0|cc|gen_reg_cc[124].lcell_i
+set_location_assignment FF_X35_Y23_N13 -to u0|tdc_0|carry0|cc|gen_reg_cc[125].reg_i
+set_location_assignment LABCELL_X35_Y23_N15 -to u0|tdc_0|carry0|cc|gen_reg_cc[125].lcell_i
+set_location_assignment FF_X35_Y23_N16 -to u0|tdc_0|carry0|cc|gen_reg_cc[126].reg_i
+set_location_assignment LABCELL_X35_Y23_N18 -to u0|tdc_0|carry0|cc|gen_reg_cc[126].lcell_i
+set_location_assignment FF_X35_Y23_N19 -to u0|tdc_0|carry0|cc|gen_reg_cc[127].reg_i
+set_location_assignment LABCELL_X35_Y23_N21 -to u0|tdc_0|carry0|cc|gen_reg_cc[127].lcell_i
+set_location_assignment FF_X35_Y23_N22 -to u0|tdc_0|carry0|cc|gen_reg_cc[128].reg_i
+set_location_assignment LABCELL_X35_Y23_N24 -to u0|tdc_0|carry0|cc|gen_reg_cc[128].lcell_i
+set_location_assignment FF_X35_Y23_N25 -to u0|tdc_0|carry0|cc|gen_reg_cc[129].reg_i
+set_location_assignment LABCELL_X35_Y23_N27 -to u0|tdc_0|carry0|cc|gen_reg_cc[129].lcell_i
+set_location_assignment FF_X35_Y23_N28 -to u0|tdc_0|carry0|cc|gen_reg_cc[130].reg_i
+set_location_assignment LABCELL_X35_Y23_N30 -to u0|tdc_0|carry0|cc|gen_reg_cc[130].lcell_i
+set_location_assignment FF_X35_Y23_N31 -to u0|tdc_0|carry0|cc|gen_reg_cc[131].reg_i
+set_location_assignment LABCELL_X35_Y23_N33 -to u0|tdc_0|carry0|cc|gen_reg_cc[131].lcell_i
+set_location_assignment FF_X35_Y23_N34 -to u0|tdc_0|carry0|cc|gen_reg_cc[132].reg_i
+set_location_assignment LABCELL_X35_Y23_N36 -to u0|tdc_0|carry0|cc|gen_reg_cc[132].lcell_i
+set_location_assignment FF_X35_Y23_N37 -to u0|tdc_0|carry0|cc|gen_reg_cc[133].reg_i
+set_location_assignment LABCELL_X35_Y23_N39 -to u0|tdc_0|carry0|cc|gen_reg_cc[133].lcell_i
+set_location_assignment FF_X35_Y23_N40 -to u0|tdc_0|carry0|cc|gen_reg_cc[134].reg_i
+set_location_assignment LABCELL_X35_Y23_N42 -to u0|tdc_0|carry0|cc|gen_reg_cc[134].lcell_i
+set_location_assignment FF_X35_Y23_N43 -to u0|tdc_0|carry0|cc|gen_reg_cc[135].reg_i
+set_location_assignment LABCELL_X35_Y23_N45 -to u0|tdc_0|carry0|cc|gen_reg_cc[135].lcell_i
+set_location_assignment FF_X35_Y23_N46 -to u0|tdc_0|carry0|cc|gen_reg_cc[136].reg_i
+set_location_assignment LABCELL_X35_Y23_N48 -to u0|tdc_0|carry0|cc|gen_reg_cc[136].lcell_i
+set_location_assignment FF_X35_Y23_N49 -to u0|tdc_0|carry0|cc|gen_reg_cc[137].reg_i
+set_location_assignment LABCELL_X35_Y23_N51 -to u0|tdc_0|carry0|cc|gen_reg_cc[137].lcell_i
+set_location_assignment FF_X35_Y23_N52 -to u0|tdc_0|carry0|cc|gen_reg_cc[138].reg_i
+set_location_assignment LABCELL_X35_Y23_N54 -to u0|tdc_0|carry0|cc|gen_reg_cc[138].lcell_i
+set_location_assignment FF_X35_Y23_N55 -to u0|tdc_0|carry0|cc|gen_reg_cc[139].reg_i
+set_location_assignment LABCELL_X35_Y23_N57 -to u0|tdc_0|carry0|cc|gen_reg_cc[139].lcell_i
+set_location_assignment FF_X35_Y23_N58 -to u0|tdc_0|carry0|cc|gen_reg_cc[140].reg_i
+set_location_assignment LABCELL_X35_Y22_N0 -to u0|tdc_0|carry0|cc|gen_reg_cc[140].lcell_i
+set_location_assignment FF_X35_Y22_N1 -to u0|tdc_0|carry0|cc|gen_reg_cc[141].reg_i
+set_location_assignment LABCELL_X35_Y22_N3 -to u0|tdc_0|carry0|cc|gen_reg_cc[141].lcell_i
+set_location_assignment FF_X35_Y22_N4 -to u0|tdc_0|carry0|cc|gen_reg_cc[142].reg_i
+set_location_assignment LABCELL_X35_Y22_N6 -to u0|tdc_0|carry0|cc|gen_reg_cc[142].lcell_i
+set_location_assignment FF_X35_Y22_N7 -to u0|tdc_0|carry0|cc|gen_reg_cc[143].reg_i
+set_location_assignment LABCELL_X35_Y22_N9 -to u0|tdc_0|carry0|cc|gen_reg_cc[143].lcell_i
+set_location_assignment FF_X35_Y22_N10 -to u0|tdc_0|carry0|cc|gen_reg_cc[144].reg_i
+set_location_assignment LABCELL_X35_Y22_N12 -to u0|tdc_0|carry0|cc|gen_reg_cc[144].lcell_i
+set_location_assignment FF_X35_Y22_N13 -to u0|tdc_0|carry0|cc|gen_reg_cc[145].reg_i
+set_location_assignment LABCELL_X35_Y22_N15 -to u0|tdc_0|carry0|cc|gen_reg_cc[145].lcell_i
+set_location_assignment FF_X35_Y22_N16 -to u0|tdc_0|carry0|cc|gen_reg_cc[146].reg_i
+set_location_assignment LABCELL_X35_Y22_N18 -to u0|tdc_0|carry0|cc|gen_reg_cc[146].lcell_i
+set_location_assignment FF_X35_Y22_N19 -to u0|tdc_0|carry0|cc|gen_reg_cc[147].reg_i
+set_location_assignment LABCELL_X35_Y22_N21 -to u0|tdc_0|carry0|cc|gen_reg_cc[147].lcell_i
+set_location_assignment FF_X35_Y22_N22 -to u0|tdc_0|carry0|cc|gen_reg_cc[148].reg_i
+set_location_assignment LABCELL_X35_Y22_N24 -to u0|tdc_0|carry0|cc|gen_reg_cc[148].lcell_i
+set_location_assignment FF_X35_Y22_N25 -to u0|tdc_0|carry0|cc|gen_reg_cc[149].reg_i
+set_location_assignment LABCELL_X35_Y22_N27 -to u0|tdc_0|carry0|cc|gen_reg_cc[149].lcell_i
+set_location_assignment FF_X35_Y22_N28 -to u0|tdc_0|carry0|cc|gen_reg_cc[150].reg_i
+set_location_assignment LABCELL_X35_Y22_N30 -to u0|tdc_0|carry0|cc|gen_reg_cc[150].lcell_i
+set_location_assignment FF_X35_Y22_N31 -to u0|tdc_0|carry0|cc|gen_reg_cc[151].reg_i
+set_location_assignment LABCELL_X35_Y22_N33 -to u0|tdc_0|carry0|cc|gen_reg_cc[151].lcell_i
+set_location_assignment FF_X35_Y22_N34 -to u0|tdc_0|carry0|cc|gen_reg_cc[152].reg_i
+set_location_assignment LABCELL_X35_Y22_N36 -to u0|tdc_0|carry0|cc|gen_reg_cc[152].lcell_i
+set_location_assignment FF_X35_Y22_N37 -to u0|tdc_0|carry0|cc|gen_reg_cc[153].reg_i
+set_location_assignment LABCELL_X35_Y22_N39 -to u0|tdc_0|carry0|cc|gen_reg_cc[153].lcell_i
+set_location_assignment FF_X35_Y22_N40 -to u0|tdc_0|carry0|cc|gen_reg_cc[154].reg_i
+set_location_assignment LABCELL_X35_Y22_N42 -to u0|tdc_0|carry0|cc|gen_reg_cc[154].lcell_i
+set_location_assignment FF_X35_Y22_N43 -to u0|tdc_0|carry0|cc|gen_reg_cc[155].reg_i
+set_location_assignment LABCELL_X35_Y22_N45 -to u0|tdc_0|carry0|cc|gen_reg_cc[155].lcell_i
+set_location_assignment FF_X35_Y22_N46 -to u0|tdc_0|carry0|cc|gen_reg_cc[156].reg_i
+set_location_assignment LABCELL_X35_Y22_N48 -to u0|tdc_0|carry0|cc|gen_reg_cc[156].lcell_i
+set_location_assignment FF_X35_Y22_N49 -to u0|tdc_0|carry0|cc|gen_reg_cc[157].reg_i
+set_location_assignment LABCELL_X35_Y22_N51 -to u0|tdc_0|carry0|cc|gen_reg_cc[157].lcell_i
+set_location_assignment FF_X35_Y22_N52 -to u0|tdc_0|carry0|cc|gen_reg_cc[158].reg_i
+set_location_assignment LABCELL_X35_Y22_N54 -to u0|tdc_0|carry0|cc|gen_reg_cc[158].lcell_i
+set_location_assignment FF_X35_Y22_N55 -to u0|tdc_0|carry0|cc|gen_reg_cc[159].reg_i
+set_location_assignment LABCELL_X35_Y22_N57 -to u0|tdc_0|carry0|cc|gen_reg_cc[159].lcell_i
+set_location_assignment FF_X35_Y22_N58 -to u0|tdc_0|carry0|cc|gen_reg_cc[160].reg_i
+set_location_assignment LABCELL_X35_Y21_N0 -to u0|tdc_0|carry0|cc|gen_reg_cc[160].lcell_i
+set_location_assignment FF_X35_Y21_N1 -to u0|tdc_0|carry0|cc|gen_reg_cc[161].reg_i
+set_location_assignment LABCELL_X35_Y21_N3 -to u0|tdc_0|carry0|cc|gen_reg_cc[161].lcell_i
+set_location_assignment FF_X35_Y21_N4 -to u0|tdc_0|carry0|cc|gen_reg_cc[162].reg_i
+set_location_assignment LABCELL_X35_Y21_N6 -to u0|tdc_0|carry0|cc|gen_reg_cc[162].lcell_i
+set_location_assignment FF_X35_Y21_N7 -to u0|tdc_0|carry0|cc|gen_reg_cc[163].reg_i
+set_location_assignment LABCELL_X35_Y21_N9 -to u0|tdc_0|carry0|cc|gen_reg_cc[163].lcell_i
+set_location_assignment FF_X35_Y21_N10 -to u0|tdc_0|carry0|cc|gen_reg_cc[164].reg_i
+set_location_assignment LABCELL_X35_Y21_N12 -to u0|tdc_0|carry0|cc|gen_reg_cc[164].lcell_i
+set_location_assignment FF_X35_Y21_N13 -to u0|tdc_0|carry0|cc|gen_reg_cc[165].reg_i
+set_location_assignment LABCELL_X35_Y21_N15 -to u0|tdc_0|carry0|cc|gen_reg_cc[165].lcell_i
+set_location_assignment FF_X35_Y21_N16 -to u0|tdc_0|carry0|cc|gen_reg_cc[166].reg_i
+set_location_assignment LABCELL_X35_Y21_N18 -to u0|tdc_0|carry0|cc|gen_reg_cc[166].lcell_i
+set_location_assignment FF_X35_Y21_N19 -to u0|tdc_0|carry0|cc|gen_reg_cc[167].reg_i
+set_location_assignment LABCELL_X35_Y21_N21 -to u0|tdc_0|carry0|cc|gen_reg_cc[167].lcell_i
+set_location_assignment FF_X35_Y21_N22 -to u0|tdc_0|carry0|cc|gen_reg_cc[168].reg_i
+set_location_assignment LABCELL_X35_Y21_N24 -to u0|tdc_0|carry0|cc|gen_reg_cc[168].lcell_i
+set_location_assignment FF_X35_Y21_N25 -to u0|tdc_0|carry0|cc|gen_reg_cc[169].reg_i
+set_location_assignment LABCELL_X35_Y21_N27 -to u0|tdc_0|carry0|cc|gen_reg_cc[169].lcell_i
+set_location_assignment FF_X35_Y21_N28 -to u0|tdc_0|carry0|cc|gen_reg_cc[170].reg_i
+set_location_assignment LABCELL_X35_Y21_N30 -to u0|tdc_0|carry0|cc|gen_reg_cc[170].lcell_i
+set_location_assignment FF_X35_Y21_N31 -to u0|tdc_0|carry0|cc|gen_reg_cc[171].reg_i
+set_location_assignment LABCELL_X35_Y21_N33 -to u0|tdc_0|carry0|cc|gen_reg_cc[171].lcell_i
+set_location_assignment FF_X35_Y21_N34 -to u0|tdc_0|carry0|cc|gen_reg_cc[172].reg_i
+set_location_assignment LABCELL_X35_Y21_N36 -to u0|tdc_0|carry0|cc|gen_reg_cc[172].lcell_i
+set_location_assignment FF_X35_Y21_N37 -to u0|tdc_0|carry0|cc|gen_reg_cc[173].reg_i
+set_location_assignment LABCELL_X35_Y21_N39 -to u0|tdc_0|carry0|cc|gen_reg_cc[173].lcell_i
+set_location_assignment FF_X35_Y21_N40 -to u0|tdc_0|carry0|cc|gen_reg_cc[174].reg_i
+set_location_assignment LABCELL_X35_Y21_N42 -to u0|tdc_0|carry0|cc|gen_reg_cc[174].lcell_i
+set_location_assignment FF_X35_Y21_N43 -to u0|tdc_0|carry0|cc|gen_reg_cc[175].reg_i
+set_location_assignment LABCELL_X35_Y21_N45 -to u0|tdc_0|carry0|cc|gen_reg_cc[175].lcell_i
+set_location_assignment FF_X35_Y21_N46 -to u0|tdc_0|carry0|cc|gen_reg_cc[176].reg_i
+set_location_assignment LABCELL_X35_Y21_N48 -to u0|tdc_0|carry0|cc|gen_reg_cc[176].lcell_i
+set_location_assignment FF_X35_Y21_N49 -to u0|tdc_0|carry0|cc|gen_reg_cc[177].reg_i
+set_location_assignment LABCELL_X35_Y21_N51 -to u0|tdc_0|carry0|cc|gen_reg_cc[177].lcell_i
+set_location_assignment FF_X35_Y21_N52 -to u0|tdc_0|carry0|cc|gen_reg_cc[178].reg_i
+set_location_assignment LABCELL_X35_Y21_N54 -to u0|tdc_0|carry0|cc|gen_reg_cc[178].lcell_i
+set_location_assignment FF_X35_Y21_N55 -to u0|tdc_0|carry0|cc|gen_reg_cc[179].reg_i
+set_location_assignment LABCELL_X35_Y21_N57 -to u0|tdc_0|carry0|cc|gen_reg_cc[179].lcell_i
+set_location_assignment FF_X35_Y21_N58 -to u0|tdc_0|carry0|cc|gen_reg_cc[180].reg_i
+set_location_assignment LABCELL_X35_Y20_N0 -to u0|tdc_0|carry0|cc|gen_reg_cc[180].lcell_i
+set_location_assignment FF_X35_Y20_N1 -to u0|tdc_0|carry0|cc|gen_reg_cc[181].reg_i
+set_location_assignment LABCELL_X35_Y20_N3 -to u0|tdc_0|carry0|cc|gen_reg_cc[181].lcell_i
+set_location_assignment FF_X35_Y20_N4 -to u0|tdc_0|carry0|cc|gen_reg_cc[182].reg_i
+set_location_assignment LABCELL_X35_Y20_N6 -to u0|tdc_0|carry0|cc|gen_reg_cc[182].lcell_i
+set_location_assignment FF_X35_Y20_N7 -to u0|tdc_0|carry0|cc|gen_reg_cc[183].reg_i
+set_location_assignment LABCELL_X35_Y20_N9 -to u0|tdc_0|carry0|cc|gen_reg_cc[183].lcell_i
+set_location_assignment FF_X35_Y20_N10 -to u0|tdc_0|carry0|cc|gen_reg_cc[184].reg_i
+set_location_assignment LABCELL_X35_Y20_N12 -to u0|tdc_0|carry0|cc|gen_reg_cc[184].lcell_i
+set_location_assignment FF_X35_Y20_N13 -to u0|tdc_0|carry0|cc|gen_reg_cc[185].reg_i
+set_location_assignment LABCELL_X35_Y20_N15 -to u0|tdc_0|carry0|cc|gen_reg_cc[185].lcell_i
+set_location_assignment FF_X35_Y20_N16 -to u0|tdc_0|carry0|cc|gen_reg_cc[186].reg_i
+set_location_assignment LABCELL_X35_Y20_N18 -to u0|tdc_0|carry0|cc|gen_reg_cc[186].lcell_i
+set_location_assignment FF_X35_Y20_N19 -to u0|tdc_0|carry0|cc|gen_reg_cc[187].reg_i
+set_location_assignment LABCELL_X35_Y20_N21 -to u0|tdc_0|carry0|cc|gen_reg_cc[187].lcell_i
+set_location_assignment FF_X35_Y20_N22 -to u0|tdc_0|carry0|cc|gen_reg_cc[188].reg_i
+set_location_assignment LABCELL_X35_Y20_N24 -to u0|tdc_0|carry0|cc|gen_reg_cc[188].lcell_i
+set_location_assignment FF_X35_Y20_N25 -to u0|tdc_0|carry0|cc|gen_reg_cc[189].reg_i
+set_location_assignment LABCELL_X35_Y20_N27 -to u0|tdc_0|carry0|cc|gen_reg_cc[189].lcell_i
+set_location_assignment FF_X35_Y20_N28 -to u0|tdc_0|carry0|cc|gen_reg_cc[190].reg_i
+set_location_assignment LABCELL_X35_Y20_N30 -to u0|tdc_0|carry0|cc|gen_reg_cc[190].lcell_i
+set_location_assignment FF_X35_Y20_N31 -to u0|tdc_0|carry0|cc|gen_reg_cc[191].reg_i
+set_location_assignment LABCELL_X35_Y20_N33 -to u0|tdc_0|carry0|cc|gen_reg_cc[191].lcell_i
+set_location_assignment FF_X35_Y20_N34 -to u0|tdc_0|carry0|cc|gen_reg_cc[192].reg_i
+set_location_assignment LABCELL_X35_Y20_N36 -to u0|tdc_0|carry0|cc|gen_reg_cc[192].lcell_i
+set_location_assignment FF_X35_Y20_N37 -to u0|tdc_0|carry0|cc|gen_reg_cc[193].reg_i
+set_location_assignment LABCELL_X35_Y20_N39 -to u0|tdc_0|carry0|cc|gen_reg_cc[193].lcell_i
+set_location_assignment FF_X35_Y20_N40 -to u0|tdc_0|carry0|cc|gen_reg_cc[194].reg_i
+set_location_assignment LABCELL_X35_Y20_N42 -to u0|tdc_0|carry0|cc|gen_reg_cc[194].lcell_i
+set_location_assignment FF_X35_Y20_N43 -to u0|tdc_0|carry0|cc|gen_reg_cc[195].reg_i
+set_location_assignment LABCELL_X35_Y20_N45 -to u0|tdc_0|carry0|cc|gen_reg_cc[195].lcell_i
+set_location_assignment FF_X35_Y20_N46 -to u0|tdc_0|carry0|cc|gen_reg_cc[196].reg_i
+set_location_assignment LABCELL_X35_Y20_N48 -to u0|tdc_0|carry0|cc|gen_reg_cc[196].lcell_i
+set_location_assignment FF_X35_Y20_N49 -to u0|tdc_0|carry0|cc|gen_reg_cc[197].reg_i
+set_location_assignment LABCELL_X35_Y20_N51 -to u0|tdc_0|carry0|cc|gen_reg_cc[197].lcell_i
+set_location_assignment FF_X35_Y20_N52 -to u0|tdc_0|carry0|cc|gen_reg_cc[198].reg_i
+set_location_assignment LABCELL_X35_Y20_N54 -to u0|tdc_0|carry0|cc|gen_reg_cc[198].lcell_i
+set_location_assignment FF_X35_Y20_N55 -to u0|tdc_0|carry0|cc|gen_reg_cc[199].reg_i
+set_location_assignment LABCELL_X35_Y20_N57 -to u0|tdc_0|carry0|cc|gen_reg_cc[199].lcell_i
+set_location_assignment FF_X35_Y20_N58 -to u0|tdc_0|carry0|cc|gen_reg_cc[200].reg_i
+set_location_assignment LABCELL_X35_Y19_N0 -to u0|tdc_0|carry0|cc|gen_reg_cc[200].lcell_i
+set_location_assignment FF_X35_Y19_N1 -to u0|tdc_0|carry0|cc|gen_reg_cc[201].reg_i
+set_location_assignment LABCELL_X35_Y19_N3 -to u0|tdc_0|carry0|cc|gen_reg_cc[201].lcell_i
+set_location_assignment FF_X35_Y19_N4 -to u0|tdc_0|carry0|cc|gen_reg_cc[202].reg_i
+set_location_assignment LABCELL_X35_Y19_N6 -to u0|tdc_0|carry0|cc|gen_reg_cc[202].lcell_i
+set_location_assignment FF_X35_Y19_N7 -to u0|tdc_0|carry0|cc|gen_reg_cc[203].reg_i
+set_location_assignment LABCELL_X35_Y19_N9 -to u0|tdc_0|carry0|cc|gen_reg_cc[203].lcell_i
+set_location_assignment FF_X35_Y19_N10 -to u0|tdc_0|carry0|cc|gen_reg_cc[204].reg_i
+set_location_assignment LABCELL_X35_Y19_N12 -to u0|tdc_0|carry0|cc|gen_reg_cc[204].lcell_i
+set_location_assignment FF_X35_Y19_N13 -to u0|tdc_0|carry0|cc|gen_reg_cc[205].reg_i
+set_location_assignment LABCELL_X35_Y19_N15 -to u0|tdc_0|carry0|cc|gen_reg_cc[205].lcell_i
+set_location_assignment FF_X35_Y19_N16 -to u0|tdc_0|carry0|cc|gen_reg_cc[206].reg_i
+set_location_assignment LABCELL_X35_Y19_N18 -to u0|tdc_0|carry0|cc|gen_reg_cc[206].lcell_i
+set_location_assignment FF_X35_Y19_N19 -to u0|tdc_0|carry0|cc|gen_reg_cc[207].reg_i
+set_location_assignment LABCELL_X35_Y19_N21 -to u0|tdc_0|carry0|cc|gen_reg_cc[207].lcell_i
+set_location_assignment FF_X35_Y19_N22 -to u0|tdc_0|carry0|cc|gen_reg_cc[208].reg_i
+set_location_assignment LABCELL_X35_Y19_N24 -to u0|tdc_0|carry0|cc|gen_reg_cc[208].lcell_i
+set_location_assignment FF_X35_Y19_N25 -to u0|tdc_0|carry0|cc|gen_reg_cc[209].reg_i
+set_location_assignment LABCELL_X35_Y19_N27 -to u0|tdc_0|carry0|cc|gen_reg_cc[209].lcell_i
+set_location_assignment FF_X35_Y19_N28 -to u0|tdc_0|carry0|cc|gen_reg_cc[210].reg_i
+set_location_assignment LABCELL_X35_Y19_N30 -to u0|tdc_0|carry0|cc|gen_reg_cc[210].lcell_i
+set_location_assignment FF_X35_Y19_N31 -to u0|tdc_0|carry0|cc|gen_reg_cc[211].reg_i
+set_location_assignment LABCELL_X35_Y19_N33 -to u0|tdc_0|carry0|cc|gen_reg_cc[211].lcell_i
+set_location_assignment FF_X35_Y19_N34 -to u0|tdc_0|carry0|cc|gen_reg_cc[212].reg_i
+set_location_assignment LABCELL_X35_Y19_N36 -to u0|tdc_0|carry0|cc|gen_reg_cc[212].lcell_i
+set_location_assignment FF_X35_Y19_N37 -to u0|tdc_0|carry0|cc|gen_reg_cc[213].reg_i
+set_location_assignment LABCELL_X35_Y19_N39 -to u0|tdc_0|carry0|cc|gen_reg_cc[213].lcell_i
+set_location_assignment FF_X35_Y19_N40 -to u0|tdc_0|carry0|cc|gen_reg_cc[214].reg_i
+set_location_assignment LABCELL_X35_Y19_N42 -to u0|tdc_0|carry0|cc|gen_reg_cc[214].lcell_i
+set_location_assignment FF_X35_Y19_N43 -to u0|tdc_0|carry0|cc|gen_reg_cc[215].reg_i
+set_location_assignment LABCELL_X35_Y19_N45 -to u0|tdc_0|carry0|cc|gen_reg_cc[215].lcell_i
+set_location_assignment FF_X35_Y19_N46 -to u0|tdc_0|carry0|cc|gen_reg_cc[216].reg_i
+set_location_assignment LABCELL_X35_Y19_N48 -to u0|tdc_0|carry0|cc|gen_reg_cc[216].lcell_i
+set_location_assignment FF_X35_Y19_N49 -to u0|tdc_0|carry0|cc|gen_reg_cc[217].reg_i
+set_location_assignment LABCELL_X35_Y19_N51 -to u0|tdc_0|carry0|cc|gen_reg_cc[217].lcell_i
+set_location_assignment FF_X35_Y19_N52 -to u0|tdc_0|carry0|cc|gen_reg_cc[218].reg_i
+set_location_assignment LABCELL_X35_Y19_N54 -to u0|tdc_0|carry0|cc|gen_reg_cc[218].lcell_i
+set_location_assignment FF_X35_Y19_N55 -to u0|tdc_0|carry0|cc|gen_reg_cc[219].reg_i
+set_location_assignment LABCELL_X35_Y19_N57 -to u0|tdc_0|carry0|cc|gen_reg_cc[219].lcell_i
+set_location_assignment FF_X35_Y19_N58 -to u0|tdc_0|carry0|cc|gen_reg_cc[220].reg_i
+set_location_assignment LABCELL_X35_Y18_N0 -to u0|tdc_0|carry0|cc|gen_reg_cc[220].lcell_i
+set_location_assignment FF_X35_Y18_N1 -to u0|tdc_0|carry0|cc|gen_reg_cc[221].reg_i
+set_location_assignment LABCELL_X35_Y18_N3 -to u0|tdc_0|carry0|cc|gen_reg_cc[221].lcell_i
+set_location_assignment FF_X35_Y18_N4 -to u0|tdc_0|carry0|cc|gen_reg_cc[222].reg_i
+set_location_assignment LABCELL_X35_Y18_N6 -to u0|tdc_0|carry0|cc|gen_reg_cc[222].lcell_i
+set_location_assignment FF_X35_Y18_N7 -to u0|tdc_0|carry0|cc|gen_reg_cc[223].reg_i
+set_location_assignment LABCELL_X35_Y18_N9 -to u0|tdc_0|carry0|cc|gen_reg_cc[223].lcell_i
+set_location_assignment FF_X35_Y18_N10 -to u0|tdc_0|carry0|cc|gen_reg_cc[224].reg_i
+set_location_assignment LABCELL_X35_Y18_N12 -to u0|tdc_0|carry0|cc|gen_reg_cc[224].lcell_i
+set_location_assignment FF_X35_Y18_N13 -to u0|tdc_0|carry0|cc|gen_reg_cc[225].reg_i
+set_location_assignment LABCELL_X35_Y18_N15 -to u0|tdc_0|carry0|cc|gen_reg_cc[225].lcell_i
+set_location_assignment FF_X35_Y18_N16 -to u0|tdc_0|carry0|cc|gen_reg_cc[226].reg_i
+set_location_assignment LABCELL_X35_Y18_N18 -to u0|tdc_0|carry0|cc|gen_reg_cc[226].lcell_i
+set_location_assignment FF_X35_Y18_N19 -to u0|tdc_0|carry0|cc|gen_reg_cc[227].reg_i
+set_location_assignment LABCELL_X35_Y18_N21 -to u0|tdc_0|carry0|cc|gen_reg_cc[227].lcell_i
+set_location_assignment FF_X35_Y18_N22 -to u0|tdc_0|carry0|cc|gen_reg_cc[228].reg_i
+set_location_assignment LABCELL_X35_Y18_N24 -to u0|tdc_0|carry0|cc|gen_reg_cc[228].lcell_i
+set_location_assignment FF_X35_Y18_N25 -to u0|tdc_0|carry0|cc|gen_reg_cc[229].reg_i
+set_location_assignment LABCELL_X35_Y18_N27 -to u0|tdc_0|carry0|cc|gen_reg_cc[229].lcell_i
+set_location_assignment FF_X35_Y18_N28 -to u0|tdc_0|carry0|cc|gen_reg_cc[230].reg_i
+set_location_assignment LABCELL_X35_Y18_N30 -to u0|tdc_0|carry0|cc|gen_reg_cc[230].lcell_i
+set_location_assignment FF_X35_Y18_N31 -to u0|tdc_0|carry0|cc|gen_reg_cc[231].reg_i
+set_location_assignment LABCELL_X35_Y18_N33 -to u0|tdc_0|carry0|cc|gen_reg_cc[231].lcell_i
+set_location_assignment FF_X35_Y18_N34 -to u0|tdc_0|carry0|cc|gen_reg_cc[232].reg_i
+set_location_assignment LABCELL_X35_Y18_N36 -to u0|tdc_0|carry0|cc|gen_reg_cc[232].lcell_i
+set_location_assignment FF_X35_Y18_N37 -to u0|tdc_0|carry0|cc|gen_reg_cc[233].reg_i
+set_location_assignment LABCELL_X35_Y18_N39 -to u0|tdc_0|carry0|cc|gen_reg_cc[233].lcell_i
+set_location_assignment FF_X35_Y18_N40 -to u0|tdc_0|carry0|cc|gen_reg_cc[234].reg_i
+set_location_assignment LABCELL_X35_Y18_N42 -to u0|tdc_0|carry0|cc|gen_reg_cc[234].lcell_i
+set_location_assignment FF_X35_Y18_N43 -to u0|tdc_0|carry0|cc|gen_reg_cc[235].reg_i
+set_location_assignment LABCELL_X35_Y18_N45 -to u0|tdc_0|carry0|cc|gen_reg_cc[235].lcell_i
+set_location_assignment FF_X35_Y18_N46 -to u0|tdc_0|carry0|cc|gen_reg_cc[236].reg_i
+set_location_assignment LABCELL_X35_Y18_N48 -to u0|tdc_0|carry0|cc|gen_reg_cc[236].lcell_i
+set_location_assignment FF_X35_Y18_N49 -to u0|tdc_0|carry0|cc|gen_reg_cc[237].reg_i
+set_location_assignment LABCELL_X35_Y18_N51 -to u0|tdc_0|carry0|cc|gen_reg_cc[237].lcell_i
+set_location_assignment FF_X35_Y18_N52 -to u0|tdc_0|carry0|cc|gen_reg_cc[238].reg_i
+set_location_assignment LABCELL_X35_Y18_N54 -to u0|tdc_0|carry0|cc|gen_reg_cc[238].lcell_i
+set_location_assignment FF_X35_Y18_N55 -to u0|tdc_0|carry0|cc|gen_reg_cc[239].reg_i
+set_location_assignment LABCELL_X35_Y18_N57 -to u0|tdc_0|carry0|cc|gen_reg_cc[239].lcell_i
+set_location_assignment FF_X35_Y18_N58 -to u0|tdc_0|carry0|cc|gen_reg_cc[240].reg_i
+set_location_assignment LABCELL_X35_Y17_N0 -to u0|tdc_0|carry0|cc|gen_reg_cc[240].lcell_i
+set_location_assignment FF_X35_Y17_N1 -to u0|tdc_0|carry0|cc|gen_reg_cc[241].reg_i
+set_location_assignment LABCELL_X35_Y17_N3 -to u0|tdc_0|carry0|cc|gen_reg_cc[241].lcell_i
+set_location_assignment FF_X35_Y17_N4 -to u0|tdc_0|carry0|cc|gen_reg_cc[242].reg_i
+set_location_assignment LABCELL_X35_Y17_N6 -to u0|tdc_0|carry0|cc|gen_reg_cc[242].lcell_i
+set_location_assignment FF_X35_Y17_N7 -to u0|tdc_0|carry0|cc|gen_reg_cc[243].reg_i
+set_location_assignment LABCELL_X35_Y17_N9 -to u0|tdc_0|carry0|cc|gen_reg_cc[243].lcell_i
+set_location_assignment FF_X35_Y17_N10 -to u0|tdc_0|carry0|cc|gen_reg_cc[244].reg_i
+set_location_assignment LABCELL_X35_Y17_N12 -to u0|tdc_0|carry0|cc|gen_reg_cc[244].lcell_i
+set_location_assignment FF_X35_Y17_N13 -to u0|tdc_0|carry0|cc|gen_reg_cc[245].reg_i
+set_location_assignment LABCELL_X35_Y17_N15 -to u0|tdc_0|carry0|cc|gen_reg_cc[245].lcell_i
+set_location_assignment FF_X35_Y17_N16 -to u0|tdc_0|carry0|cc|gen_reg_cc[246].reg_i
+set_location_assignment LABCELL_X35_Y17_N18 -to u0|tdc_0|carry0|cc|gen_reg_cc[246].lcell_i
+set_location_assignment FF_X35_Y17_N19 -to u0|tdc_0|carry0|cc|gen_reg_cc[247].reg_i
+set_location_assignment LABCELL_X35_Y17_N21 -to u0|tdc_0|carry0|cc|gen_reg_cc[247].lcell_i
+set_location_assignment FF_X35_Y17_N22 -to u0|tdc_0|carry0|cc|gen_reg_cc[248].reg_i
+set_location_assignment LABCELL_X35_Y17_N24 -to u0|tdc_0|carry0|cc|gen_reg_cc[248].lcell_i
+set_location_assignment FF_X35_Y17_N25 -to u0|tdc_0|carry0|cc|gen_reg_cc[249].reg_i
+set_location_assignment LABCELL_X35_Y17_N27 -to u0|tdc_0|carry0|cc|gen_reg_cc[249].lcell_i
+set_location_assignment FF_X35_Y17_N28 -to u0|tdc_0|carry0|cc|gen_reg_cc[250].reg_i
+set_location_assignment LABCELL_X35_Y17_N30 -to u0|tdc_0|carry0|cc|gen_reg_cc[250].lcell_i
+set_location_assignment FF_X35_Y17_N31 -to u0|tdc_0|carry0|cc|gen_reg_cc[251].reg_i
+set_location_assignment LABCELL_X35_Y17_N33 -to u0|tdc_0|carry0|cc|gen_reg_cc[251].lcell_i
+set_location_assignment FF_X35_Y17_N34 -to u0|tdc_0|carry0|cc|gen_reg_cc[252].reg_i
+set_location_assignment LABCELL_X35_Y17_N36 -to u0|tdc_0|carry0|cc|gen_reg_cc[252].lcell_i
+set_location_assignment FF_X35_Y17_N37 -to u0|tdc_0|carry0|cc|gen_reg_cc[253].reg_i
+set_location_assignment LABCELL_X35_Y17_N39 -to u0|tdc_0|carry0|cc|gen_reg_cc[253].lcell_i
+set_location_assignment FF_X35_Y17_N40 -to u0|tdc_0|carry0|cc|gen_reg_cc[254].reg_i
+set_location_assignment LABCELL_X35_Y17_N42 -to u0|tdc_0|carry0|cc|gen_reg_cc[254].lcell_i
+set_location_assignment FF_X35_Y17_N43 -to u0|tdc_0|carry0|cc|gen_reg_cc[255].reg_i
+set_location_assignment LABCELL_X35_Y17_N45 -to u0|tdc_0|carry0|cc|gen_reg_cc[255].lcell_i
+set_location_assignment FRACTIONALPLL_X0_Y15_N0 -to "soc_system:u0|soc_system_phi_clk:phi_clk|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|altera_cyclonev_pll_base:fpll_0|fpll"
+set_location_assignment FRACTIONALPLL_X0_Y32_N0 -to "soc_system:u0|soc_system_theta_clks:theta_clks|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|altera_cyclonev_pll_base:fpll_0|fpll"
+set_global_assignment -name LL_ENABLED ON -section_id aes
+set_global_assignment -name LL_AUTO_SIZE OFF -section_id aes
+set_global_assignment -name LL_STATE LOCKED -section_id aes
+set_global_assignment -name LL_RESERVED OFF -section_id aes
+set_global_assignment -name LL_CORE_ONLY OFF -section_id aes
+set_global_assignment -name LL_SECURITY_ROUTING_INTERFACE OFF -section_id aes
+set_global_assignment -name LL_IGNORE_IO_BANK_SECURITY_CONSTRAINT OFF -section_id aes
+set_global_assignment -name LL_PR_REGION OFF -section_id aes
+set_global_assignment -name LL_ROUTING_REGION_EXPANSION_SIZE 2147483647 -section_id aes
+set_global_assignment -name LL_WIDTH 22 -section_id aes
+set_global_assignment -name LL_HEIGHT 21 -section_id aes
+set_global_assignment -name LL_ORIGIN X52_Y9 -section_id aes
+set_global_assignment -name LL_ENABLED ON -section_id pulsegenerator
+set_global_assignment -name LL_AUTO_SIZE OFF -section_id pulsegenerator
+set_global_assignment -name LL_STATE LOCKED -section_id pulsegenerator
+set_global_assignment -name LL_RESERVED OFF -section_id pulsegenerator
+set_global_assignment -name LL_CORE_ONLY OFF -section_id pulsegenerator
+set_global_assignment -name LL_SECURITY_ROUTING_INTERFACE OFF -section_id pulsegenerator
+set_global_assignment -name LL_IGNORE_IO_BANK_SECURITY_CONSTRAINT OFF -section_id pulsegenerator
+set_global_assignment -name LL_PR_REGION OFF -section_id pulsegenerator
+set_global_assignment -name LL_ROUTING_REGION_EXPANSION_SIZE 2147483647 -section_id pulsegenerator
+set_global_assignment -name LL_WIDTH 2 -section_id pulsegenerator
+set_global_assignment -name LL_HEIGHT 18 -section_id pulsegenerator
+set_global_assignment -name LL_ORIGIN X33_Y12 -section_id pulsegenerator
+set_instance_assignment -name LL_MEMBER_OF pulsegenerator -to "soc_system:u0|pulsegenerator:pulsegenerator" -section_id pulsegenerator
+set_global_assignment -name STRATIXII_CARRY_CHAIN_LENGTH 512
+set_global_assignment -name LL_ENABLED OFF -section_id shell
+set_global_assignment -name LL_AUTO_SIZE OFF -section_id shell
+set_global_assignment -name LL_STATE LOCKED -section_id shell
+set_global_assignment -name LL_RESERVED OFF -section_id shell
+set_global_assignment -name LL_CORE_ONLY OFF -section_id shell
+set_global_assignment -name LL_SECURITY_ROUTING_INTERFACE OFF -section_id shell
+set_global_assignment -name LL_IGNORE_IO_BANK_SECURITY_CONSTRAINT OFF -section_id shell
+set_global_assignment -name LL_PR_REGION OFF -section_id shell
+set_global_assignment -name LL_ROUTING_REGION_EXPANSION_SIZE 2147483647 -section_id shell
+set_global_assignment -name LL_WIDTH 50 -section_id shell
+set_global_assignment -name LL_HEIGHT 27 -section_id shell
+set_global_assignment -name LL_ORIGIN X1_Y54 -section_id shell
+set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|altera_avalon_dc_fifo:tdc_to_dma_dc_fifo" -section_id shell
+set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|altera_avalon_mm_clock_crossing_bridge:phi_pll_reconfig_cdc" -section_id shell
+set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|altera_avalon_mm_clock_crossing_bridge:theta_pll_reconfig_cdc" -section_id shell
+set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|altera_pll_reconfig_top:phi_pll_reconfig" -section_id shell
+set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|altera_pll_reconfig_top:theta_pll_reconfig" -section_id shell
+set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|altera_reset_controller:rst_controller" -section_id shell
+set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|altera_reset_controller:rst_controller_001" -section_id shell
+set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|altera_reset_controller:rst_controller_002" -section_id shell
+set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|altera_reset_controller:rst_controller_003" -section_id shell
+set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|altera_reset_controller:rst_controller_004" -section_id shell
+set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|altera_reset_controller:rst_controller_005" -section_id shell
+set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|altera_reset_controller:rst_controller_006" -section_id shell
+set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|altera_reset_controller:rst_controller_007" -section_id shell
+set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|altera_reset_controller:rst_controller_008" -section_id shell
+set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|altera_reset_controller:rst_controller_009" -section_id shell
+set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|soc_system_DMA_to_SDRAM:dma_to_sdram" -section_id shell
+set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|soc_system_hps_0:hps_0" -section_id shell
+set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|soc_system_irq_mapper:irq_mapper" -section_id shell
+set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|soc_system_irq_mapper_001:irq_mapper_001" -section_id shell
+set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0" -section_id shell
+set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|soc_system_mm_interconnect_1:mm_interconnect_1" -section_id shell
+set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|soc_system_mm_interconnect_2:mm_interconnect_2" -section_id shell
+set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|soc_system_mm_interconnect_3:mm_interconnect_3" -section_id shell
+set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|soc_system_mm_interconnect_4:mm_interconnect_4" -section_id shell
+set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|soc_system_mm_interconnect_5:mm_interconnect_5" -section_id shell
+set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|soc_system_mm_interconnect_6:mm_interconnect_6" -section_id shell
+set_global_assignment -name SDC_FILE DE10_NANO_SOC_GHRD.sdc
+set_global_assignment -name VERILOG_FILE ./ghrd_ips/intr_capturer/intr_capturer.v
+set_global_assignment -name VERILOG_FILE ./ghrd_ips/edge_detect/altera_edge_detector.v
+set_global_assignment -name VERILOG_FILE ./ghrd_ips/debounce/debounce.v
+set_global_assignment -name QIP_FILE ./ghrd_ips/altsource_probe/hps_reset.qip
+set_global_assignment -name QIP_FILE soc_system/synthesis/soc_system.qip
+set_instance_assignment -name LL_MEMBER_OF aes -to "soc_system:u0|aes:aes_0" -section_id aes
+
+set_location_assignment FF_X33_Y29_N1 -to "soc_system:u0|pulsegenerator:pulsegenerator|M_AVST_DATA[0]"
+set_instance_assignment -name DONT_MERGE_REGISTER OFF -to "soc_system:u0|pulsegenerator:pulsegenerator" -disable
+set_instance_assignment -name DONT_MERGE_REGISTER OFF -to "soc_system:u0|tdc_top:tdc_0" -disable
+set_instance_assignment -name GLOBAL_SIGNAL GLOBAL_CLOCK -to "soc_system:u0|soc_system_theta_clks:theta_clks|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|divclk[0]" -disable
+set_instance_assignment -name GLOBAL_SIGNAL GLOBAL_CLOCK -to "soc_system:u0|soc_system_theta_clks:theta_clks|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|divclk[1]" -disable
+set_instance_assignment -name GLOBAL_SIGNAL GLOBAL_CLOCK -to "soc_system:u0|soc_system_shell_pll:shell_pll|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|divclk[0]" -disable
+set_instance_assignment -name GLOBAL_SIGNAL GLOBAL_CLOCK -to "soc_system:u0|soc_system_shell_pll:shell_pll|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|divclk[1]" -disable
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
