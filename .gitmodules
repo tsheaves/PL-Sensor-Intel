@@ -1,4 +1,0 @@
-[submodule "SW/PYNQ"]
-	path = SW/PYNQ
-	url = git@github.com:Xilinx/PYNQ.git
-	branch = master

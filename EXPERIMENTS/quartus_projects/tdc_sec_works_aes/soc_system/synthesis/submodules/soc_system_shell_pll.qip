@@ -1,1 +1,0 @@
-set_instance_assignment -name PLL_COMPENSATION_MODE DIRECT -to "*soc_system_shell_pll*|altera_pll:altera_pll_i*|*"
