@@ -9,8 +9,8 @@ EXPERIMENTS/**/db
 EXPERIMENTS/**/incremental_db
 EXPERIMENTS/**/*.BAK*
 EXPERIMENTS/**/*.bak*
-EXPERIMENTS/**/work/*
-EXPERIMENTS/**/synthesis/*
+EXPERIMENTS/**/work
+EXPERIMENTS/**/synthesis
 !EXPERIMENTS/**/*.c
 !EXPERIMENTS/**/*.h
 !EXPERIMENTS/**/*.py
