@@ -11,6 +11,8 @@ EXPERIMENTS/**/*.BAK*
 EXPERIMENTS/**/*.bak*
 EXPERIMENTS/**/work
 EXPERIMENTS/**/synthesis
+EXPERIMENTS/**/quartus_projects/**/*.csv
+EXPERIMENTS/**/quartus_projects/**/*.qsys
 !EXPERIMENTS/**/*.c
 !EXPERIMENTS/**/*.h
 !EXPERIMENTS/**/*.py
