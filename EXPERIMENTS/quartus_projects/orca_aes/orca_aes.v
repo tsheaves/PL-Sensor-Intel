@@ -1,4 +1,4 @@
-module tdc_sec_works_aes(
+module orca_aes(
     //////////// CLOCK //////////
     input               FPGA_CLK1_50,
     input               FPGA_CLK2_50,
