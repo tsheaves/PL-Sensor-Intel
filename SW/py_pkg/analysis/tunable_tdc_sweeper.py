@@ -462,7 +462,7 @@ class TunableTDCSweeper():
                 self.theta_cfg.hold_reset()
                 # Configure phi PLL
                 phase_shift = [{"phase_updn":0, "phase_amt":ps_bumps}]
-                self.theta_cfg.update_all_50(m, n, [c], "high", 1, phase_shift)
+                self.phi_cfg.update_all_50(m, n, [c], "high", 1, phase_shift)
                 # Complete reset sequence of theta PLL
                 self.theta_cfg.reset()
                 # Reconfigure theta PLL
