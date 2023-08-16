@@ -2,4 +2,5 @@ DATE = "17:14:54 March 04, 2015"
 QUARTUS_VERSION = "14.1"
 
 # Revisions
-PROJECT_REVISION = "theta_tune"
+
+PROJECT_REVISION = "tdc_sec_works_aes"
