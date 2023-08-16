@@ -29,9 +29,6 @@ set_global_assignment -name POST_FLOW_SCRIPT_FILE "quartus_sh:./flow_scripts/pos
 #============================================================
 # Files
 #============================================================
-set_global_assignment -name SOURCE_TCL_SCRIPT_FILE ./include_soc_files.tcl
-set_global_assignment -name VERILOG_FILE ./orca_aes.v
-set_global_assignment -name QSYS_FILE ./soc_system.qsys
 
 #============================================================
 # Include pin assignments
@@ -52,3 +49,46 @@ source ./constraints/clock_assignments.tcl
 # SDC
 #============================================================
 source ./constraints/sec_works_aes.sdc
+
+set_global_assignment -name QIP_FILE soc_system/synthesis/soc_system.qip
+set_global_assignment -name SOURCE_TCL_SCRIPT_FILE ./include_soc_files.tcl
+set_global_assignment -name VERILOG_FILE ../../../IP//soc_system_common/intr_capturer/intr_capturer.v
+set_global_assignment -name VERILOG_FILE ../../../IP//soc_system_common/edge_detect/altera_edge_detector.v
+set_global_assignment -name VERILOG_FILE ../../../IP//soc_system_common/debounce/debounce.v
+set_global_assignment -name QIP_FILE ../../../IP//soc_system_common/altsource_probe/hps_reset.qip
+set_global_assignment -name VERILOG_FILE ./orca_aes.v
+set_global_assignment -name QSYS_FILE ./soc_system.qsys
+set_global_assignment -name LL_ENABLED ON -section_id orca
+set_global_assignment -name LL_AUTO_SIZE OFF -section_id orca
+set_global_assignment -name LL_STATE LOCKED -section_id orca
+set_global_assignment -name LL_RESERVED ON -section_id orca
+set_global_assignment -name LL_CORE_ONLY OFF -section_id orca
+set_global_assignment -name LL_SECURITY_ROUTING_INTERFACE OFF -section_id orca
+set_global_assignment -name LL_IGNORE_IO_BANK_SECURITY_CONSTRAINT OFF -section_id orca
+set_global_assignment -name LL_PR_REGION OFF -section_id orca
+set_global_assignment -name LL_ROUTING_REGION EXPANDED -section_id orca
+set_global_assignment -name LL_ROUTING_REGION_EXPANSION_SIZE 0 -section_id orca
+set_global_assignment -name LL_WIDTH 30 -section_id orca
+set_global_assignment -name LL_HEIGHT 16 -section_id orca
+set_global_assignment -name LL_ORIGIN X48_Y20 -section_id orca
+set_instance_assignment -name LL_MEMBER_OF orca -to "soc_system:u0|altera_avalon_mm_clock_crossing_bridge:ipsync_bridge_orca" -section_id orca
+set_instance_assignment -name LL_MEMBER_OF orca -to "soc_system:u0|altera_avalon_mm_clock_crossing_bridge:ipsync_to_orca_delay" -section_id orca
+set_instance_assignment -name LL_MEMBER_OF orca -to "soc_system:u0|altera_reset_controller:orca_reset_controller" -section_id orca
+set_instance_assignment -name LL_MEMBER_OF orca -to "soc_system:u0|ip_sync:ip_sync_orca" -section_id orca
+set_instance_assignment -name LL_MEMBER_OF orca -to "soc_system:u0|orca:orca" -section_id orca
+set_instance_assignment -name LL_MEMBER_OF orca -to "soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_master_translator:ip_sync_orca_avalon_master_translator" -section_id orca
+set_instance_assignment -name LL_MEMBER_OF orca -to "soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:ipsync_to_orca_delay_s0_translator" -section_id orca
+set_instance_assignment -name LL_MEMBER_OF orca -to "soc_system:u0|soc_system_mm_interconnect_2:mm_interconnect_2|altera_merlin_master_translator:orca_data_translator" -section_id orca
+set_instance_assignment -name LL_MEMBER_OF orca -to "soc_system:u0|soc_system_mm_interconnect_3:mm_interconnect_3|altera_avalon_sc_fifo:ipsync_bridge_orca_s0_agent_rdata_fifo" -section_id orca
+set_instance_assignment -name LL_MEMBER_OF orca -to "soc_system:u0|soc_system_mm_interconnect_3:mm_interconnect_3|altera_avalon_sc_fifo:ipsync_bridge_orca_s0_agent_rsp_fifo" -section_id orca
+set_instance_assignment -name LL_MEMBER_OF orca -to "soc_system:u0|soc_system_mm_interconnect_3:mm_interconnect_3|altera_merlin_burst_adapter:ipsync_bridge_orca_s0_burst_adapter" -section_id orca
+set_instance_assignment -name LL_MEMBER_OF orca -to "soc_system:u0|soc_system_mm_interconnect_3:mm_interconnect_3|altera_merlin_slave_agent:ipsync_bridge_orca_s0_agent" -section_id orca
+set_instance_assignment -name LL_MEMBER_OF orca -to "soc_system:u0|soc_system_mm_interconnect_3:mm_interconnect_3|altera_merlin_slave_translator:ipsync_bridge_orca_s0_translator" -section_id orca
+set_instance_assignment -name LL_MEMBER_OF orca -to "soc_system:u0|soc_system_mm_interconnect_5:mm_interconnect_5|altera_merlin_master_translator:orca_instruction_translator" -section_id orca
+set_instance_assignment -name LL_MEMBER_OF orca -to "soc_system:u0|soc_system_mm_interconnect_7:mm_interconnect_7|altera_merlin_master_translator:ipsync_bridge_orca_m0_translator" -section_id orca
+set_instance_assignment -name LL_MEMBER_OF orca -to "soc_system:u0|soc_system_mm_interconnect_7:mm_interconnect_7|altera_merlin_slave_translator:ip_sync_orca_avalon_slave_translator" -section_id orca
+set_instance_assignment -name LL_MEMBER_OF orca -to "soc_system:u0|soc_system_orca_reset_pio:orca_reset_pio" -section_id orca
+set_instance_assignment -name LL_MEMBER_OF orca -to "soc_system:u0|soc_system_orca_reset_pio:phi_pll_reset_pio" -section_id orca
+set_instance_assignment -name LL_MEMBER_OF orca -to "soc_system:u0|soc_system_orca_reset_pio:tdc_reset_pio" -section_id orca
+set_instance_assignment -name LL_MEMBER_OF orca -to "soc_system:u0|soc_system_orca_reset_pio:theta_pll_reset_pio" -section_id orca
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

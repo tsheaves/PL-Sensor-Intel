@@ -1,4 +1,4 @@
-module orca_aes(
+module tdc_sec_works_aes(
     //////////// CLOCK //////////
     input               FPGA_CLK1_50,
     input               FPGA_CLK2_50,
@@ -36,7 +36,8 @@ module orca_aes(
 //
 //
 //wire [4:0] phase_cntsel;
-wire [31:0] theta_pll_reset, phi_pll_reset, tdc_reset, orca_reset;
+
+wire [31:0] theta_pll_reset, phi_pll_reset, tdc_reset, aes_reset;
 wire theta_pll_locked, phi_pll_locked;
 
 //=======================================================
@@ -70,8 +71,8 @@ wire theta_pll_locked, phi_pll_locked;
 		.locked_theta_out_export(theta_pll_locked),                  //                               locked_theta_out.export
 		.tdc_reset_in_reset(tdc_reset[0]),                 
 		.tdc_reset_out_export(tdc_reset | ~theta_pll_locked),
-		.orca_reset_out_export(orca_reset),
-		.orca_reset_in_reset(orca_reset[0])
+		.aes_reset_out_export(aes_reset),
+		.aes_reset_in_reset(aes_reset[0])
 	);
 
 endmodule
