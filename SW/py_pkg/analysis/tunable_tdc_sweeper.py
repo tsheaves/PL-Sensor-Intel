@@ -384,11 +384,13 @@ class TunableTDCSweeper():
                             min_var = var_pop
                             target_idx = index
                         
-        self.tuned_theta_m        = theta_cfg_params.at[target_idx , 'M']
-        self.tuned_theta_n        = theta_cfg_params.at[target_idx , 'D']
-        self.tuned_theta_c        = theta_cfg_params.at[target_idx , 'O']
-        self.tuned_ps_bumps_theta = theta_cfg_params.at[target_idx , 'n']
+        self.tuned_theta_m        = int(theta_cfg_params.at[target_idx , 'M'])
+        self.tuned_theta_n        = int(theta_cfg_params.at[target_idx , 'D'])
+        self.tuned_theta_c        = int(theta_cfg_params.at[target_idx , 'O'])
+        self.tuned_ps_bumps_theta = int(theta_cfg_params.at[target_idx , 'n'])
         self.tuned_theta_delay_ps = theta_cfg_params.at[target_idx , 'delay (ps)']
+        
+        
         
         if tuning_param == "mid":
             if tune_rise:
@@ -413,6 +415,11 @@ class TunableTDCSweeper():
                 tuned_val = self.tuned_theta_minvar_fall
         
         print(f"Theta tuning complete! {tuning_param}={tuned_val}")
+        print(f"\t          M:{self.tuned_theta_m}")
+        print(f"\t          N:{self.tuned_theta_n}")
+        print(f"\t          C:{self.tuned_theta_c}")
+        print(f"\tPhase Bumps:{self.tuned_ps_bumps_theta}")
+        print(f"\t Delay (ps):{self.tuned_theta_delay_ps}")
 
     def sweep_phi(self, phi_cfg_params, theta_samples, sweep_data_fh="phi_sweep.csv"):
 
@@ -427,19 +434,19 @@ class TunableTDCSweeper():
            os.makedirs(output_dir)
 
         phi_sweep_plot_data = {
-            "delta mu fall bg"  : [],
-            "delta mu rise bg"  : [],
-            "delta mu fall aes" : [],
-            "delta mu rise aes" : [],
-            "diff mu rise"      : [],
-            "diff mu fall"      : [],
-            "var fall bg"       : [],
-            "var rise bg"       : [],
-            "var fall aes"      : [],
-            "var rise aes"      : [],
-            "diff var rise"     : [],
-            "diff var fall"     : [],
-            "phi delay (ps)"    : []
+            "delta mu fall bg"     : [],
+            "delta mu rise bg"     : [],
+            "delta mu fall target" : [],
+            "delta mu rise target" : [],
+            "diff mu rise"         : [],
+            "diff mu fall"         : [],
+            "var fall bg"          : [],
+            "var rise bg"          : [],
+            "var fall target"      : [],
+            "var rise target"      : [],
+            "diff var rise"        : [],
+            "diff var fall"        : [],
+            "phi delay (ps)"       : []
         }
 
         with progressbar.ProgressBar(max_value=len(phi_cfg_params.index)) as bar:
@@ -464,16 +471,16 @@ class TunableTDCSweeper():
                 phase_shift = [{"phase_updn":0, "phase_amt":ps_bumps}]
                 self.phi_cfg.update_all_50(m, n, [c], "high", 1, phase_shift)
                 # Complete reset sequence of theta PLL
-                self.theta_cfg.reset()
+                self.theta_cfg.reset_pll()
                 # Reconfigure theta PLL
-                phase_shift = [{"phase_updn":0, "phase_amt":0},{"phase_updn":0,"phase_amt":ps_bumps}]
-                self.theta_cfg.update_all_50(
-                    self.tuned_theta_m, 
-                    self.tuned_theta_n, 
-                    [self.tuned_theta_c, self.tuned_theta_c], 
-                    "high", 
-                    1, 
-                    self.tuned_ps_bumps_theta)
+                phase_shift = [{"phase_updn":0, "phase_amt":0},{"phase_updn":0,"phase_amt":self.tuned_ps_bumps_theta}]
+                self.theta_cfg.update_all_50( \
+                    self.tuned_theta_m, \
+                    self.tuned_theta_n, \
+                    [self.tuned_theta_c, self.tuned_theta_c], \
+                    "high", \
+                    1, \
+                    phase_shift)
                 # Complete reset sequence of TDC
                 self.pulsegen.reset()
 
@@ -508,8 +515,8 @@ class TunableTDCSweeper():
 
                 phi_sweep_plot_data["delta mu fall bg"].append(mean_falling_pop_bg - self.tuned_theta_avg_fall)
                 phi_sweep_plot_data["delta mu rise bg"].append(mean_rising_pop_bg - self.tuned_theta_avg_rise)
-                phi_sweep_plot_data["var fall bg"].append(var_falling_pop_bg)
-                phi_sweep_plot_data["var rise bg"].append(var_rising_pop_bg)
+                phi_sweep_plot_data["var fall bg"].append(var_pop_falling_bg)
+                phi_sweep_plot_data["var rise bg"].append(var_pop_rising_bg)
 
                  # Collect samples, and calculate averages
                 samples = []
@@ -558,14 +565,14 @@ class TunableTDCSweeper():
 
                 phi_sweep_plot_data["delta mu fall target"].append(mean_falling_pop_target - self.tuned_theta_avg_fall)
                 phi_sweep_plot_data["delta mu rise target"].append(mean_rising_pop_target - self.tuned_theta_avg_rise)
-                phi_sweep_plot_data["var fall target"].append(var_falling_pop_target)
-                phi_sweep_plot_data["var rise target"].append(var_rising_pop_target)
+                phi_sweep_plot_data["var fall target"].append(var_pop_falling_target)
+                phi_sweep_plot_data["var rise target"].append(var_pop_rising_target)
 
                 phi_sweep_plot_data["phi delay (ps)"].append(row['delay (ps)'])
                 phi_sweep_plot_data['diff mu fall'].append(mean_falling_pop_target - mean_falling_pop_bg)
                 phi_sweep_plot_data['diff mu rise'].append(mean_rising_pop_target - mean_rising_pop_bg)
-                phi_sweep_plot_data['diff var fall'].append(var_falling_pop_target - var_falling_pop_bg)
-                phi_sweep_plot_data['diff var rise'].append(var_rising_pop_target - var_rising_pop_bg)
+                phi_sweep_plot_data['diff var fall'].append(var_pop_falling_target - var_pop_falling_bg)
+                phi_sweep_plot_data['diff var rise'].append(var_pop_rising_target - var_pop_rising_bg)
 
         phi_sweep_df = pd.DataFrame(phi_sweep_plot_data)
         phi_sweep_df.to_csv(sweep_data_fh)
