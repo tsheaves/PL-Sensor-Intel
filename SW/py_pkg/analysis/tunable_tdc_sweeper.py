@@ -32,6 +32,7 @@ class TunableTDCSweeper():
         self.tuned_theta_maxvar_fall = 0
         self.tuned_theta_minvar_rise = 0
         self.tuned_theta_minvar_fall = 0
+        self.tuned_theta_delay_ps    = 0
 
     def __closest_idx__(self, lst, K):
         return min(range(len(lst)), key=lambda i: abs(lst[i]-K))
@@ -174,6 +175,8 @@ class TunableTDCSweeper():
             "ps_bumps"         : []
         }
         
+        theta_cfg_params = theta_cfg_params.reset_index()
+        
         with progressbar.ProgressBar(max_value=len(theta_cfg_params.index)) as bar:    
             # Sweep through theta PLL configurations to generate a calibrated theta offset
             for index, row in theta_cfg_params.iterrows():
@@ -288,7 +291,7 @@ class TunableTDCSweeper():
         theta_sweep_df.to_csv(sweep_data_fh)
     
     def pop_tune_theta(self, theta_cfg_params, theta_samples, sweep_params,
-                           tune_rise=False, tune_param="mid"):
+                           tune_rise=False, tuning_param="mid"):
         '''
         This function is for fast theta tuning on popcounts only, it won't yield any plot data
             and has no debug support
@@ -310,6 +313,8 @@ class TunableTDCSweeper():
         elif tuning_param == "min_var":
             min_var = self.tdc_len**2
         
+        theta_cfg_params = theta_cfg_params.reset_index()
+        
         with progressbar.ProgressBar(max_value=len(theta_cfg_params.index)) as bar:    
             # Sweep through theta PLL configurations to generate a calibrated theta offset
             for index, row in theta_cfg_params.iterrows():
@@ -329,58 +334,61 @@ class TunableTDCSweeper():
                     self.theta_cfg.update_all_50(m, n, [c,c], "high", 1, phase_shift)
                     self.pulsegen.reset()
                 
-                # Collect samples, and calculate averages
-                samples = []
-                theta_samples_temp = theta_samples
+                    # Collect samples, and calculate averages
+                    samples = []
+                    theta_samples_temp = theta_samples
 
-                # Sample n_seq sample sequences
-                while(theta_samples_temp > max_transfer_samples):
+                    # Sample n_seq sample sequences
+                    while(theta_samples_temp > max_transfer_samples):
+                        # Prime pulse generator
+                        self.pulsegen.prime(0, max_transfer_samples)
+                        # Collect TDC traces and append to samples
+                        samples = samples + self.dma.get_dma_words(max_transfer_samples, tdc_sample_bytes)
+                        theta_samples_temp -= max_transfer_samples
+
                     # Prime pulse generator
-                    self.pulsegen.prime(0, max_transfer_samples)
+                    self.pulsegen.prime(0, theta_samples_temp)
                     # Collect TDC traces and append to samples
-                    samples = samples + self.dma.get_dma_words(max_transfer_samples, tdc_sample_bytes)
-                    theta_samples_temp -= max_transfer_samples
+                    samples = samples + self.dma.get_dma_words(theta_samples_temp, tdc_sample_bytes)   
 
-                # Prime pulse generator
-                self.pulsegen.prime(0, theta_samples_temp)
-                # Collect TDC traces and append to samples
-                samples = samples + self.dma.get_dma_words(theta_samples_temp, tdc_sample_bytes)   
-                
-                # Calculate pop counts
-                pop_counts_rising, pop_counts_falling \
-                    = self.__calc_pop_counts__(falling_samples, rising_samples)
-                
-                if tuning_param == "mid":
-                    if tune_rise:
-                        mean_pop = np.mean(pop_counts_rising)
-                    else:
-                        mean_pop = np.mean(pop_counts_falling)
-                    if((mean_pop - mid) < min_mid_diff):
-                        min_mid_diff = mean_pop
-                        target_idx = index
-                elif tuning_param == "max var":
-                    if tune_rise:
-                        var_pop = np.var(pop_counts_rising, ddof=0)
-                    else:
-                        var_pop = np.var(pop_counts_falling, ddof=0)
-                    if(var_pop > max_var):
-                        max_var = var_pop
-                        target_idx = index
-                elif tuning_param == "min_var":
-                    if tune_rise:
-                        var_pop = np.var(pop_counts_rising, ddof=0)
-                    else:
-                        var_pop = np.var(pop_counts_falling, ddof=0)
-                    if(var_pop < min_var):
-                        min_var = var_pop
-                        target_idx = index
+                    # Partition samples into rising and falling
+                    falling_samples, rising_samples \
+                        = self.__decode_samples__(samples)
+
+                    # Calculate pop counts
+                    pop_counts_rising, pop_counts_falling \
+                        = self.__calc_pop_counts__(falling_samples, rising_samples)
+
+                    if tuning_param == "mid":
+                        if tune_rise:
+                            mean_pop = np.mean(pop_counts_rising)
+                        else:
+                            mean_pop = np.mean(pop_counts_falling)
+                        if(abs(mean_pop - mid) < min_mid_diff):
+                            min_mid_diff = abs(mean_pop - mid)
+                            target_idx = index
+                    elif tuning_param == "max var":
+                        if tune_rise:
+                            var_pop = np.var(pop_counts_rising, ddof=0)
+                        else:
+                            var_pop = np.var(pop_counts_falling, ddof=0)
+                        if(var_pop > max_var):
+                            max_var = var_pop
+                            target_idx = index
+                    elif tuning_param == "min_var":
+                        if tune_rise:
+                            var_pop = np.var(pop_counts_rising, ddof=0)
+                        else:
+                            var_pop = np.var(pop_counts_falling, ddof=0)
+                        if(var_pop < min_var):
+                            min_var = var_pop
+                            target_idx = index
                         
-        target_row                = theta_cfg_params.iloc[[4]]
-        self.tuned_theta_m        = target_row["m"]
-        self.tuned_theta_n        = target_row["n"]
-        self.tuned_theta_c        = target_row["c"]
-        self.tuned_ps_bumps_theta = target_row["n"]
-        
+        self.tuned_theta_m        = theta_cfg_params.at[target_idx , 'M']
+        self.tuned_theta_n        = theta_cfg_params.at[target_idx , 'D']
+        self.tuned_theta_c        = theta_cfg_params.at[target_idx , 'O']
+        self.tuned_ps_bumps_theta = theta_cfg_params.at[target_idx , 'n']
+        self.tuned_theta_delay_ps = theta_cfg_params.at[target_idx , 'delay (ps)']
         
         if tuning_param == "mid":
             if tune_rise:
@@ -436,7 +444,7 @@ class TunableTDCSweeper():
 
         with progressbar.ProgressBar(max_value=len(phi_cfg_params.index)) as bar:
             # Sweep through theta PLL configurations to generate a calibrated theta offset
-            for index, row in theta_cfg_params.iterrows():
+            for index, row in phi_cfg_params.iterrows():
                 bar.update(index)
 
                 # Pull phi config from DF
