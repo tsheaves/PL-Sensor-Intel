@@ -4,14 +4,16 @@ sys.path.append('../../pd_ip')
 # importing
 from pd_ip.pd_ip import pd_ip
 from Crypto.Cipher import AES
+import warnings
 
 class sec_works_aes(pd_ip):
     def __init__(
         self, ip_dict={}, ifc_base=0x0000, mmio_path="", 
-        mmio_init = True, key=[], reset_pio=None
+        mmio_init = True, key=[], ctxt=None, reset_pio=None
     ):
         super().__init__(ip_dict, ifc_base, mmio_path, mmio_init)
         self.key = key
+        self.ctxt = ctxt
         self.reset_pio = reset_pio
     
     def reset(self):
@@ -33,7 +35,9 @@ class sec_works_aes(pd_ip):
         ADDR_CONFIG    = 0x0A << 2
         ADDR_KEY0      = 0x10 << 2
         ADDR_BLOCK0    = 0x20 << 2
-
+        
+        self.ctxt = ctxt
+        
         # Load key
         for idx, key_word in enumerate(self.key):
             self.write_csr(ADDR_KEY0 + ((idx) << 2), 4, key_word)
@@ -71,6 +75,20 @@ class sec_works_aes(pd_ip):
         ctxt_check = self.__word_combine__(ctxt, 4, 32).to_bytes(16, 'big')
         decipher = AES.new(key_check, AES.MODE_ECB)
         ptxt_check = decipher.decrypt(ctxt_check)
-
+        
+        check = ptxt_check != ptxt_rslt
+        
+        if(check):
+            warnings.warn(f"AES 128-bit ECB did not match Python reference!")
+        
         # Return check
-        return (ptxt_check != ptxt_rslt)
+        return check
+    
+    def run(self):
+        self.aes_decrypt_ecb_128_run()
+
+    def pre(self):
+        self.aes_decrypt_ecb_128_prime(self.ctxt)
+        
+    def post(self):
+        self.aes_decrypt_ecb_128_check(self.ctxt)

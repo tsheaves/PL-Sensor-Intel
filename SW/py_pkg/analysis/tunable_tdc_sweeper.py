@@ -10,13 +10,18 @@ from matplotlib.ticker import MultipleLocator
 
 class TunableTDCSweeper():
     def __init__(
-        self, theta_cfg=None, phi_cfg=None, pulsegen=None, dma = None, tdc_len = 128
+        self, theta_cfg=None, phi_cfg=None, 
+        pulsegen=None, dma = None, tdc_len = 128, 
+        target_ip = None
     ):
         self.theta_cfg = theta_cfg
         self.phi_cfg = phi_cfg
         self.pulsegen = pulsegen
         self.dma = dma
         self.tdc_len = tdc_len
+        self.target_ip = target_ip
+        
+        # Initialize tuning parameters
         self.tuned_theta_m        = 0
         self.tuned_theta_n        = 0
         self.tuned_theta_c        = 0
@@ -282,7 +287,7 @@ class TunableTDCSweeper():
         theta_sweep_df = pd.DataFrame(theta_sweep_plot_data)
         theta_sweep_df.to_csv(sweep_data_fh)
     
-    def __pop_tune_theta__(self, phi_cfg_params, theta_samples, sweep_params,
+    def pop_tune_theta(self, theta_cfg_params, theta_samples, sweep_params,
                            tune_rise=False, tune_param="mid"):
         '''
         This function is for fast theta tuning on popcounts only, it won't yield any plot data
@@ -376,24 +381,32 @@ class TunableTDCSweeper():
         self.tuned_theta_c        = target_row["c"]
         self.tuned_ps_bumps_theta = target_row["n"]
         
+        
         if tuning_param == "mid":
             if tune_rise:
                 self.tuned_theta_avg_rise = min_mid_diff + mid
+                tuned_val = self.tuned_theta_avg_rise
             else:
                 self.tuned_theta_avg_fall = min_mid_diff + mid
+                tuned_val = self.tuned_theta_avg_fall
         elif tuning_param == "max var":
             if tune_rise:
                 self.tuned_theta_maxvar_rise = max_var
+                tuned_val = self.tuned_theta_maxvar_rise
             else:
                 self.tuned_theta_maxvar_fall = max_var
+                tuned_val = self.tuned_theta_maxvar_fall
         elif tuning_param == "min_var":
             if tune_rise:
                 self.tuned_theta_minvar_rise = min_var
+                tuned_val = self.tuned_theta_minvar_rise
             else:
                 self.tuned_theta_minvar_fall = min_var
+                tuned_val = self.tuned_theta_minvar_fall
+        
+        print(f"Theta tuning complete! {tuning_param}={tuned_val}")
 
-    def sweep_phi(self, phi_cfg_params, phi_cfg_params, theta_samples,
-                  sweep_params, sweep_data_fh="phi_sweep.csv", debug=0):
+    def sweep_phi(self, phi_cfg_params, theta_samples, sweep_data_fh="phi_sweep.csv"):
 
         tdc_sample_bytes     = ceil(self.tdc_len/8)
         theta_samples_bytes  = theta_samples * tdc_sample_bytes
@@ -444,10 +457,19 @@ class TunableTDCSweeper():
                 self.theta_cfg.update_all_50(m, n, [c], "high", 1, phase_shift)
                 # Complete reset sequence of theta PLL
                 self.theta_cfg.reset()
+                # Reconfigure theta PLL
+                phase_shift = [{"phase_updn":0, "phase_amt":0},{"phase_updn":0,"phase_amt":ps_bumps}]
+                self.theta_cfg.update_all_50(
+                    self.tuned_theta_m, 
+                    self.tuned_theta_n, 
+                    [self.tuned_theta_c, self.tuned_theta_c], 
+                    "high", 
+                    1, 
+                    self.tuned_ps_bumps_theta)
                 # Complete reset sequence of TDC
                 self.pulsegen.reset()
 
-                # Collect samples, and calculate averages
+                # Collect samples
                 samples = []
                 theta_samples_temp = theta_samples
 
