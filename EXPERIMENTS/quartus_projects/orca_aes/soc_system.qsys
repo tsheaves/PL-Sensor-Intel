@@ -1241,7 +1241,7 @@
    enabled="1">
   <parameter name="allowInSystemMemoryContentEditor" value="false" />
   <parameter name="autoInitializationFileName">$${FILENAME}_aux_data_mem</parameter>
-  <parameter name="blockType" value="AUTO" />
+  <parameter name="blockType" value="M10K" />
   <parameter name="copyInitFile" value="false" />
   <parameter name="dataWidth" value="32" />
   <parameter name="dataWidth2" value="32" />
@@ -1251,7 +1251,7 @@
   <parameter name="ecc_enabled" value="false" />
   <parameter name="enPRInitMode" value="false" />
   <parameter name="enableDiffWidth" value="false" />
-  <parameter name="initMemContent" value="true" />
+  <parameter name="initMemContent" value="false" />
   <parameter name="initializationFileName" value="onchip_mem.hex" />
   <parameter name="instanceID" value="NONE" />
   <parameter name="memorySize" value="131072" />
@@ -1273,7 +1273,7 @@
    enabled="1">
   <parameter name="allowInSystemMemoryContentEditor" value="false" />
   <parameter name="autoInitializationFileName">$${FILENAME}_aux_inst_mem</parameter>
-  <parameter name="blockType" value="AUTO" />
+  <parameter name="blockType" value="M10K" />
   <parameter name="copyInitFile" value="false" />
   <parameter name="dataWidth" value="32" />
   <parameter name="dataWidth2" value="32" />
@@ -2975,7 +2975,7 @@
    enabled="1">
   <parameter name="allowInSystemMemoryContentEditor" value="false" />
   <parameter name="autoInitializationFileName">$${FILENAME}_uc_data_mem</parameter>
-  <parameter name="blockType" value="AUTO" />
+  <parameter name="blockType" value="M10K" />
   <parameter name="copyInitFile" value="false" />
   <parameter name="dataWidth" value="32" />
   <parameter name="dataWidth2" value="32" />
@@ -2985,7 +2985,7 @@
   <parameter name="ecc_enabled" value="false" />
   <parameter name="enPRInitMode" value="false" />
   <parameter name="enableDiffWidth" value="false" />
-  <parameter name="initMemContent" value="true" />
+  <parameter name="initMemContent" value="false" />
   <parameter name="initializationFileName" value="onchip_mem.hex" />
   <parameter name="instanceID" value="NONE" />
   <parameter name="memorySize" value="2048" />

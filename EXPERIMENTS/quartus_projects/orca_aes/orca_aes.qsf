@@ -68,9 +68,9 @@ set_global_assignment -name LL_IGNORE_IO_BANK_SECURITY_CONSTRAINT OFF -section_i
 set_global_assignment -name LL_PR_REGION OFF -section_id orca
 set_global_assignment -name LL_ROUTING_REGION EXPANDED -section_id orca
 set_global_assignment -name LL_ROUTING_REGION_EXPANSION_SIZE 0 -section_id orca
-set_global_assignment -name LL_WIDTH 30 -section_id orca
-set_global_assignment -name LL_HEIGHT 16 -section_id orca
-set_global_assignment -name LL_ORIGIN X48_Y20 -section_id orca
+set_global_assignment -name LL_WIDTH 40 -section_id orca
+set_global_assignment -name LL_HEIGHT 28 -section_id orca
+set_global_assignment -name LL_ORIGIN X48_Y8 -section_id orca
 set_instance_assignment -name LL_MEMBER_OF orca -to "soc_system:u0|altera_avalon_mm_clock_crossing_bridge:ipsync_bridge_orca" -section_id orca
 set_instance_assignment -name LL_MEMBER_OF orca -to "soc_system:u0|altera_avalon_mm_clock_crossing_bridge:ipsync_to_orca_delay" -section_id orca
 set_instance_assignment -name LL_MEMBER_OF orca -to "soc_system:u0|altera_reset_controller:orca_reset_controller" -section_id orca
@@ -91,4 +91,5 @@ set_instance_assignment -name LL_MEMBER_OF orca -to "soc_system:u0|soc_system_or
 set_instance_assignment -name LL_MEMBER_OF orca -to "soc_system:u0|soc_system_orca_reset_pio:phi_pll_reset_pio" -section_id orca
 set_instance_assignment -name LL_MEMBER_OF orca -to "soc_system:u0|soc_system_orca_reset_pio:tdc_reset_pio" -section_id orca
 set_instance_assignment -name LL_MEMBER_OF orca -to "soc_system:u0|soc_system_orca_reset_pio:theta_pll_reset_pio" -section_id orca
+set_instance_assignment -name LL_MEMBER_OF orca -to "soc_system:u0|soc_system_uc_data_mem:uc_data_mem" -section_id orca
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
