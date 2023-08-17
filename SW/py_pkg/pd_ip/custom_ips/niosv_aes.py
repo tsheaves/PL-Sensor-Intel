@@ -18,10 +18,12 @@ class niosv_aes(pd_ip):
         
     def reset(self):
         self.write_csr(0,4,1)
+        self.periph_mem.write_csr(0x0, 4, 0x00000000)
         self.write_csr(0,4,0)
         
     def hold_reset(self):
         self.write_csr(0,4,1)
+        self.periph_mem.write_csr(0x0, 4, 0x00000000)
     
     # Pretty simple because we only reset the CPU to activate and IP-Sync takes care of the rest
     def run(self):
@@ -49,6 +51,4 @@ class niosv_aes(pd_ip):
         if(timeout == 0):
             warnings.warn(f"Warning: ORCA did not wrap as expected!")
             self.__dump__()
-        else:
-            self.periph_mem.write_csr(0x0, 4, 0x00000000)
             

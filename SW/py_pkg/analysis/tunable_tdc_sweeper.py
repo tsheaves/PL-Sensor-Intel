@@ -437,40 +437,18 @@ class TunableTDCSweeper():
         theta_samples_bytes  = theta_samples * tdc_sample_bytes
         max_transfer_samples = floor(self.dma.max_transfer/tdc_sample_bytes)
 
-        output_dir = os.path.dirname(os.path.realpath(sweep_data_fh))
-        isExist = os.path.exists(output_dir)
-        if not isExist:
-           # Create a new directory because it does not exist
-           os.makedirs(output_dir)
-
-        phi_sweep_plot_data = {
-            "delta mu fall bg"     : [],
-            "delta mu rise bg"     : [],
-            "delta mu fall target" : [],
-            "delta mu rise target" : [],
-            "diff mu rise"         : [],
-            "diff mu fall"         : [],
-            "var fall bg"          : [],
-            "var rise bg"          : [],
-            "var fall target"      : [],
-            "var rise target"      : [],
-            "diff var rise"        : [],
-            "diff var fall"        : [],
-            "phi delay (ps)"       : []
-        }
-
         with progressbar.ProgressBar(max_value=len(phi_cfg_params.index)) as bar:
             # Sweep through theta PLL configurations to generate a calibrated theta offset
             for index, row in phi_cfg_params.iterrows():
                 bar.update(index)
-
+                
                 # Pull phi config from DF
                 m        = int(row['M'])
                 n        = int(row['D'])
                 c        = int(row['O'])
                 ps_bumps = int(row['n'])
                 delay_ps = row['delay (ps)']
-
+                
                 # Hold IP in reset during PLL reconfiguration
                 self.target_ip.hold_reset()
                 # Hold TDC in reset during PLL reconfiguration
@@ -493,47 +471,66 @@ class TunableTDCSweeper():
                     phase_shift)
                 # Complete reset sequence of TDC
                 self.pulsegen.reset()
+                
+                if(mode == "bg"):
+                
+                    # Collect samples
+                    samples = []
+                    theta_samples_temp = theta_samples
 
-                # Collect samples
-                samples = []
-                theta_samples_temp = theta_samples
+                    # Sample sequences
+                    while(theta_samples_temp > max_transfer_samples):
+                        # Prime pulse generator
+                        self.pulsegen.prime(0, max_transfer_samples)
+                        # Collect TDC traces and append to samples
+                        samples = samples + self.dma.get_dma_words(max_transfer_samples, tdc_sample_bytes)
+                        theta_samples_temp -= max_transfer_samples
 
-                # Sample sequences
-                while(theta_samples_temp > max_transfer_samples):
                     # Prime pulse generator
-                    self.pulsegen.prime(0, max_transfer_samples)
+                    self.pulsegen.prime(0, theta_samples_temp)
                     # Collect TDC traces and append to samples
-                    samples = samples + self.dma.get_dma_words(max_transfer_samples, tdc_sample_bytes)
-                    theta_samples_temp -= max_transfer_samples
+                    samples = samples + self.dma.get_dma_words(theta_samples_temp, tdc_sample_bytes)
 
-                # Prime pulse generator
-                self.pulsegen.prime(0, theta_samples_temp)
-                # Collect TDC traces and append to samples
-                samples = samples + self.dma.get_dma_words(theta_samples_temp, tdc_sample_bytes)
+                    # Partition samples into rising and falling
+                    falling_samples, rising_samples \
+                        = self.__decode_samples__(samples)
 
-                # Partition samples into rising and falling
-                falling_samples, rising_samples \
-                    = self.__decode_samples__(samples)
+                    # Calculate pop counts
+                    pop_counts_rising, pop_counts_falling \
+                        = self.__calc_pop_counts__(falling_samples, rising_samples)
 
-                # Calculate pop counts
-                pop_counts_rising, pop_counts_falling \
-                    = self.__calc_pop_counts__(falling_samples, rising_samples)
+                    # Calculate mean and variance of background pop counts
+                    mean_falling_pop_bg, mean_rising_pop_bg, var_pop_falling_bg, var_pop_rising_bg \
+                        = self.__process_pop_counts__(pop_counts_rising, pop_counts_falling )
+                    
+                    phi_sweep_plot_data["phi delay (ps)"].append(delay_ps)
+                    phi_sweep_plot_data["delta mu fall bg"].append(mean_falling_pop_bg - self.tuned_theta_avg_fall)
+                    phi_sweep_plot_data["delta mu rise bg"].append(mean_rising_pop_bg - self.tuned_theta_avg_rise)
+                    phi_sweep_plot_data["var fall bg"].append(var_pop_falling_bg)
+                    phi_sweep_plot_data["var rise bg"].append(var_pop_rising_bg)
 
-                # Calculate mean and variance of background pop counts
-                mean_falling_pop_bg, mean_rising_pop_bg, var_pop_falling_bg, var_pop_rising_bg \
-                    = self.__process_pop_counts__(pop_counts_rising, pop_counts_falling )
+                if(mode=="target"):
+                    
+                    # Collect samples, and calculate averages
+                    samples = []
+                    theta_samples_temp = theta_samples
 
-                phi_sweep_plot_data["delta mu fall bg"].append(mean_falling_pop_bg - self.tuned_theta_avg_fall)
-                phi_sweep_plot_data["delta mu rise bg"].append(mean_rising_pop_bg - self.tuned_theta_avg_rise)
-                phi_sweep_plot_data["var fall bg"].append(var_pop_falling_bg)
-                phi_sweep_plot_data["var rise bg"].append(var_pop_rising_bg)
+                    # Sample sequences
+                    while(theta_samples_temp > max_transfer_samples):
+                        # Reset target IP
+                        self.target_ip.reset()
+                        # Prepare target IP
+                        self.target_ip.pre()
+                        # Prime pulse generator
+                        self.pulsegen.prime(1, theta_samples_temp)
+                        # Run target IP
+                        self.target_ip.run()
+                        # Collect samples
+                        samples = samples + self.dma.get_dma_words(max_transfer_samples, tdc_sample_bytes)
+                        theta_samples_temp -= max_transfer_samples
+                        # Wait for target IP to wrap
+                        self.target_ip.post()
 
-                 # Collect samples, and calculate averages
-                samples = []
-                theta_samples_temp = theta_samples
-
-                # Sample sequences
-                while(theta_samples_temp > max_transfer_samples):
                     # Reset target IP
                     self.target_ip.reset()
                     # Prepare target IP
@@ -544,47 +541,58 @@ class TunableTDCSweeper():
                     self.target_ip.run()
                     # Collect samples
                     samples = samples + self.dma.get_dma_words(max_transfer_samples, tdc_sample_bytes)
-                    theta_samples_temp -= max_transfer_samples
                     # Wait for target IP to wrap
                     self.target_ip.post()
 
-                # Reset target IP
-                self.target_ip.reset()
-                # Prepare target IP
-                self.target_ip.pre()
-                # Prime pulse generator
-                self.pulsegen.prime(1, theta_samples_temp)
-                # Run target IP
-                self.target_ip.run()
-                # Collect samples
-                samples = samples + self.dma.get_dma_words(max_transfer_samples, tdc_sample_bytes)
-                # Wait for target IP to wrap
-                self.target_ip.post()
+                    # Partition samples into rising and falling
+                    falling_samples, rising_samples \
+                        = self.__decode_samples__(samples)
 
-                # Partition samples into rising and falling
-                falling_samples, rising_samples \
-                    = self.__decode_samples__(samples)
+                    # Calculate pop counts
+                    pop_counts_rising, pop_counts_falling \
+                        = self.__calc_pop_counts__(falling_samples, rising_samples)
 
-                # Calculate pop counts
-                pop_counts_rising, pop_counts_falling \
-                    = self.__calc_pop_counts__(falling_samples, rising_samples)
+                    # Calculate mean and variance of background pop counts
+                    mean_falling_pop_target, mean_rising_pop_target, var_pop_falling_target, var_pop_rising_target \
+                        = self.__process_pop_counts__(pop_counts_rising, pop_counts_falling )
 
-                # Calculate mean and variance of background pop counts
-                mean_falling_pop_target, mean_rising_pop_target, var_pop_falling_target, var_pop_rising_target \
-                    = self.__process_pop_counts__(pop_counts_rising, pop_counts_falling )
+                    phi_sweep_plot_data["delta mu fall target"].append(mean_falling_pop_target - self.tuned_theta_avg_fall)
+                    phi_sweep_plot_data["delta mu rise target"].append(mean_rising_pop_target - self.tuned_theta_avg_rise)
+                    phi_sweep_plot_data["var fall target"].append(var_pop_falling_target)
+                    phi_sweep_plot_data["var rise target"].append(var_pop_rising_target)
 
-                phi_sweep_plot_data["delta mu fall target"].append(mean_falling_pop_target - self.tuned_theta_avg_fall)
-                phi_sweep_plot_data["delta mu rise target"].append(mean_rising_pop_target - self.tuned_theta_avg_rise)
-                phi_sweep_plot_data["var fall target"].append(var_pop_falling_target)
-                phi_sweep_plot_data["var rise target"].append(var_pop_rising_target)
-
-                phi_sweep_plot_data["phi delay (ps)"].append(row['delay (ps)'])
-                phi_sweep_plot_data['diff mu fall'].append(mean_falling_pop_target - mean_falling_pop_bg)
-                phi_sweep_plot_data['diff mu rise'].append(mean_rising_pop_target - mean_rising_pop_bg)
-                phi_sweep_plot_data['diff var fall'].append(var_pop_falling_target - var_pop_falling_bg)
-                phi_sweep_plot_data['diff var rise'].append(var_pop_rising_target - var_pop_rising_bg)
-
-        phi_sweep_df = pd.DataFrame(phi_sweep_plot_data)
+                    
+    def save_bg_target_data(self, bg={}, target{}, sweep_data_fh="./phi_sweep_data.csv"):
+        # Check output dir
+        output_dir = os.path.dirname(os.path.realpath(sweep_data_fh))
+        isExist = os.path.exists(output_dir)
+        if not isExist:
+           # Create a new directory because it does not exist
+           os.makedirs(output_dir)
+        
+        # Merge bg and target sweeps
+        total = bg
+        total = total.merge(target)
+        total['diff mu fall']   = []
+        total['diff mu rise']   = []
+        total['diff var fall']  = []
+        total['diff var rise']  = []
+        
+        # Calculate differences btwn bg and target measurements
+        for mu_fpop_tg, mu_fpop_bg, mu_rpop_tg, mu_rpop_bg, \
+            vr_fpop_tg, vr_fpop_bg, vr_rpop_tg, vr_rpop_bg in \
+            zip(total["delta mu fall target"], total["delta mu fall bg"], \
+                total["delta mu rise target"], total["delta mu rise bg"], \
+                total["var fall target"], total["var fall bg"],
+                total["var rise target"], total["var rise bg"]):
+            
+            total['diff mu fall'].append(mu_fpop_targ - mu_fpop_bg)
+            total['diff mu rise'].append(mu_rpop_tg - mu_rpop_bg)
+            total['diff var fall'].append(vr_fpop_tg - vr_fpop_bg)
+            total['diff var rise'].append(vr_rpop_tg - vr_rpop_bg)
+        
+        # Save
+        phi_sweep_df = pd.DataFrame(total)
         phi_sweep_df.to_csv(sweep_data_fh)
 
     def __trim_theta_sweep__(self, thetas, metrics, variances):
