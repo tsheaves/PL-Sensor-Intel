@@ -367,6 +367,12 @@ class TunableTDCSweeper():
                             mean_pop = np.mean(pop_counts_falling)
                         if(abs(mean_pop - mid) < min_mid_diff):
                             min_mid_diff = abs(mean_pop - mid)
+                            if tune_rise:
+                                pop_rise_base = mean_pop
+                                pop_fall_base = np.mean(pop_counts_falling)
+                            else:
+                                pop_rise_base = np.mean(pop_counts_rising)
+                                pop_fall_base = mean_pop
                             target_idx = index
                     elif tuning_param == "max var":
                         if tune_rise:
@@ -375,6 +381,8 @@ class TunableTDCSweeper():
                             var_pop = np.var(pop_counts_falling, ddof=0)
                         if(var_pop > max_var):
                             max_var = var_pop
+                            pop_rise_base = np.mean(pop_counts_rising)
+                            pop_fall_base = np.mean(pop_counts_falling)
                             target_idx = index
                     elif tuning_param == "min_var":
                         if tune_rise:
@@ -383,6 +391,8 @@ class TunableTDCSweeper():
                             var_pop = np.var(pop_counts_falling, ddof=0)
                         if(var_pop < min_var):
                             min_var = var_pop
+                            pop_rise_base = np.mean(pop_counts_rising)
+                            pop_fall_base = np.mean(pop_counts_falling)
                             target_idx = index
                         
         self.tuned_theta_m        = int(theta_cfg_params.at[target_idx , 'M'])
@@ -391,14 +401,13 @@ class TunableTDCSweeper():
         self.tuned_ps_bumps_theta = int(theta_cfg_params.at[target_idx , 'n'])
         self.tuned_theta_delay_ps = theta_cfg_params.at[target_idx , 'delay (ps)']
         
-        
+        self.tuned_theta_avg_rise = pop_rise_base
+        self.tuned_theta_avg_fall = pop_fall_base
         
         if tuning_param == "mid":
             if tune_rise:
-                self.tuned_theta_avg_rise = min_mid_diff + mid
                 tuned_val = self.tuned_theta_avg_rise
             else:
-                self.tuned_theta_avg_fall = min_mid_diff + mid
                 tuned_val = self.tuned_theta_avg_fall
         elif tuning_param == "max var":
             if tune_rise:
@@ -705,11 +714,11 @@ class TunableTDCSweeper():
         str_ticks = []
         for frac, ns in zip(fracs, ns_ticks):
             if(frac.denominator == 1):
-                str_tick = fr"(${{{frac.numerator}}\pi}$, {ns})"
+                str_tick = fr"(${frac.numerator}\pi$, {ns})"
             elif(frac.numerator == 1):
                 str_tick = fr"($\frac{{\pi}}{{{frac.denominator}}}$, {ns})"
             else:
-                str_tick = fr"($\frac{{{frac.numerator}}\pi}{{{frac.denominator}}}$, {ns})"
+                str_tick = fr"($\frac{{{frac.numerator}}}\pi}}{{{frac.denominator}}}$, {ns})"
             str_ticks.append(str_tick)
         ax.set_xticklabels(str_ticks)
     
