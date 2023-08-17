@@ -21,7 +21,7 @@ class niosv_aes(pd_ip):
         self.write_csr(0,4,0)
         
     def hold_reset(self):
-        self.write_csr(0,4,0)
+        self.write_csr(0,4,1)
     
     # Pretty simple because we only reset the CPU to activate and IP-Sync takes care of the rest
     def run(self):
@@ -38,7 +38,7 @@ class niosv_aes(pd_ip):
             print(f"@AUXMEM[{addr}]:{data_val}")
             
     def post(self):
-        timeout = 1000
+        timeout = 10000
         while(timeout != 0):
             value = self.periph_mem.read_csr(0x0, 4)
             if(value == 0xAAAAAAAA):
@@ -46,8 +46,9 @@ class niosv_aes(pd_ip):
             elif(value == 0xDDDDDDDD):
                 warnings.warn("Warning: ORCA AES returned failure!")
             timeout -= 1
-            time.sleep(0.01)
         if(timeout == 0):
             warnings.warn(f"Warning: ORCA did not wrap as expected!")
             self.__dump__()
+        else:
+            self.periph_mem.write_csr(0x0, 4, 0x00000000)
             
