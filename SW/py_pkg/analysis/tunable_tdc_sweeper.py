@@ -193,7 +193,7 @@ class TunableTDCSweeper():
 
                     self.pulsegen.hold_reset()
                     phase_shift = [{"phase_updn":0, "phase_amt":0},{"phase_updn":0,"phase_amt":ps_bumps}]
-                    self.theta_cfg.update_all_50(m, n, [c,c], "high", 1, phase_shift)
+                    self.theta_cfg.update_all_50(m, n, [c,c], "med", 1, phase_shift)
                     self.pulsegen.reset()
                     
                     
@@ -303,7 +303,7 @@ class TunableTDCSweeper():
         delay_upper_bound    = sweep_params["delay_upper_bound"]
         target_mu            = sweep_params["target rising mu"]
         
-        if tuning_param == "mid":
+        if tuning_param == "med":
             min_mid_diff = self.tdc_len
             mid = self.tdc_len/2
         elif tuning_param == "max var":
@@ -329,7 +329,7 @@ class TunableTDCSweeper():
 
                     self.pulsegen.hold_reset()
                     phase_shift = [{"phase_updn":0, "phase_amt":0},{"phase_updn":0,"phase_amt":ps_bumps}]
-                    self.theta_cfg.update_all_50(m, n, [c,c], "high", 1, phase_shift)
+                    self.theta_cfg.update_all_50(m, n, [c,c], "med", 1, phase_shift)
                     self.pulsegen.reset()
                 
                     # Collect samples, and calculate averages
@@ -489,7 +489,7 @@ class TunableTDCSweeper():
                     self.tuned_theta_m, \
                     self.tuned_theta_n, \
                     [self.tuned_theta_c, self.tuned_theta_c], \
-                    "high", \
+                    "med", \
                     1, \
                     phase_shift)
                 # Complete reset sequence of TDC
