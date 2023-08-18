@@ -10,27 +10,29 @@ import time
 class niosv_aes(pd_ip):
     def __init__(
         self, ip_dict={}, ifc_base=0x0000, mmio_path="", 
-        mmio_init = True, periph_mem=None, periph_mem_len=512
+        mmio_init = True, periph_mem=None, periph_mem_len=512,
+        perpetual=False
     ):
         super().__init__(ip_dict, ifc_base, mmio_path, mmio_init)
         self.periph_mem = periph_mem
         self.periph_mem_len = periph_mem_len
+        self.perpetual = perpetual
         
     def reset(self):
         self.write_csr(0,4,1)
-        self.periph_mem.write_csr(0x0, 4, 0x00000000)
         self.write_csr(0,4,0)
         
     def hold_reset(self):
         self.write_csr(0,4,1)
-        self.periph_mem.write_csr(0x0, 4, 0x00000000)
     
     # Pretty simple because we only reset the CPU to activate and IP-Sync takes care of the rest
     def run(self):
-        self.reset()
+        if(self.perpetual == False):
+            self.reset()
 
     def pre(self):
-        self.hold_reset()
+        if(self.perpetual == False):
+            self.hold_reset()
     
     def __dump__(self):
         print("######### Memory Dump ############")
@@ -40,15 +42,13 @@ class niosv_aes(pd_ip):
             print(f"@AUXMEM[{addr}]:{data_val}")
             
     def post(self):
-        timeout = 10000
-        while(timeout != 0):
-            value = self.periph_mem.read_csr(0x0, 4)
-            if(value == 0xAAAAAAAA):
-                break
-            elif(value == 0xDDDDDDDD):
-                warnings.warn("Warning: ORCA AES returned failure!")
-            timeout -= 1
-        if(timeout == 0):
-            warnings.warn(f"Warning: ORCA did not wrap as expected!")
-            self.__dump__()
-            
+        if(self.perpetual == False):
+            timeout = 100
+            while(timeout != 0):
+                value = self.periph_mem.read_csr(0x0, 4)
+                if(value == 0xAAAAAAAA):
+                    break
+                timeout -= 1
+            if(timeout == 0):
+                warnings.warn(f"Warning: NIOSV did not wrap as expected!")
+                self.__dump__()
