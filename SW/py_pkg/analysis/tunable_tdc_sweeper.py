@@ -145,8 +145,6 @@ class TunableTDCSweeper():
         delay_lower_bound    = sweep_params["delay_lower_bound"]
         delay_upper_bound    = sweep_params["delay_upper_bound"]
         target_mu            = sweep_params["target rising mu"]
-        min_pd               = sweep_params["min var prop dist"]
-        max_pd               = sweep_params["max var prop dist"]
         
         output_dir = os.path.dirname(os.path.realpath(sweep_data_fh))
         isExist = os.path.exists(output_dir)
@@ -195,7 +193,7 @@ class TunableTDCSweeper():
 
                     self.pulsegen.hold_reset()
                     phase_shift = [{"phase_updn":0, "phase_amt":0},{"phase_updn":0,"phase_amt":ps_bumps}]
-                    self.theta_cfg.update_all_50(m, n, [c,c], "med", 1, phase_shift)
+                    self.theta_cfg.update_all_50(m, n, [c,c], "high", 1, phase_shift)
                     self.pulsegen.reset()
                     
                     
@@ -304,15 +302,13 @@ class TunableTDCSweeper():
         delay_lower_bound    = sweep_params["delay_lower_bound"]
         delay_upper_bound    = sweep_params["delay_upper_bound"]
         target_mu            = sweep_params["target rising mu"]
-        min_pd               = sweep_params["min var prop dist"]
-        max_pd               = sweep_params["max var prop dist"]
         
         if tuning_param == "mid":
             min_mid_diff = self.tdc_len
             mid = self.tdc_len/2
         elif tuning_param == "max var":
             max_var = 0
-        elif tuning_param == "min_var":
+        elif tuning_param == "min var":
             min_var = self.tdc_len**2
         
         theta_cfg_params = theta_cfg_params.reset_index()
@@ -333,7 +329,7 @@ class TunableTDCSweeper():
 
                     self.pulsegen.hold_reset()
                     phase_shift = [{"phase_updn":0, "phase_amt":0},{"phase_updn":0,"phase_amt":ps_bumps}]
-                    self.theta_cfg.update_all_50(m, n, [c,c], "med", 1, phase_shift)
+                    self.theta_cfg.update_all_50(m, n, [c,c], "high", 1, phase_shift)
                     self.pulsegen.reset()
                 
                     # Collect samples, and calculate averages
@@ -378,6 +374,7 @@ class TunableTDCSweeper():
                     elif tuning_param == "max var":
                         if tune_rise:
                             var_pop = np.var(pop_counts_rising, ddof=0)
+                            print(var_pop)
                         else:
                             var_pop = np.var(pop_counts_falling, ddof=0)
                         if(var_pop > max_var):
@@ -385,7 +382,7 @@ class TunableTDCSweeper():
                             pop_rise_base = np.mean(pop_counts_rising)
                             pop_fall_base = np.mean(pop_counts_falling)
                             target_idx = index
-                    elif tuning_param == "min_var":
+                    elif tuning_param == "min var":
                         if tune_rise:
                             var_pop = np.var(pop_counts_rising, ddof=0)
                         else:
@@ -492,7 +489,7 @@ class TunableTDCSweeper():
                     self.tuned_theta_m, \
                     self.tuned_theta_n, \
                     [self.tuned_theta_c, self.tuned_theta_c], \
-                    "med", \
+                    "high", \
                     1, \
                     phase_shift)
                 # Complete reset sequence of TDC
@@ -630,6 +627,7 @@ class TunableTDCSweeper():
         # Adjust theta (0 == first_0)
         min_theta = min(thetas_trim)
         thetas_trim = [x - min_theta for x in thetas_trim]
+        print(f"Arrival delay is {min_theta}")
         # Normalize variances for vertical line plot
         max_len = self.tdc_len * 0.05
         max_vars = max(variances_trim)
