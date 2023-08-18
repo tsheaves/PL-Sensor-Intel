@@ -29,7 +29,9 @@
 			reset_theta_out_export  : out   std_logic_vector(31 downto 0);                    -- export
 			tdc_reset_in_reset      : in    std_logic                     := 'X';             -- reset
 			tdc_reset_out_export    : out   std_logic_vector(31 downto 0);                    -- export
-			theta_clks_refclk_clk   : in    std_logic                     := 'X'              -- clk
+			theta_clks_refclk_clk   : in    std_logic                     := 'X';             -- clk
+			clk_0_clk               : in    std_logic                     := 'X';             -- clk
+			reset_reset_n           : in    std_logic                     := 'X'              -- reset_n
 		);
 	end component soc_system;
 
@@ -64,6 +66,8 @@
 			reset_theta_out_export  => CONNECTED_TO_reset_theta_out_export,  --   reset_theta_out.export
 			tdc_reset_in_reset      => CONNECTED_TO_tdc_reset_in_reset,      --      tdc_reset_in.reset
 			tdc_reset_out_export    => CONNECTED_TO_tdc_reset_out_export,    --     tdc_reset_out.export
-			theta_clks_refclk_clk   => CONNECTED_TO_theta_clks_refclk_clk    -- theta_clks_refclk.clk
+			theta_clks_refclk_clk   => CONNECTED_TO_theta_clks_refclk_clk,   -- theta_clks_refclk.clk
+			clk_0_clk               => CONNECTED_TO_clk_0_clk,               --             clk_0.clk
+			reset_reset_n           => CONNECTED_TO_reset_reset_n            --             reset.reset_n
 		);
 

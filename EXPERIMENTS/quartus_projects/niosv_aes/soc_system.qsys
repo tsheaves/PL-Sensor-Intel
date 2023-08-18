@@ -998,6 +998,14 @@
          type = "int";
       }
    }
+   element tdc_clk
+   {
+      datum _sortIndex
+      {
+         value = "34";
+         type = "int";
+      }
+   }
    element tdc_reset_pio
    {
       datum _sortIndex
@@ -1149,6 +1157,7 @@
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="input_clk.clk_in" type="clock" dir="end" />
+ <interface name="clk_0" internal="tdc_clk.clk_in" type="clock" dir="end" />
  <interface name="hps_0_f2h_cold_reset_req" internal="hps_0.f2h_cold_reset_req" />
  <interface name="hps_0_f2h_debug_reset_req" internal="hps_0.f2h_debug_reset_req" />
  <interface name="hps_0_f2h_stm_hw_events" internal="hps_0.f2h_stm_hw_events" />
@@ -1187,6 +1196,7 @@
    internal="niosv_reset_pio.external_connection"
    type="conduit"
    dir="end" />
+ <interface name="reset" internal="tdc_clk.clk_in_reset" type="reset" dir="end" />
  <interface
    name="reset_phi_in"
    internal="phi_pll_reset_bridge.reset_in0"
@@ -1806,8 +1816,8 @@
    kind="intel_niosv_m"
    version="1.0.0"
    enabled="1">
-  <parameter name="AUTO_CLK_CLOCK_DOMAIN" value="15" />
-  <parameter name="AUTO_CLK_RESET_DOMAIN" value="15" />
+  <parameter name="AUTO_CLK_CLOCK_DOMAIN" value="17" />
+  <parameter name="AUTO_CLK_RESET_DOMAIN" value="17" />
   <parameter name="AUTO_DATA_MANAGER_ADDRESS_WIDTH" value="AddressWidth = 17" />
   <parameter name="AUTO_DEVICE" value="5CSEBA6U23I7" />
   <parameter name="AUTO_DEVICE_SPEEDGRADE" value="7" />
@@ -2640,6 +2650,12 @@
   <parameter name="REVERSE" value="1" />
   <parameter name="TECHNOLOGY" value="28nm" />
  </module>
+ <module name="tdc_clk" kind="clock_source" version="22.1" enabled="1">
+  <parameter name="clockFrequency" value="50000000" />
+  <parameter name="clockFrequencyKnown" value="true" />
+  <parameter name="inputClockFrequency" value="0" />
+  <parameter name="resetSynchronousEdges" value="NONE" />
+ </module>
  <module
    name="tdc_reset_pio"
    kind="altera_avalon_pio"
@@ -2794,7 +2810,7 @@
   <parameter name="gui_mif_generate" value="false" />
   <parameter name="gui_multiply_factor" value="32" />
   <parameter name="gui_number_of_clocks" value="2" />
-  <parameter name="gui_operation_mode" value="normal" />
+  <parameter name="gui_operation_mode" value="direct" />
   <parameter name="gui_output_clock_frequency0" value="300.0" />
   <parameter name="gui_output_clock_frequency1" value="100.0" />
   <parameter name="gui_output_clock_frequency10" value="100.0" />
@@ -3234,11 +3250,7 @@
    version="22.1"
    start="input_clk.clk"
    end="shell_pll.refclk" />
- <connection
-   kind="clock"
-   version="22.1"
-   start="input_clk.clk"
-   end="phi_clk.refclk" />
+ <connection kind="clock" version="22.1" start="tdc_clk.clk" end="phi_clk.refclk" />
  <connection
    kind="clock"
    version="22.1"

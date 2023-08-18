@@ -44,6 +44,7 @@ wire theta_pll_locked, phi_pll_locked;
 //  Structural coding
 //=======================================================
 	soc_system u0(
+		.clk_0_clk(FPGA_CLK2_50),
 		.clk_clk(FPGA_CLK1_50),                                      //                            	 .clk.cl
 		.memory_mem_a(HPS_DDR3_ADDR),                                //                         		 .memory.mem_a
 		.memory_mem_ba(HPS_DDR3_BA),                                 //                               .mem_ba
