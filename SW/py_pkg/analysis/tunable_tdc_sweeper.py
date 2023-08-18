@@ -195,7 +195,7 @@ class TunableTDCSweeper():
 
                     self.pulsegen.hold_reset()
                     phase_shift = [{"phase_updn":0, "phase_amt":0},{"phase_updn":0,"phase_amt":ps_bumps}]
-                    self.theta_cfg.update_all_50(m, n, [c,c], "high", 1, phase_shift)
+                    self.theta_cfg.update_all_50(m, n, [c,c], "med", 1, phase_shift)
                     self.pulsegen.reset()
                     
                     
@@ -333,7 +333,7 @@ class TunableTDCSweeper():
 
                     self.pulsegen.hold_reset()
                     phase_shift = [{"phase_updn":0, "phase_amt":0},{"phase_updn":0,"phase_amt":ps_bumps}]
-                    self.theta_cfg.update_all_50(m, n, [c,c], "high", 1, phase_shift)
+                    self.theta_cfg.update_all_50(m, n, [c,c], "med", 1, phase_shift)
                     self.pulsegen.reset()
                 
                     # Collect samples, and calculate averages
@@ -483,7 +483,7 @@ class TunableTDCSweeper():
                 self.theta_cfg.hold_reset()
                 # Configure phi PLL
                 phase_shift = [{"phase_updn":0, "phase_amt":ps_bumps}]
-                self.phi_cfg.update_all_50(m, n, [c], "high", 1, phase_shift)
+                self.phi_cfg.update_all_50(m, n, [c], "low", 1, phase_shift)
                 # Complete reset sequence of theta PLL
                 self.theta_cfg.reset_pll()
                 # Reconfigure theta PLL
@@ -492,7 +492,7 @@ class TunableTDCSweeper():
                     self.tuned_theta_m, \
                     self.tuned_theta_n, \
                     [self.tuned_theta_c, self.tuned_theta_c], \
-                    "high", \
+                    "med", \
                     1, \
                     phase_shift)
                 # Complete reset sequence of TDC
