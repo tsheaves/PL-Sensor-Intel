@@ -1,4 +1,5 @@
 import pandas as pd
+import gmpy2 as gmp
 import os
 import numpy as np
 from math import ceil
@@ -70,7 +71,7 @@ class TunableTDCSweeper():
         return min_idx
 
     def __popcount__(self, x):
-        return bin(x).count('1')
+        return gmp.popcount(x)
 
     # Trim all 0's/max_pop_count from pop_counts
     #   Return all pop counts and pruned samples/pop_counts
@@ -193,7 +194,7 @@ class TunableTDCSweeper():
 
                     self.pulsegen.hold_reset()
                     phase_shift = [{"phase_updn":0, "phase_amt":0},{"phase_updn":0,"phase_amt":ps_bumps}]
-                    self.theta_cfg.update_all_50(m, n, [c,c], "high", 1, phase_shift)
+                    self.theta_cfg.update_all_50(m, n, [c,c], "med", 1, phase_shift)
                     self.pulsegen.reset()
                     
                     
@@ -329,7 +330,7 @@ class TunableTDCSweeper():
 
                     self.pulsegen.hold_reset()
                     phase_shift = [{"phase_updn":0, "phase_amt":0},{"phase_updn":0,"phase_amt":ps_bumps}]
-                    self.theta_cfg.update_all_50(m, n, [c,c], "high", 1, phase_shift)
+                    self.theta_cfg.update_all_50(m, n, [c,c], "med", 1, phase_shift)
                     self.pulsegen.reset()
                 
                     # Collect samples, and calculate averages
@@ -489,7 +490,7 @@ class TunableTDCSweeper():
                     self.tuned_theta_m, \
                     self.tuned_theta_n, \
                     [self.tuned_theta_c, self.tuned_theta_c], \
-                    "high", \
+                    "med", \
                     1, \
                     phase_shift)
                 # Complete reset sequence of TDC
@@ -763,12 +764,12 @@ class TunableTDCSweeper():
         delays_rad = self.__phi_sweep_ps_to_rad__(phi_sweep_dict["phi delay (ps) target"], target_f_mhz)
         plt.clf()
         fig, (ax1, ax2, ax3, ax4, ax5, ax6, ax7, ax8) = plt.subplots(8, sharex=True)
-        self.__phi_subplot__(ax=ax1, 
-                             delays_rad=delays_rad,
-                             bg=,
-                             label_bg=,
-                             target=,
-                             label_targ=,
-                             ylim=[]
-                            )
+#         self.__phi_subplot__(ax=ax1, 
+#                              delays_rad=delays_rad,
+#                              bg=,
+#                              label_bg=,
+#                              target=,
+#                              label_targ=,
+#                              ylim=[]
+#                             )
         
