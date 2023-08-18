@@ -1,5 +1,6 @@
 	soc_system u0 (
 		.clk_clk                 (<connected-to-clk_clk>),                 //               clk.clk
+		.clk_0_clk               (<connected-to-clk_0_clk>),               //             clk_0.clk
 		.locked_phi_in_export    (<connected-to-locked_phi_in_export>),    //     locked_phi_in.export
 		.locked_phi_out_export   (<connected-to-locked_phi_out_export>),   //    locked_phi_out.export
 		.locked_theta_in_export  (<connected-to-locked_theta_in_export>),  //   locked_theta_in.export
@@ -28,8 +29,6 @@
 		.reset_theta_out_export  (<connected-to-reset_theta_out_export>),  //   reset_theta_out.export
 		.tdc_reset_in_reset      (<connected-to-tdc_reset_in_reset>),      //      tdc_reset_in.reset
 		.tdc_reset_out_export    (<connected-to-tdc_reset_out_export>),    //     tdc_reset_out.export
-		.theta_clks_refclk_clk   (<connected-to-theta_clks_refclk_clk>),   // theta_clks_refclk.clk
-		.clk_0_clk               (<connected-to-clk_0_clk>),               //             clk_0.clk
-		.reset_reset_n           (<connected-to-reset_reset_n>)            //             reset.reset_n
+		.theta_clks_refclk_clk   (<connected-to-theta_clks_refclk_clk>)    // theta_clks_refclk.clk
 	);
 

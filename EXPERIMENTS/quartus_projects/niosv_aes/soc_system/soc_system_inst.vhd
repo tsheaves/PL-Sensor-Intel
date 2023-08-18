@@ -1,6 +1,7 @@
 	component soc_system is
 		port (
 			clk_clk                 : in    std_logic                     := 'X';             -- clk
+			clk_0_clk               : in    std_logic                     := 'X';             -- clk
 			locked_phi_in_export    : in    std_logic_vector(31 downto 0) := (others => 'X'); -- export
 			locked_phi_out_export   : out   std_logic;                                        -- export
 			locked_theta_in_export  : in    std_logic_vector(31 downto 0) := (others => 'X'); -- export
@@ -29,15 +30,14 @@
 			reset_theta_out_export  : out   std_logic_vector(31 downto 0);                    -- export
 			tdc_reset_in_reset      : in    std_logic                     := 'X';             -- reset
 			tdc_reset_out_export    : out   std_logic_vector(31 downto 0);                    -- export
-			theta_clks_refclk_clk   : in    std_logic                     := 'X';             -- clk
-			clk_0_clk               : in    std_logic                     := 'X';             -- clk
-			reset_reset_n           : in    std_logic                     := 'X'              -- reset_n
+			theta_clks_refclk_clk   : in    std_logic                     := 'X'              -- clk
 		);
 	end component soc_system;
 
 	u0 : component soc_system
 		port map (
 			clk_clk                 => CONNECTED_TO_clk_clk,                 --               clk.clk
+			clk_0_clk               => CONNECTED_TO_clk_0_clk,               --             clk_0.clk
 			locked_phi_in_export    => CONNECTED_TO_locked_phi_in_export,    --     locked_phi_in.export
 			locked_phi_out_export   => CONNECTED_TO_locked_phi_out_export,   --    locked_phi_out.export
 			locked_theta_in_export  => CONNECTED_TO_locked_theta_in_export,  --   locked_theta_in.export
@@ -66,8 +66,6 @@
 			reset_theta_out_export  => CONNECTED_TO_reset_theta_out_export,  --   reset_theta_out.export
 			tdc_reset_in_reset      => CONNECTED_TO_tdc_reset_in_reset,      --      tdc_reset_in.reset
 			tdc_reset_out_export    => CONNECTED_TO_tdc_reset_out_export,    --     tdc_reset_out.export
-			theta_clks_refclk_clk   => CONNECTED_TO_theta_clks_refclk_clk,   -- theta_clks_refclk.clk
-			clk_0_clk               => CONNECTED_TO_clk_0_clk,               --             clk_0.clk
-			reset_reset_n           => CONNECTED_TO_reset_reset_n            --             reset.reset_n
+			theta_clks_refclk_clk   => CONNECTED_TO_theta_clks_refclk_clk    -- theta_clks_refclk.clk
 		);
 

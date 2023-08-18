@@ -769,46 +769,6 @@ set_global_assignment -name LL_HEIGHT 8 -section_id tdc
 set_global_assignment -name LL_ORIGIN X35_Y23 -section_id tdc
 set_global_assignment -name LL_ROUTING_REGION EXPANDED -section_id tdc
 set_instance_assignment -name LL_MEMBER_OF tdc -to "soc_system:u0|tdc_top:tdc_0|carry_top:carry0|carry_chain:cc" -section_id tdc
-set_global_assignment -name LL_ENABLED ON -section_id niosv
-set_global_assignment -name LL_AUTO_SIZE OFF -section_id niosv
-set_global_assignment -name LL_STATE LOCKED -section_id niosv
-set_global_assignment -name LL_RESERVED OFF -section_id niosv
-set_global_assignment -name LL_CORE_ONLY OFF -section_id niosv
-set_global_assignment -name LL_SECURITY_ROUTING_INTERFACE OFF -section_id niosv
-set_global_assignment -name LL_IGNORE_IO_BANK_SECURITY_CONSTRAINT OFF -section_id niosv
-set_global_assignment -name LL_PR_REGION OFF -section_id niosv
-set_global_assignment -name LL_ROUTING_REGION_EXPANSION_SIZE 2147483647 -section_id niosv
-set_global_assignment -name LL_WIDTH 24 -section_id niosv
-set_global_assignment -name LL_HEIGHT 22 -section_id niosv
-set_global_assignment -name LL_ORIGIN X19_Y1 -section_id niosv
-set_instance_assignment -name LL_MEMBER_OF niosv -to "soc_system:u0|soc_system_intel_niosv_m_0:intel_niosv_m_0" -section_id niosv
-set_instance_assignment -name LL_MEMBER_OF niosv -to "soc_system:u0|soc_system_mm_interconnect_1:mm_interconnect_1|altera_avalon_sc_fifo:intel_niosv_m_0_timer_sw_agent_agent_rdata_fifo" -section_id niosv
-set_instance_assignment -name LL_MEMBER_OF niosv -to "soc_system:u0|soc_system_mm_interconnect_1:mm_interconnect_1|altera_avalon_sc_fifo:intel_niosv_m_0_timer_sw_agent_agent_rsp_fifo" -section_id niosv
-set_instance_assignment -name LL_MEMBER_OF niosv -to "soc_system:u0|soc_system_mm_interconnect_1:mm_interconnect_1|altera_avalon_sc_fifo:nios_v_ram_s1_agent_rdata_fifo" -section_id niosv
-set_instance_assignment -name LL_MEMBER_OF niosv -to "soc_system:u0|soc_system_mm_interconnect_1:mm_interconnect_1|altera_avalon_sc_fifo:nios_v_ram_s1_agent_rsp_fifo" -section_id niosv
-set_instance_assignment -name LL_MEMBER_OF niosv -to "soc_system:u0|soc_system_mm_interconnect_1:mm_interconnect_1|altera_merlin_axi_master_ni:intel_niosv_m_0_data_manager_agent" -section_id niosv
-set_instance_assignment -name LL_MEMBER_OF niosv -to "soc_system:u0|soc_system_mm_interconnect_1:mm_interconnect_1|altera_merlin_axi_master_ni:intel_niosv_m_0_instruction_manager_agent" -section_id niosv
-set_instance_assignment -name LL_MEMBER_OF niosv -to "soc_system:u0|soc_system_mm_interconnect_1:mm_interconnect_1|altera_merlin_axi_translator:intel_niosv_m_0_data_manager_translator" -section_id niosv
-set_instance_assignment -name LL_MEMBER_OF niosv -to "soc_system:u0|soc_system_mm_interconnect_1:mm_interconnect_1|altera_merlin_axi_translator:intel_niosv_m_0_instruction_manager_translator" -section_id niosv
-set_instance_assignment -name LL_MEMBER_OF niosv -to "soc_system:u0|soc_system_mm_interconnect_1:mm_interconnect_1|altera_merlin_burst_adapter:intel_niosv_m_0_timer_sw_agent_burst_adapter" -section_id niosv
-set_instance_assignment -name LL_MEMBER_OF niosv -to "soc_system:u0|soc_system_mm_interconnect_1:mm_interconnect_1|altera_merlin_burst_adapter:nios_v_ram_s1_burst_adapter" -section_id niosv
-set_instance_assignment -name LL_MEMBER_OF niosv -to "soc_system:u0|soc_system_mm_interconnect_1:mm_interconnect_1|altera_merlin_slave_agent:intel_niosv_m_0_timer_sw_agent_agent" -section_id niosv
-set_instance_assignment -name LL_MEMBER_OF niosv -to "soc_system:u0|soc_system_mm_interconnect_1:mm_interconnect_1|altera_merlin_slave_agent:nios_v_ram_s1_agent" -section_id niosv
-set_instance_assignment -name LL_MEMBER_OF niosv -to "soc_system:u0|soc_system_mm_interconnect_1:mm_interconnect_1|altera_merlin_slave_translator:intel_niosv_m_0_timer_sw_agent_translator" -section_id niosv
-set_instance_assignment -name LL_MEMBER_OF niosv -to "soc_system:u0|soc_system_mm_interconnect_1:mm_interconnect_1|altera_merlin_slave_translator:nios_v_ram_s1_translator" -section_id niosv
-set_instance_assignment -name LL_MEMBER_OF niosv -to "soc_system:u0|soc_system_nios_v_ram:nios_v_ram" -section_id niosv
-set_global_assignment -name LL_ENABLED ON -section_id shell
-set_global_assignment -name LL_AUTO_SIZE OFF -section_id shell
-set_global_assignment -name LL_STATE LOCKED -section_id shell
-set_global_assignment -name LL_RESERVED OFF -section_id shell
-set_global_assignment -name LL_CORE_ONLY OFF -section_id shell
-set_global_assignment -name LL_SECURITY_ROUTING_INTERFACE OFF -section_id shell
-set_global_assignment -name LL_IGNORE_IO_BANK_SECURITY_CONSTRAINT OFF -section_id shell
-set_global_assignment -name LL_PR_REGION OFF -section_id shell
-set_global_assignment -name LL_ROUTING_REGION_EXPANSION_SIZE 2147483647 -section_id shell
-set_global_assignment -name LL_WIDTH 43 -section_id shell
-set_global_assignment -name LL_HEIGHT 21 -section_id shell
-set_global_assignment -name LL_ORIGIN X10_Y51 -section_id shell
 set_global_assignment -name LL_ENABLED ON -section_id pulsegenerator
 set_global_assignment -name LL_AUTO_SIZE OFF -section_id pulsegenerator
 set_global_assignment -name LL_STATE LOCKED -section_id pulsegenerator
@@ -829,4 +789,5 @@ set_instance_assignment -name GLOBAL_SIGNAL GLOBAL_CLOCK -to "soc_system:u0|soc_
 set_instance_assignment -name GLOBAL_SIGNAL GLOBAL_CLOCK -to "soc_system:u0|soc_system_theta_clks:theta_clks|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|divclk[1]"
 set_instance_assignment -name CLOCK_REGION "REGIONAL CLOCK REGION 1" -to "soc_system:u0|soc_system_theta_clks:theta_clks|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|divclk[0]"
 set_instance_assignment -name CLOCK_REGION "REGIONAL CLOCK REGION 1" -to "soc_system:u0|soc_system_theta_clks:theta_clks|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|divclk[1]"
+set_instance_assignment -name MATCH_PLL_COMPENSATION_CLOCK ON -to "soc_system:u0|soc_system_theta_clks:theta_clks|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|divclk[1]"
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

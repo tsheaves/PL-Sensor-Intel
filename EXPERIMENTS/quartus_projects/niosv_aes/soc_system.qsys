@@ -99,7 +99,7 @@
    {
       datum _sortIndex
       {
-         value = "31";
+         value = "32";
          type = "int";
       }
    }
@@ -120,7 +120,7 @@
    {
       datum _sortIndex
       {
-         value = "26";
+         value = "27";
          type = "int";
       }
    }
@@ -128,7 +128,7 @@
    {
       datum _lockedAddress
       {
-         value = "0";
+         value = "1";
          type = "boolean";
       }
       datum baseAddress
@@ -141,7 +141,7 @@
    {
       datum _sortIndex
       {
-         value = "27";
+         value = "28";
          type = "int";
       }
    }
@@ -149,7 +149,7 @@
    {
       datum _sortIndex
       {
-         value = "25";
+         value = "26";
          type = "int";
       }
    }
@@ -170,7 +170,7 @@
    {
       datum _sortIndex
       {
-         value = "28";
+         value = "29";
          type = "int";
       }
    }
@@ -186,7 +186,7 @@
    {
       datum _sortIndex
       {
-         value = "32";
+         value = "33";
          type = "int";
       }
    }
@@ -202,7 +202,7 @@
    {
       datum _sortIndex
       {
-         value = "30";
+         value = "31";
          type = "int";
       }
    }
@@ -210,7 +210,7 @@
    {
       datum _sortIndex
       {
-         value = "29";
+         value = "30";
          type = "int";
       }
    }
@@ -231,7 +231,7 @@
    {
       datum _sortIndex
       {
-         value = "33";
+         value = "34";
          type = "int";
       }
    }
@@ -281,7 +281,7 @@
    {
       datum _sortIndex
       {
-         value = "24";
+         value = "25";
          type = "int";
       }
    }
@@ -339,7 +339,7 @@
    {
       datum _sortIndex
       {
-         value = "22";
+         value = "23";
          type = "int";
       }
    }
@@ -347,7 +347,7 @@
    {
       datum _sortIndex
       {
-         value = "23";
+         value = "24";
          type = "int";
       }
    }
@@ -1002,7 +1002,7 @@
    {
       datum _sortIndex
       {
-         value = "34";
+         value = "22";
          type = "int";
       }
    }
@@ -1196,7 +1196,6 @@
    internal="niosv_reset_pio.external_connection"
    type="conduit"
    dir="end" />
- <interface name="reset" internal="tdc_clk.clk_in_reset" type="reset" dir="end" />
  <interface
    name="reset_phi_in"
    internal="phi_pll_reset_bridge.reset_in0"
@@ -1816,8 +1815,8 @@
    kind="intel_niosv_m"
    version="1.0.0"
    enabled="1">
-  <parameter name="AUTO_CLK_CLOCK_DOMAIN" value="17" />
-  <parameter name="AUTO_CLK_RESET_DOMAIN" value="17" />
+  <parameter name="AUTO_CLK_CLOCK_DOMAIN" value="16" />
+  <parameter name="AUTO_CLK_RESET_DOMAIN" value="16" />
   <parameter name="AUTO_DATA_MANAGER_ADDRESS_WIDTH" value="AddressWidth = 17" />
   <parameter name="AUTO_DEVICE" value="5CSEBA6U23I7" />
   <parameter name="AUTO_DEVICE_SPEEDGRADE" value="7" />
@@ -1910,7 +1909,7 @@
   <parameter name="enPRInitMode" value="false" />
   <parameter name="enableDiffWidth" value="false" />
   <parameter name="initMemContent" value="true" />
-  <parameter name="initializationFileName">/home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/tiny_aes/tiny_aes.hex</parameter>
+  <parameter name="initializationFileName">/home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/tiny_aes.hex</parameter>
   <parameter name="instanceID" value="NONE" />
   <parameter name="memorySize" value="32768" />
   <parameter name="readDuringWriteMode" value="DONT_CARE" />
@@ -2116,7 +2115,7 @@
   <parameter name="gui_enable_cascade_in" value="false" />
   <parameter name="gui_enable_cascade_out" value="true" />
   <parameter name="gui_enable_mif_dps" value="false" />
-  <parameter name="gui_feedback_clock" value="Global Clock" />
+  <parameter name="gui_feedback_clock" value="Regional Clock" />
   <parameter name="gui_frac_multiply_factor" value="1" />
   <parameter name="gui_fractional_cout" value="8" />
   <parameter name="gui_mif_generate" value="false" />
@@ -2804,13 +2803,13 @@
   <parameter name="gui_enable_cascade_in" value="true" />
   <parameter name="gui_enable_cascade_out" value="false" />
   <parameter name="gui_enable_mif_dps" value="false" />
-  <parameter name="gui_feedback_clock" value="Global Clock" />
+  <parameter name="gui_feedback_clock" value="Regional Clock" />
   <parameter name="gui_frac_multiply_factor" value="1" />
   <parameter name="gui_fractional_cout" value="8" />
   <parameter name="gui_mif_generate" value="false" />
   <parameter name="gui_multiply_factor" value="32" />
   <parameter name="gui_number_of_clocks" value="2" />
-  <parameter name="gui_operation_mode" value="direct" />
+  <parameter name="gui_operation_mode" value="normal" />
   <parameter name="gui_output_clock_frequency0" value="300.0" />
   <parameter name="gui_output_clock_frequency1" value="100.0" />
   <parameter name="gui_output_clock_frequency10" value="100.0" />
@@ -3502,6 +3501,11 @@
    kind="reset"
    version="22.1"
    start="input_clk.clk_reset"
+   end="tdc_clk.clk_in_reset" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="input_clk.clk_reset"
    end="tdc_to_dma_dc_fifo.in_clk_reset" />
  <connection
    kind="reset"
@@ -3663,6 +3667,11 @@
    version="22.1"
    start="hps_0.h2f_reset"
    end="input_clk.clk_in_reset" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="hps_0.h2f_reset"
+   end="tdc_clk.clk_in_reset" />
  <connection
    kind="reset"
    version="22.1"
