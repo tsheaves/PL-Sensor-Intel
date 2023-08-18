@@ -193,7 +193,7 @@ class TunableTDCSweeper():
 
                     self.pulsegen.hold_reset()
                     phase_shift = [{"phase_updn":0, "phase_amt":0},{"phase_updn":0,"phase_amt":ps_bumps}]
-                    self.theta_cfg.update_all_50(m, n, [c,c], "med", 1, phase_shift)
+                    self.theta_cfg.update_all_50(m, n, [c,c], "high", 1, phase_shift)
                     self.pulsegen.reset()
                     
                     
@@ -303,7 +303,7 @@ class TunableTDCSweeper():
         delay_upper_bound    = sweep_params["delay_upper_bound"]
         target_mu            = sweep_params["target rising mu"]
         
-        if tuning_param == "med":
+        if tuning_param == "mid":
             min_mid_diff = self.tdc_len
             mid = self.tdc_len/2
         elif tuning_param == "max var":
@@ -329,7 +329,7 @@ class TunableTDCSweeper():
 
                     self.pulsegen.hold_reset()
                     phase_shift = [{"phase_updn":0, "phase_amt":0},{"phase_updn":0,"phase_amt":ps_bumps}]
-                    self.theta_cfg.update_all_50(m, n, [c,c], "med", 1, phase_shift)
+                    self.theta_cfg.update_all_50(m, n, [c,c], "high", 1, phase_shift)
                     self.pulsegen.reset()
                 
                     # Collect samples, and calculate averages
@@ -489,7 +489,7 @@ class TunableTDCSweeper():
                     self.tuned_theta_m, \
                     self.tuned_theta_n, \
                     [self.tuned_theta_c, self.tuned_theta_c], \
-                    "med", \
+                    "high", \
                     1, \
                     phase_shift)
                 # Complete reset sequence of TDC
@@ -725,7 +725,7 @@ class TunableTDCSweeper():
             fall_pop, rise_pop, "Hamming Weight")
         ax1.set_xlabel(r"$\theta$ ps")
 
-    def __phi_sweep_ps_to_rad__(self, delays_ps, target_f_mhz, n_pi):
+    def __phi_sweep_ps_to_rad__(self, delays, target_f_mhz):
         target_pll_frequency = target_f_mhz*10**6
         target_pll_period_ps = (1/target_pll_frequency)*10**12
         delays_rad = []
@@ -751,15 +751,24 @@ class TunableTDCSweeper():
             str_ticks.append(str_tick)
         ax.set_xticklabels(str_ticks)
     
-    def __phi_subplot__(self, ax, delays, bg, active, label_bg, label_act, ylim):
-        ax.plot(delays, bg, label=label_bg, linewidth=0.5)
-        ax.plot(delays, active, label=label_act, linewidth=0.5)
+    def __phi_subplot__(self, ax, delays_rad, bg, label_bg, target, label_targ, ylim):
+        ax.plot(delays_rad, bg, label=label_bg, linewidth=0.5)
+        ax.plot(delays_rad, target, label=label_targ, linewidth=0.5)
         ax.set_ylim()
+        self.__phi_sweep_ticks__(ax, n_ticks, target_f_mhz, n_pi)
         
-    def plot_phi_sweep_data(self, sweep_data_fh):
+    def plot_phi_sweep_data(self, sweep_data_fh, target_f_mhz):
         phi_sweep_df = pd.read_csv(sweep_data_fh)
         phi_sweep_dict  = phi_sweep_df.to_dict(orient='list')
+        delays_rad = self.__phi_sweep_ps_to_rad__(phi_sweep_dict["phi delay (ps) target"], target_f_mhz)
         plt.clf()
         fig, (ax1, ax2, ax3, ax4, ax5, ax6, ax7, ax8) = plt.subplots(8, sharex=True)
-        self.__phi_subplot__(ax1, )
+        self.__phi_subplot__(ax=ax1, 
+                             delays_rad=delays_rad,
+                             bg=,
+                             label_bg=,
+                             target=,
+                             label_targ=,
+                             ylim=[]
+                            )
         
