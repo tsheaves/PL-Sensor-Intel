@@ -785,9 +785,13 @@ set_instance_assignment -name LL_MEMBER_OF pulsegenerator -to "soc_system:u0|pul
 
 
 
-set_instance_assignment -name GLOBAL_SIGNAL GLOBAL_CLOCK -to "soc_system:u0|soc_system_theta_clks:theta_clks|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|divclk[0]"
-set_instance_assignment -name GLOBAL_SIGNAL GLOBAL_CLOCK -to "soc_system:u0|soc_system_theta_clks:theta_clks|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|divclk[1]"
-set_instance_assignment -name CLOCK_REGION "REGIONAL CLOCK REGION 1" -to "soc_system:u0|soc_system_theta_clks:theta_clks|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|divclk[0]"
-set_instance_assignment -name CLOCK_REGION "REGIONAL CLOCK REGION 1" -to "soc_system:u0|soc_system_theta_clks:theta_clks|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|divclk[1]"
-set_instance_assignment -name MATCH_PLL_COMPENSATION_CLOCK ON -to "soc_system:u0|soc_system_theta_clks:theta_clks|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|divclk[1]"
+set_instance_assignment -name GLOBAL_SIGNAL GLOBAL_CLOCK -to "soc_system:u0|soc_system_theta_clks:theta_clks|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|divclk[0]" -disable
+set_instance_assignment -name GLOBAL_SIGNAL GLOBAL_CLOCK -to "soc_system:u0|soc_system_theta_clks:theta_clks|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|divclk[1]" -disable
+set_instance_assignment -name CLOCK_REGION "REGIONAL CLOCK REGION 1" -to "soc_system:u0|soc_system_theta_clks:theta_clks|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|divclk[0]" -disable
+set_instance_assignment -name CLOCK_REGION "REGIONAL CLOCK REGION 1" -to "soc_system:u0|soc_system_theta_clks:theta_clks|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|divclk[1]" -disable
+set_instance_assignment -name PLL_TYPE FPLL -to "soc_system:u0|soc_system_phi_clk:phi_clk|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|altera_cyclonev_pll_base:fpll_0|fpll"
+set_instance_assignment -name PLL_COMPENSATION_MODE DIRECT -to "soc_system:u0|soc_system_phi_clk:phi_clk|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|altera_cyclonev_pll_base:fpll_0|fpll"
+set_instance_assignment -name PLL_TYPE FPLL -to "soc_system:u0|soc_system_theta_clks:theta_clks|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|altera_cyclonev_pll_base:fpll_0|fpll"
+set_instance_assignment -name PLL_COMPENSATION_MODE DIRECT -to "soc_system:u0|soc_system_theta_clks:theta_clks|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|altera_cyclonev_pll_base:fpll_0|fpll"
+set_instance_assignment -name STRATIXII_CARRY_CHAIN_LENGTH 128 -to "soc_system:u0|tdc_top:tdc_0|carry_top:carry0|carry_chain:cc"
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
