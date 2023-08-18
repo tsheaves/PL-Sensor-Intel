@@ -4,7 +4,7 @@
  * Machine generated for CPU 'intel_niosv_m_0' in SOPC Builder design 'soc_system'
  * SOPC Builder design path: /home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/soc_system.sopcinfo
  *
- * Generated: Wed Aug 16 16:33:44 PDT 2023
+ * Generated: Thu Aug 17 15:57:56 PDT 2023
  */
 
 /*
@@ -199,13 +199,13 @@
 #define NIOS_V_RAM_CONTENTS_INFO ""
 #define NIOS_V_RAM_DUAL_PORT 0
 #define NIOS_V_RAM_GUI_RAM_BLOCK_TYPE "AUTO"
-#define NIOS_V_RAM_INIT_CONTENTS_FILE "soc_system_nios_v_ram"
+#define NIOS_V_RAM_INIT_CONTENTS_FILE "tiny_aes"
 #define NIOS_V_RAM_INIT_MEM_CONTENT 1
 #define NIOS_V_RAM_INSTANCE_ID "NONE"
 #define NIOS_V_RAM_IRQ -1
 #define NIOS_V_RAM_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define NIOS_V_RAM_NAME "/dev/nios_v_ram"
-#define NIOS_V_RAM_NON_DEFAULT_INIT_FILE_ENABLED 0
+#define NIOS_V_RAM_NON_DEFAULT_INIT_FILE_ENABLED 1
 #define NIOS_V_RAM_RAM_BLOCK_TYPE "AUTO"
 #define NIOS_V_RAM_READ_DURING_WRITE_MODE "DONT_CARE"
 #define NIOS_V_RAM_SINGLE_CLOCK_OP 0

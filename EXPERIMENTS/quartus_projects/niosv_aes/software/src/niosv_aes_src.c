@@ -425,13 +425,15 @@ int main(int argc, char ** argv){
   uint8_t buffer[16];
 
   volatile uint32_t * loc = (uint32_t *) 0x8000;
-
+  *loc = 0xDDDDDDDD;
+  int init = 1;
   while(1) {
-  AES128_ECB_encrypt(in, key, buffer);
-  if(0 == strncmp((char*) out, (char*) buffer, 16)) {
+    AES128_ECB_encrypt(in, key, buffer);
+    if(init && (0 == strncmp((char*) out, (char*) buffer, 16))) {
         *loc = 0xAAAAAAAA;
-    } else {
-        *loc = 0xDDDDDDDD;
+        init = 0;
     }
   }
+
+  return 1;
 }

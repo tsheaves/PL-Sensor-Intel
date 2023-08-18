@@ -1,6 +1,7 @@
 
 module soc_system (
 	clk_clk,
+	clk_0_clk,
 	locked_phi_in_export,
 	locked_phi_out_export,
 	locked_theta_in_export,
@@ -29,11 +30,10 @@ module soc_system (
 	reset_theta_out_export,
 	tdc_reset_in_reset,
 	tdc_reset_out_export,
-	theta_clks_refclk_clk,
-	clk_0_clk,
-	reset_reset_n);	
+	theta_clks_refclk_clk);	
 
 	input		clk_clk;
+	input		clk_0_clk;
 	input	[31:0]	locked_phi_in_export;
 	output		locked_phi_out_export;
 	input	[31:0]	locked_theta_in_export;
@@ -63,6 +63,4 @@ module soc_system (
 	input		tdc_reset_in_reset;
 	output	[31:0]	tdc_reset_out_export;
 	input		theta_clks_refclk_clk;
-	input		clk_0_clk;
-	input		reset_reset_n;
 endmodule

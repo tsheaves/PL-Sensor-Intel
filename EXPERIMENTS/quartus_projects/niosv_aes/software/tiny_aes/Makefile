@@ -168,29 +168,29 @@ hal2_bsp/fast:
 	$(MAKE) $(MAKESILENT) -f hal2_bsp/CMakeFiles/hal2_bsp.dir/build.make hal2_bsp/CMakeFiles/hal2_bsp.dir/build
 .PHONY : hal2_bsp/fast
 
-home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/aes/niosv_aes_src.obj: home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/aes/niosv_aes_src.c.obj
-.PHONY : home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/aes/niosv_aes_src.obj
+home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/src/niosv_aes_src.obj: home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/src/niosv_aes_src.c.obj
+.PHONY : home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/src/niosv_aes_src.obj
 
 # target to build an object file
-home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/aes/niosv_aes_src.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiny_aes.elf.dir/build.make CMakeFiles/tiny_aes.elf.dir/home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/aes/niosv_aes_src.c.obj
-.PHONY : home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/aes/niosv_aes_src.c.obj
+home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/src/niosv_aes_src.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiny_aes.elf.dir/build.make CMakeFiles/tiny_aes.elf.dir/home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/src/niosv_aes_src.c.obj
+.PHONY : home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/src/niosv_aes_src.c.obj
 
-home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/aes/niosv_aes_src.i: home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/aes/niosv_aes_src.c.i
-.PHONY : home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/aes/niosv_aes_src.i
+home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/src/niosv_aes_src.i: home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/src/niosv_aes_src.c.i
+.PHONY : home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/src/niosv_aes_src.i
 
 # target to preprocess a source file
-home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/aes/niosv_aes_src.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiny_aes.elf.dir/build.make CMakeFiles/tiny_aes.elf.dir/home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/aes/niosv_aes_src.c.i
-.PHONY : home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/aes/niosv_aes_src.c.i
+home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/src/niosv_aes_src.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiny_aes.elf.dir/build.make CMakeFiles/tiny_aes.elf.dir/home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/src/niosv_aes_src.c.i
+.PHONY : home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/src/niosv_aes_src.c.i
 
-home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/aes/niosv_aes_src.s: home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/aes/niosv_aes_src.c.s
-.PHONY : home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/aes/niosv_aes_src.s
+home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/src/niosv_aes_src.s: home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/src/niosv_aes_src.c.s
+.PHONY : home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/src/niosv_aes_src.s
 
 # target to generate assembly for a file
-home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/aes/niosv_aes_src.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiny_aes.elf.dir/build.make CMakeFiles/tiny_aes.elf.dir/home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/aes/niosv_aes_src.c.s
-.PHONY : home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/aes/niosv_aes_src.c.s
+home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/src/niosv_aes_src.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiny_aes.elf.dir/build.make CMakeFiles/tiny_aes.elf.dir/home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/src/niosv_aes_src.c.s
+.PHONY : home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/src/niosv_aes_src.c.s
 
 # Help Target
 help:
@@ -204,9 +204,9 @@ help:
 	@echo "... niosv-stack-report"
 	@echo "... hal2_bsp"
 	@echo "... tiny_aes.elf"
-	@echo "... home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/aes/niosv_aes_src.obj"
-	@echo "... home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/aes/niosv_aes_src.i"
-	@echo "... home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/aes/niosv_aes_src.s"
+	@echo "... home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/src/niosv_aes_src.obj"
+	@echo "... home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/src/niosv_aes_src.i"
+	@echo "... home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/software/src/niosv_aes_src.s"
 .PHONY : help
 
 

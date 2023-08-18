@@ -4,7 +4,7 @@
  * Machine generated for CPU 'intel_niosv_m_0' in SOPC Builder design 'soc_system'
  * SOPC Builder design path: /home/tyler/PL-Sensor-Intel/EXPERIMENTS/quartus_projects/niosv_aes/soc_system.sopcinfo
  *
- * Generated: Wed Aug 16 16:33:44 PDT 2023
+ * Generated: Thu Aug 17 15:57:56 PDT 2023
  */
 
 /*
