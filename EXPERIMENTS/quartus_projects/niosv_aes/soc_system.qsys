@@ -1253,7 +1253,7 @@
   <parameter name="CHANNEL_WIDTH" value="8" />
   <parameter name="DATA_FIFO_DEPTH" value="2048" />
   <parameter name="DATA_WIDTH" value="256" />
-  <parameter name="DESCRIPTOR_FIFO_DEPTH" value="32" />
+  <parameter name="DESCRIPTOR_FIFO_DEPTH" value="64" />
   <parameter name="ENHANCED_FEATURES" value="0" />
   <parameter name="ERROR_ENABLE" value="0" />
   <parameter name="ERROR_WIDTH" value="8" />
@@ -1849,13 +1849,13 @@
   <parameter name="ENABLE_EXPLICIT_MAXCHANNEL" value="false" />
   <parameter name="ERROR_WIDTH" value="0" />
   <parameter name="EXPLICIT_MAXCHANNEL" value="0" />
-  <parameter name="FIFO_DEPTH" value="16" />
-  <parameter name="RD_SYNC_DEPTH" value="8" />
+  <parameter name="FIFO_DEPTH" value="4" />
+  <parameter name="RD_SYNC_DEPTH" value="4" />
   <parameter name="SYMBOLS_PER_BEAT" value="1" />
   <parameter name="USE_IN_FILL_LEVEL" value="0" />
   <parameter name="USE_OUT_FILL_LEVEL" value="0" />
   <parameter name="USE_PACKETS" value="0" />
-  <parameter name="WR_SYNC_DEPTH" value="8" />
+  <parameter name="WR_SYNC_DEPTH" value="4" />
  </module>
  <module
    name="ipsync_bridge_niosv"
@@ -1864,12 +1864,12 @@
    enabled="1">
   <parameter name="ADDRESS_UNITS" value="SYMBOLS" />
   <parameter name="ADDRESS_WIDTH" value="10" />
-  <parameter name="COMMAND_FIFO_DEPTH" value="8" />
+  <parameter name="COMMAND_FIFO_DEPTH" value="4" />
   <parameter name="DATA_WIDTH" value="32" />
-  <parameter name="MASTER_SYNC_DEPTH" value="8" />
+  <parameter name="MASTER_SYNC_DEPTH" value="4" />
   <parameter name="MAX_BURST_SIZE" value="1" />
-  <parameter name="RESPONSE_FIFO_DEPTH" value="8" />
-  <parameter name="SLAVE_SYNC_DEPTH" value="8" />
+  <parameter name="RESPONSE_FIFO_DEPTH" value="4" />
+  <parameter name="SLAVE_SYNC_DEPTH" value="4" />
   <parameter name="SYMBOL_WIDTH" value="8" />
   <parameter name="SYSINFO_ADDR_WIDTH" value="10" />
   <parameter name="USE_AUTO_ADDRESS_WIDTH" value="1" />
@@ -1881,12 +1881,12 @@
    enabled="1">
   <parameter name="ADDRESS_UNITS" value="SYMBOLS" />
   <parameter name="ADDRESS_WIDTH" value="10" />
-  <parameter name="COMMAND_FIFO_DEPTH" value="8" />
+  <parameter name="COMMAND_FIFO_DEPTH" value="4" />
   <parameter name="DATA_WIDTH" value="32" />
-  <parameter name="MASTER_SYNC_DEPTH" value="16" />
+  <parameter name="MASTER_SYNC_DEPTH" value="4" />
   <parameter name="MAX_BURST_SIZE" value="1" />
-  <parameter name="RESPONSE_FIFO_DEPTH" value="8" />
-  <parameter name="SLAVE_SYNC_DEPTH" value="16" />
+  <parameter name="RESPONSE_FIFO_DEPTH" value="4" />
+  <parameter name="SLAVE_SYNC_DEPTH" value="4" />
   <parameter name="SYMBOL_WIDTH" value="8" />
   <parameter name="SYSINFO_ADDR_WIDTH" value="4" />
   <parameter name="USE_AUTO_ADDRESS_WIDTH" value="0" />
@@ -2237,12 +2237,12 @@
    enabled="1">
   <parameter name="ADDRESS_UNITS" value="SYMBOLS" />
   <parameter name="ADDRESS_WIDTH" value="6" />
-  <parameter name="COMMAND_FIFO_DEPTH" value="8" />
+  <parameter name="COMMAND_FIFO_DEPTH" value="4" />
   <parameter name="DATA_WIDTH" value="32" />
-  <parameter name="MASTER_SYNC_DEPTH" value="8" />
+  <parameter name="MASTER_SYNC_DEPTH" value="4" />
   <parameter name="MAX_BURST_SIZE" value="1" />
-  <parameter name="RESPONSE_FIFO_DEPTH" value="8" />
-  <parameter name="SLAVE_SYNC_DEPTH" value="8" />
+  <parameter name="RESPONSE_FIFO_DEPTH" value="4" />
+  <parameter name="SLAVE_SYNC_DEPTH" value="4" />
   <parameter name="SYMBOL_WIDTH" value="8" />
   <parameter name="SYSINFO_ADDR_WIDTH" value="8" />
   <parameter name="USE_AUTO_ADDRESS_WIDTH" value="1" />
@@ -2310,12 +2310,12 @@
    enabled="1">
   <parameter name="ADDRESS_UNITS" value="SYMBOLS" />
   <parameter name="ADDRESS_WIDTH" value="12" />
-  <parameter name="COMMAND_FIFO_DEPTH" value="8" />
+  <parameter name="COMMAND_FIFO_DEPTH" value="4" />
   <parameter name="DATA_WIDTH" value="32" />
-  <parameter name="MASTER_SYNC_DEPTH" value="8" />
+  <parameter name="MASTER_SYNC_DEPTH" value="4" />
   <parameter name="MAX_BURST_SIZE" value="1" />
-  <parameter name="RESPONSE_FIFO_DEPTH" value="8" />
-  <parameter name="SLAVE_SYNC_DEPTH" value="8" />
+  <parameter name="RESPONSE_FIFO_DEPTH" value="4" />
+  <parameter name="SLAVE_SYNC_DEPTH" value="4" />
   <parameter name="SYMBOL_WIDTH" value="8" />
   <parameter name="SYSINFO_ADDR_WIDTH" value="4" />
   <parameter name="USE_AUTO_ADDRESS_WIDTH" value="1" />
@@ -2683,7 +2683,7 @@
   <parameter name="ENABLE_EXPLICIT_MAXCHANNEL" value="false" />
   <parameter name="ERROR_WIDTH" value="0" />
   <parameter name="EXPLICIT_MAXCHANNEL" value="0" />
-  <parameter name="FIFO_DEPTH" value="16" />
+  <parameter name="FIFO_DEPTH" value="32" />
   <parameter name="RD_SYNC_DEPTH" value="8" />
   <parameter name="SYMBOLS_PER_BEAT" value="32" />
   <parameter name="USE_IN_FILL_LEVEL" value="0" />
@@ -2809,7 +2809,7 @@
   <parameter name="gui_mif_generate" value="false" />
   <parameter name="gui_multiply_factor" value="160" />
   <parameter name="gui_number_of_clocks" value="2" />
-  <parameter name="gui_operation_mode" value="direct" />
+  <parameter name="gui_operation_mode" value="normal" />
   <parameter name="gui_output_clock_frequency0" value="300.0" />
   <parameter name="gui_output_clock_frequency1" value="100.0" />
   <parameter name="gui_output_clock_frequency10" value="100.0" />
@@ -2929,12 +2929,12 @@
    enabled="1">
   <parameter name="ADDRESS_UNITS" value="SYMBOLS" />
   <parameter name="ADDRESS_WIDTH" value="6" />
-  <parameter name="COMMAND_FIFO_DEPTH" value="8" />
+  <parameter name="COMMAND_FIFO_DEPTH" value="4" />
   <parameter name="DATA_WIDTH" value="32" />
-  <parameter name="MASTER_SYNC_DEPTH" value="8" />
+  <parameter name="MASTER_SYNC_DEPTH" value="4" />
   <parameter name="MAX_BURST_SIZE" value="1" />
-  <parameter name="RESPONSE_FIFO_DEPTH" value="8" />
-  <parameter name="SLAVE_SYNC_DEPTH" value="8" />
+  <parameter name="RESPONSE_FIFO_DEPTH" value="4" />
+  <parameter name="SLAVE_SYNC_DEPTH" value="4" />
   <parameter name="SYMBOL_WIDTH" value="8" />
   <parameter name="SYSINFO_ADDR_WIDTH" value="8" />
   <parameter name="USE_AUTO_ADDRESS_WIDTH" value="1" />
