@@ -43,7 +43,7 @@ class niosv_aes(pd_ip):
             
     def post(self):
         if(self.perpetual == False):
-            timeout = 100
+            timeout = 1000
             while(timeout != 0):
                 value = self.periph_mem.read_csr(0x0, 4)
                 if(value == 0xAAAAAAAA):
