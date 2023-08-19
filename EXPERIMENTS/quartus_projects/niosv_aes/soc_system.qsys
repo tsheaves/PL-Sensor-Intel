@@ -2067,7 +2067,7 @@
   <parameter name="gui_channel_spacing" value="0.0" />
   <parameter name="gui_clk_bad" value="false" />
   <parameter name="gui_device_speed_grade" value="2" />
-  <parameter name="gui_divide_factor_c0" value="160" />
+  <parameter name="gui_divide_factor_c0" value="16" />
   <parameter name="gui_divide_factor_c1" value="16" />
   <parameter name="gui_divide_factor_c10" value="1" />
   <parameter name="gui_divide_factor_c11" value="1" />
@@ -2807,7 +2807,7 @@
   <parameter name="gui_frac_multiply_factor" value="1" />
   <parameter name="gui_fractional_cout" value="8" />
   <parameter name="gui_mif_generate" value="false" />
-  <parameter name="gui_multiply_factor" value="160" />
+  <parameter name="gui_multiply_factor" value="16" />
   <parameter name="gui_number_of_clocks" value="2" />
   <parameter name="gui_operation_mode" value="normal" />
   <parameter name="gui_output_clock_frequency0" value="300.0" />
@@ -2889,7 +2889,7 @@
   <parameter name="gui_ps_units9" value="ps" />
   <parameter name="gui_refclk1_frequency" value="100.0" />
   <parameter name="gui_refclk_switch" value="false" />
-  <parameter name="gui_reference_clock_frequency" value="10.0" />
+  <parameter name="gui_reference_clock_frequency" value="100.0" />
   <parameter name="gui_switchover_delay" value="0" />
   <parameter name="gui_switchover_mode">Automatic Switchover</parameter>
   <parameter name="gui_use_locked" value="true" />

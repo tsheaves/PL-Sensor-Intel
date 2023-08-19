@@ -1,13 +1,15 @@
 from itertools import product
 import pandas as pd
 import numpy as np
+import math
 
 class PLLPreProcessor():
 
     def __init__(
         self, vendor='intel', vco_max=1600*10**6, \
         vco_min=600*10**6, Ms=range(1, 512), \
-        Ds=range(1, 512), Os=range(1,512) 
+        Ds=range(1, 512), Os=range(1,512), \
+        pfd_min=5*10**6, pfd_max=25*10**6
     ):
         self.vendor  = vendor.lower()
         self.vco_max = vco_max
@@ -15,8 +17,9 @@ class PLLPreProcessor():
         self.Ms = Ms
         self.Ds = Ds
         self.Os = Os
-        self.max_f_pfd = self.vco_max/max(Ms)
         self.max_o = max(Os)
+        self.pfd_min = pfd_min
+        self.pfd_max = pfd_max
     
     def is_between(self, a, x, b):
         return min(a, b) <= x <= max(a, b)
@@ -28,7 +31,7 @@ class PLLPreProcessor():
             - Phase Noise: Higher O and Fvco is better
             -      Jitter: Higher Fpfd is better
         '''
-        prop_max_pfd = f_pfd/self.max_f_pfd
+        prop_max_pfd = f_pfd/self.pfd_max
         prop_max_vco = f_vco/self.vco_max
         prop_max_o = O/self.max_o 
         return prop_max_pfd + prop_max_vco + prop_max_o
@@ -37,7 +40,11 @@ class PLLPreProcessor():
         ref_clk  = 50 * 10 ** 6, \
         out_min = 100 * 10 ** 6, out_max = 100 * 10 ** 6, \
         delay_lower = 0 * 10 ** -12, \
-        delay_upper = 6000 * 10 ** -12):
+        delay_upper = 6000 * 10 ** -12, \
+        target_clk = 25*10**6 
+    ):
+
+        n_cycles = 2*math.ceil(out_max/target_clk)
         
         # Fine Grain Divider setting
         fgdiv = 56 if self.vendor == 'xilinx' else 8
@@ -52,15 +59,16 @@ class PLLPreProcessor():
                 out = ref_clk * M/(D * O)
                 if( (out > out_max) or (out < out_min) ):
                     continue # Skip loop iteration
-                for n in range (0, round(fgdiv * ref_clk * M / (D * out))):
-                    delay = D * O / (ref_clk * M) - n / (fgdiv * out * O)
-                    f_pfd = ref_clk/M
-                    f_vco = ref_clk * M / D
-                    stability_metric = self.__calc_stability_metric__(f_pfd, f_vco, O)
+                for n in range (0, round(n_cycles * fgdiv * ref_clk * M / (D * out))):
+                    delay = n_cycles*(D * O / (ref_clk * M)) - n / (fgdiv * out * O)                   
                     if(self.is_between(delay_lower, delay, delay_upper)):
-                        arr.append((M, D, O, n, f_vco, f_pfd, ref_clk, \
-                                    out, out / (10 ** 6), delay, delay / (10 ** -12), \
-                                    stability_metric))
+                        f_pfd = ref_clk/D
+                        if(self.is_between(self.pfd_min, f_pfd, self.pfd_max)):
+                            f_vco = ref_clk * M / D
+                            stability_metric = self.__calc_stability_metric__(f_pfd, f_vco, O)
+                            arr.append((M, D, O, n, f_vco, f_pfd, ref_clk, \
+                                        out, out / (10 ** 6), delay, delay / (10 ** -12), \
+                                        stability_metric))
                         
         df = pd.DataFrame(arr, columns = ["M", "D", "O", "n", "Fvco", "Fpfd", "Fref", \
                                           "Fout", "Fout (MHz)", "delay", "delay (ps)", \
