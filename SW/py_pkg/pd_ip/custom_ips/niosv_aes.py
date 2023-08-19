@@ -52,3 +52,4 @@ class niosv_aes(pd_ip):
             if(timeout == 0):
                 warnings.warn(f"Warning: NIOSV did not wrap as expected!")
                 self.__dump__()
+            self.hold_reset()
