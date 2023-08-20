@@ -13,7 +13,7 @@
    {
       datum _sortIndex
       {
-         value = "3";
+         value = "4";
          type = "int";
       }
    }
@@ -60,7 +60,7 @@
    {
       datum _sortIndex
       {
-         value = "2";
+         value = "3";
          type = "int";
       }
       datum sopceditor_expanded
@@ -120,7 +120,7 @@
    {
       datum _sortIndex
       {
-         value = "31";
+         value = "1";
          type = "int";
       }
    }
@@ -136,12 +136,12 @@
    {
       datum _lockedAddress
       {
-         value = "1";
+         value = "0";
          type = "boolean";
       }
       datum baseAddress
       {
-         value = "0";
+         value = "16780288";
          type = "String";
       }
    }
@@ -151,27 +151,6 @@
       {
          value = "25";
          type = "int";
-      }
-   }
-   element ipsync_bridge_niosv
-   {
-      datum _sortIndex
-      {
-         value = "23";
-         type = "int";
-      }
-   }
-   element ipsync_bridge_niosv.s0
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "16780288";
-         type = "String";
       }
    }
    element nios_v_ram
@@ -257,7 +236,7 @@
    {
       datum _sortIndex
       {
-         value = "18";
+         value = "19";
          type = "int";
       }
    }
@@ -273,7 +252,7 @@
    {
       datum _sortIndex
       {
-         value = "22";
+         value = "23";
          type = "int";
       }
    }
@@ -294,7 +273,7 @@
    {
       datum _sortIndex
       {
-         value = "17";
+         value = "18";
          type = "int";
       }
    }
@@ -315,7 +294,7 @@
    {
       datum _sortIndex
       {
-         value = "20";
+         value = "21";
          type = "int";
       }
    }
@@ -323,7 +302,7 @@
    {
       datum _sortIndex
       {
-         value = "21";
+         value = "22";
          type = "int";
       }
    }
@@ -344,7 +323,7 @@
    {
       datum _sortIndex
       {
-         value = "5";
+         value = "6";
          type = "int";
       }
    }
@@ -361,23 +340,15 @@
          type = "String";
       }
    }
-   element reset_bridge_capt
+   element reset_bridge_tdc
    {
       datum _sortIndex
       {
-         value = "7";
+         value = "11";
          type = "int";
       }
    }
-   element reset_bridge_launch
-   {
-      datum _sortIndex
-      {
-         value = "8";
-         type = "int";
-      }
-   }
-   element reset_bridge_shell
+   element reset_bridge_tdc_dcfifo_capt
    {
       datum _sortIndex
       {
@@ -385,7 +356,7 @@
          type = "int";
       }
    }
-   element reset_bridge_tdc
+   element reset_bridge_tdc_dcfifo_shell
    {
       datum _sortIndex
       {
@@ -393,11 +364,19 @@
          type = "int";
       }
    }
+   element reset_bridge_tdc_pg
+   {
+      datum _sortIndex
+      {
+         value = "8";
+         type = "int";
+      }
+   }
    element shell_pll
    {
       datum _sortIndex
       {
-         value = "1";
+         value = "2";
          type = "int";
       }
    }
@@ -949,7 +928,7 @@
    {
       datum _sortIndex
       {
-         value = "4";
+         value = "5";
          type = "int";
       }
    }
@@ -957,7 +936,7 @@
    {
       datum _sortIndex
       {
-         value = "19";
+         value = "20";
          type = "int";
       }
    }
@@ -965,7 +944,7 @@
    {
       datum _sortIndex
       {
-         value = "11";
+         value = "12";
          type = "int";
       }
    }
@@ -986,7 +965,7 @@
    {
       datum _sortIndex
       {
-         value = "6";
+         value = "7";
          type = "int";
       }
    }
@@ -994,7 +973,7 @@
    {
       datum _sortIndex
       {
-         value = "12";
+         value = "13";
          type = "int";
       }
    }
@@ -1002,7 +981,7 @@
    {
       datum _sortIndex
       {
-         value = "16";
+         value = "17";
          type = "int";
       }
    }
@@ -1023,7 +1002,7 @@
    {
       datum _sortIndex
       {
-         value = "15";
+         value = "16";
          type = "int";
       }
    }
@@ -1044,7 +1023,7 @@
    {
       datum _sortIndex
       {
-         value = "13";
+         value = "14";
          type = "int";
       }
    }
@@ -1052,7 +1031,7 @@
    {
       datum _sortIndex
       {
-         value = "14";
+         value = "15";
          type = "int";
       }
    }
@@ -1995,23 +1974,6 @@
   <parameter name="WR_SYNC_DEPTH" value="4" />
  </module>
  <module
-   name="ipsync_bridge_niosv"
-   kind="altera_avalon_mm_clock_crossing_bridge"
-   version="22.1"
-   enabled="1">
-  <parameter name="ADDRESS_UNITS" value="SYMBOLS" />
-  <parameter name="ADDRESS_WIDTH" value="10" />
-  <parameter name="COMMAND_FIFO_DEPTH" value="4" />
-  <parameter name="DATA_WIDTH" value="32" />
-  <parameter name="MASTER_SYNC_DEPTH" value="4" />
-  <parameter name="MAX_BURST_SIZE" value="1" />
-  <parameter name="RESPONSE_FIFO_DEPTH" value="4" />
-  <parameter name="SLAVE_SYNC_DEPTH" value="4" />
-  <parameter name="SYMBOL_WIDTH" value="8" />
-  <parameter name="SYSINFO_ADDR_WIDTH" value="10" />
-  <parameter name="USE_AUTO_ADDRESS_WIDTH" value="1" />
- </module>
- <module
    name="nios_v_ram"
    kind="altera_avalon_onchip_memory2"
    version="22.1"
@@ -2407,97 +2369,97 @@
   <parameter name="PIPELINE_OUTPUT" value="4" />
  </module>
  <module
-   name="reset_bridge_capt"
-   kind="altera_reset_controller"
-   version="22.1"
-   enabled="1">
-  <parameter name="MIN_RST_ASSERTION_TIME" value="3" />
-  <parameter name="NUM_RESET_INPUTS" value="1" />
-  <parameter name="OUTPUT_RESET_SYNC_EDGES" value="deassert" />
-  <parameter name="RESET_REQUEST_PRESENT" value="0" />
-  <parameter name="RESET_REQ_EARLY_DSRT_TIME" value="1" />
-  <parameter name="RESET_REQ_WAIT_TIME" value="1" />
-  <parameter name="SYNC_DEPTH" value="2" />
-  <parameter name="USE_RESET_REQUEST_IN0" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN1" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN10" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN11" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN12" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN13" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN14" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN15" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN2" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN3" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN4" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN5" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN6" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN7" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN8" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN9" value="0" />
-  <parameter name="USE_RESET_REQUEST_INPUT" value="0" />
- </module>
- <module
-   name="reset_bridge_launch"
-   kind="altera_reset_controller"
-   version="22.1"
-   enabled="1">
-  <parameter name="MIN_RST_ASSERTION_TIME" value="3" />
-  <parameter name="NUM_RESET_INPUTS" value="1" />
-  <parameter name="OUTPUT_RESET_SYNC_EDGES" value="deassert" />
-  <parameter name="RESET_REQUEST_PRESENT" value="0" />
-  <parameter name="RESET_REQ_EARLY_DSRT_TIME" value="1" />
-  <parameter name="RESET_REQ_WAIT_TIME" value="1" />
-  <parameter name="SYNC_DEPTH" value="2" />
-  <parameter name="USE_RESET_REQUEST_IN0" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN1" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN10" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN11" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN12" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN13" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN14" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN15" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN2" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN3" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN4" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN5" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN6" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN7" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN8" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN9" value="0" />
-  <parameter name="USE_RESET_REQUEST_INPUT" value="0" />
- </module>
- <module
-   name="reset_bridge_shell"
-   kind="altera_reset_controller"
-   version="22.1"
-   enabled="1">
-  <parameter name="MIN_RST_ASSERTION_TIME" value="3" />
-  <parameter name="NUM_RESET_INPUTS" value="1" />
-  <parameter name="OUTPUT_RESET_SYNC_EDGES" value="deassert" />
-  <parameter name="RESET_REQUEST_PRESENT" value="0" />
-  <parameter name="RESET_REQ_EARLY_DSRT_TIME" value="1" />
-  <parameter name="RESET_REQ_WAIT_TIME" value="1" />
-  <parameter name="SYNC_DEPTH" value="2" />
-  <parameter name="USE_RESET_REQUEST_IN0" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN1" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN10" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN11" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN12" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN13" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN14" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN15" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN2" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN3" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN4" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN5" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN6" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN7" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN8" value="0" />
-  <parameter name="USE_RESET_REQUEST_IN9" value="0" />
-  <parameter name="USE_RESET_REQUEST_INPUT" value="0" />
- </module>
- <module
    name="reset_bridge_tdc"
+   kind="altera_reset_controller"
+   version="22.1"
+   enabled="1">
+  <parameter name="MIN_RST_ASSERTION_TIME" value="3" />
+  <parameter name="NUM_RESET_INPUTS" value="1" />
+  <parameter name="OUTPUT_RESET_SYNC_EDGES" value="deassert" />
+  <parameter name="RESET_REQUEST_PRESENT" value="0" />
+  <parameter name="RESET_REQ_EARLY_DSRT_TIME" value="1" />
+  <parameter name="RESET_REQ_WAIT_TIME" value="1" />
+  <parameter name="SYNC_DEPTH" value="2" />
+  <parameter name="USE_RESET_REQUEST_IN0" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN1" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN10" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN11" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN12" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN13" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN14" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN15" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN2" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN3" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN4" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN5" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN6" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN7" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN8" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN9" value="0" />
+  <parameter name="USE_RESET_REQUEST_INPUT" value="0" />
+ </module>
+ <module
+   name="reset_bridge_tdc_dcfifo_capt"
+   kind="altera_reset_controller"
+   version="22.1"
+   enabled="1">
+  <parameter name="MIN_RST_ASSERTION_TIME" value="3" />
+  <parameter name="NUM_RESET_INPUTS" value="1" />
+  <parameter name="OUTPUT_RESET_SYNC_EDGES" value="deassert" />
+  <parameter name="RESET_REQUEST_PRESENT" value="0" />
+  <parameter name="RESET_REQ_EARLY_DSRT_TIME" value="1" />
+  <parameter name="RESET_REQ_WAIT_TIME" value="1" />
+  <parameter name="SYNC_DEPTH" value="2" />
+  <parameter name="USE_RESET_REQUEST_IN0" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN1" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN10" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN11" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN12" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN13" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN14" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN15" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN2" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN3" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN4" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN5" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN6" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN7" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN8" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN9" value="0" />
+  <parameter name="USE_RESET_REQUEST_INPUT" value="0" />
+ </module>
+ <module
+   name="reset_bridge_tdc_dcfifo_shell"
+   kind="altera_reset_controller"
+   version="22.1"
+   enabled="1">
+  <parameter name="MIN_RST_ASSERTION_TIME" value="3" />
+  <parameter name="NUM_RESET_INPUTS" value="1" />
+  <parameter name="OUTPUT_RESET_SYNC_EDGES" value="deassert" />
+  <parameter name="RESET_REQUEST_PRESENT" value="0" />
+  <parameter name="RESET_REQ_EARLY_DSRT_TIME" value="1" />
+  <parameter name="RESET_REQ_WAIT_TIME" value="1" />
+  <parameter name="SYNC_DEPTH" value="2" />
+  <parameter name="USE_RESET_REQUEST_IN0" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN1" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN10" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN11" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN12" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN13" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN14" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN15" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN2" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN3" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN4" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN5" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN6" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN7" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN8" value="0" />
+  <parameter name="USE_RESET_REQUEST_IN9" value="0" />
+  <parameter name="USE_RESET_REQUEST_INPUT" value="0" />
+ </module>
+ <module
+   name="reset_bridge_tdc_pg"
    kind="altera_reset_controller"
    version="22.1"
    enabled="1">
@@ -3105,6 +3067,15 @@
    kind="avalon"
    version="22.1"
    start="hps_0.h2f_axi_master"
+   end="ip_sync_niosv.avalon_slave">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x01000c00" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="22.1"
+   start="hps_0.h2f_axi_master"
    end="theta_pll_reconfig.mgmt_avalon_slave">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x0000" />
@@ -3117,15 +3088,6 @@
    end="phi_pll_reconfig.mgmt_avalon_slave">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x01000400" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="22.1"
-   start="hps_0.h2f_axi_master"
-   end="ipsync_bridge_niosv.s0">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x01000c00" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -3205,15 +3167,6 @@
    version="22.1"
    start="intel_niosv_m_0.instruction_manager"
    end="nios_v_ram.s1">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0000" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="22.1"
-   start="ipsync_bridge_niosv.m0"
-   end="ip_sync_niosv.avalon_slave">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x0000" />
   <parameter name="defaultConnection" value="false" />
@@ -3313,12 +3266,12 @@
    kind="clock"
    version="22.1"
    start="theta_clks.outclk0"
-   end="reset_bridge_launch.clk" />
+   end="reset_bridge_tdc_pg.clk" />
  <connection
    kind="clock"
    version="22.1"
    start="shell_pll.outclk0"
-   end="reset_bridge_shell.clk" />
+   end="reset_bridge_tdc_dcfifo_shell.clk" />
  <connection
    kind="clock"
    version="22.1"
@@ -3392,11 +3345,6 @@
  <connection
    kind="clock"
    version="22.1"
-   start="ip_clk.outclk0"
-   end="ipsync_bridge_niosv.m0_clk" />
- <connection
-   kind="clock"
-   version="22.1"
    start="shell_pll.outclk0"
    end="tdc_to_dma_dc_fifo.out_clk" />
  <connection
@@ -3407,13 +3355,8 @@
  <connection
    kind="clock"
    version="22.1"
-   start="shell_pll.outclk0"
-   end="ipsync_bridge_niosv.s0_clk" />
- <connection
-   kind="clock"
-   version="22.1"
    start="theta_clks.outclk1"
-   end="reset_bridge_capt.clk" />
+   end="reset_bridge_tdc_dcfifo_capt.clk" />
  <connection
    kind="clock"
    version="22.1"
@@ -3506,11 +3449,6 @@
    version="22.1"
    start="input_clk.clk_reset"
    end="ip_sync_to_pulsegenerator_cdc.in_clk_reset" />
- <connection
-   kind="reset"
-   version="22.1"
-   start="input_clk.clk_reset"
-   end="ipsync_bridge_niosv.m0_reset" />
  <connection
    kind="reset"
    version="22.1"
@@ -3614,11 +3552,6 @@
  <connection
    kind="reset"
    version="22.1"
-   start="input_clk.clk_reset"
-   end="ipsync_bridge_niosv.s0_reset" />
- <connection
-   kind="reset"
-   version="22.1"
    start="hps_0.h2f_reset"
    end="pulsegenerator.axi_s_resetn" />
  <connection
@@ -3641,11 +3574,6 @@
    version="22.1"
    start="hps_0.h2f_reset"
    end="ip_sync_to_pulsegenerator_cdc.in_clk_reset" />
- <connection
-   kind="reset"
-   version="22.1"
-   start="hps_0.h2f_reset"
-   end="ipsync_bridge_niosv.m0_reset" />
  <connection
    kind="reset"
    version="22.1"
@@ -3750,22 +3678,17 @@
  <connection
    kind="reset"
    version="22.1"
-   start="hps_0.h2f_reset"
-   end="ipsync_bridge_niosv.s0_reset" />
- <connection
-   kind="reset"
-   version="22.1"
-   start="reset_bridge_launch.reset_out"
+   start="reset_bridge_tdc_pg.reset_out"
    end="pulsegenerator.axi_s_resetn" />
  <connection
    kind="reset"
    version="22.1"
-   start="reset_bridge_capt.reset_out"
+   start="reset_bridge_tdc_dcfifo_capt.reset_out"
    end="tdc_to_dma_dc_fifo.in_clk_reset" />
  <connection
    kind="reset"
    version="22.1"
-   start="reset_bridge_shell.reset_out"
+   start="reset_bridge_tdc_dcfifo_shell.reset_out"
    end="tdc_to_dma_dc_fifo.out_clk_reset" />
  <connection
    kind="reset"
@@ -3780,7 +3703,7 @@
  <connection
    kind="reset"
    version="22.1"
-   start="reset_bridge_capt.reset_out"
+   start="reset_bridge_tdc_dcfifo_capt.reset_out"
    end="tdc_0.reset" />
  <connection
    kind="reset"
@@ -3791,17 +3714,17 @@
    kind="reset"
    version="22.1"
    start="reset_bridge_tdc.reset_out"
-   end="reset_bridge_shell.reset_in0" />
+   end="reset_bridge_tdc_dcfifo_shell.reset_in0" />
  <connection
    kind="reset"
    version="22.1"
    start="reset_bridge_tdc.reset_out"
-   end="reset_bridge_launch.reset_in0" />
+   end="reset_bridge_tdc_pg.reset_in0" />
  <connection
    kind="reset"
    version="22.1"
    start="reset_bridge_tdc.reset_out"
-   end="reset_bridge_capt.reset_in0" />
+   end="reset_bridge_tdc_dcfifo_capt.reset_in0" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="1" />
 </system>
