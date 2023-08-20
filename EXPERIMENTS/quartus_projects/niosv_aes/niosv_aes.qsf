@@ -775,7 +775,7 @@ set_instance_assignment -name CLOCK_REGION "REGIONAL CLOCK REGION 1" -to "soc_sy
 set_instance_assignment -name PLL_TYPE FPLL -to "soc_system:u0|soc_system_phi_clk:phi_clk|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|altera_cyclonev_pll_base:fpll_0|fpll"
 set_instance_assignment -name PLL_COMPENSATION_MODE DIRECT -to "soc_system:u0|soc_system_phi_clk:phi_clk|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|altera_cyclonev_pll_base:fpll_0|fpll"
 set_instance_assignment -name PLL_TYPE FPLL -to "soc_system:u0|soc_system_theta_clks:theta_clks|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|altera_cyclonev_pll_base:fpll_0|fpll"
-set_instance_assignment -name PLL_COMPENSATION_MODE NORMAL -to "soc_system:u0|soc_system_theta_clks:theta_clks|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|altera_cyclonev_pll_base:fpll_0|fpll"
+set_instance_assignment -name PLL_COMPENSATION_MODE DIRECT -to "soc_system:u0|soc_system_theta_clks:theta_clks|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|altera_cyclonev_pll_base:fpll_0|fpll"
 set_instance_assignment -name STRATIXII_CARRY_CHAIN_LENGTH 128 -to "soc_system:u0|tdc_top:tdc_0|carry_top:carry0|carry_chain:cc"
 set_global_assignment -name LL_ENABLED OFF -section_id niosv
 set_global_assignment -name LL_AUTO_SIZE OFF -section_id niosv
@@ -858,6 +858,6 @@ set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|soc_system_m
 set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|soc_system_mm_interconnect_9:mm_interconnect_9|altera_avalon_sc_fifo:hps_0_f2h_sdram0_data_agent_rsp_fifo" -section_id shell
 set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|soc_system_mm_interconnect_9:mm_interconnect_9|altera_merlin_slave_agent:hps_0_f2h_sdram0_data_agent" -section_id shell
 set_instance_assignment -name LL_MEMBER_OF shell -to "soc_system:u0|soc_system_mm_interconnect_9:mm_interconnect_9|altera_merlin_slave_translator:hps_0_f2h_sdram0_data_translator" -section_id shell
-set_instance_assignment -name MATCH_PLL_COMPENSATION_CLOCK ON -to "soc_system:u0|soc_system_theta_clks:theta_clks|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|divclk[1]"
+set_instance_assignment -name MATCH_PLL_COMPENSATION_CLOCK OFF -to "soc_system:u0|soc_system_theta_clks:theta_clks|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|divclk[1]"
 set_instance_assignment -name GLOBAL_SIGNAL REGIONAL_CLOCK -to "soc_system:u0|soc_system_theta_clks:theta_clks|altera_pll:altera_pll_i|altera_cyclonev_pll:cyclonev_pll|divclk[1]"
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

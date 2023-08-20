@@ -44,7 +44,7 @@ class PLLPreProcessor():
         target_clk = 25*10**6 
     ):
 
-        n_cycles = 2*math.ceil(out_max/target_clk)
+        n_cycles = math.ceil(2*out_max/target_clk)
         
         # Fine Grain Divider setting
         fgdiv = 56 if self.vendor == 'xilinx' else 8
