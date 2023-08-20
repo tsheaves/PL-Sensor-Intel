@@ -22,6 +22,17 @@
  */
 
 /*
+ * Macros for device 'theta_pll_reconfig', class 'altera_pll_reconfig'
+ * The macros are prefixed with 'THETA_PLL_RECONFIG_'.
+ * The prefix is the slave descriptor.
+ */
+#define THETA_PLL_RECONFIG_COMPONENT_TYPE altera_pll_reconfig
+#define THETA_PLL_RECONFIG_COMPONENT_NAME theta_pll_reconfig
+#define THETA_PLL_RECONFIG_BASE 0x0
+#define THETA_PLL_RECONFIG_SPAN 256
+#define THETA_PLL_RECONFIG_END 0xff
+
+/*
  * Macros for device 'DMA_to_SDRAM_csr', class 'altera_msgdma'
  * The macros are prefixed with 'DMA_TO_SDRAM_CSR_'.
  * The prefix is the slave descriptor.
@@ -38,7 +49,7 @@
 #define DMA_TO_SDRAM_CSR_CHANNEL_WIDTH 8
 #define DMA_TO_SDRAM_CSR_DATA_FIFO_DEPTH 2048
 #define DMA_TO_SDRAM_CSR_DATA_WIDTH 256
-#define DMA_TO_SDRAM_CSR_DESCRIPTOR_FIFO_DEPTH 32
+#define DMA_TO_SDRAM_CSR_DESCRIPTOR_FIFO_DEPTH 64
 #define DMA_TO_SDRAM_CSR_DMA_MODE 2
 #define DMA_TO_SDRAM_CSR_ENHANCED_FEATURES 0
 #define DMA_TO_SDRAM_CSR_ERROR_ENABLE 0
@@ -73,7 +84,7 @@
 #define DMA_TO_SDRAM_DESCRIPTOR_SLAVE_CHANNEL_WIDTH 8
 #define DMA_TO_SDRAM_DESCRIPTOR_SLAVE_DATA_FIFO_DEPTH 2048
 #define DMA_TO_SDRAM_DESCRIPTOR_SLAVE_DATA_WIDTH 256
-#define DMA_TO_SDRAM_DESCRIPTOR_SLAVE_DESCRIPTOR_FIFO_DEPTH 32
+#define DMA_TO_SDRAM_DESCRIPTOR_SLAVE_DESCRIPTOR_FIFO_DEPTH 64
 #define DMA_TO_SDRAM_DESCRIPTOR_SLAVE_DMA_MODE 2
 #define DMA_TO_SDRAM_DESCRIPTOR_SLAVE_ENHANCED_FEATURES 0
 #define DMA_TO_SDRAM_DESCRIPTOR_SLAVE_ERROR_ENABLE 0
@@ -90,17 +101,6 @@
 #define DMA_TO_SDRAM_DESCRIPTOR_SLAVE_STRIDE_ENABLE 0
 #define DMA_TO_SDRAM_DESCRIPTOR_SLAVE_STRIDE_ENABLE_DERIVED 0
 #define DMA_TO_SDRAM_DESCRIPTOR_SLAVE_TRANSFER_TYPE Full Word Accesses Only
-
-/*
- * Macros for device 'theta_pll_reconfig', class 'altera_pll_reconfig'
- * The macros are prefixed with 'THETA_PLL_RECONFIG_'.
- * The prefix is the slave descriptor.
- */
-#define THETA_PLL_RECONFIG_COMPONENT_TYPE altera_pll_reconfig
-#define THETA_PLL_RECONFIG_COMPONENT_NAME theta_pll_reconfig
-#define THETA_PLL_RECONFIG_BASE 0x1000100
-#define THETA_PLL_RECONFIG_SPAN 256
-#define THETA_PLL_RECONFIG_END 0x10001ff
 
 /*
  * Macros for device 'theta_pll_reset_pio', class 'altera_avalon_pio'
