@@ -543,7 +543,7 @@ class TunableTDCSweeper():
                         # Prepare target IP
                         self.target_ip.pre()
                         # Prime pulse generator
-                        self.pulsegen.prime(ip_sync_en, theta_samples_temp)
+                        self.pulsegen.prime(ip_sync_en, max_transfer_samples)
                         # Run target IP
                         self.target_ip.run()
                         # Collect samples
