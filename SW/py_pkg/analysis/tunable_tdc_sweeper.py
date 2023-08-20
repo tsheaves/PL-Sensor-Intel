@@ -120,8 +120,8 @@ class TunableTDCSweeper():
     def __process_pop_counts__(self, pop_counts_rising, pop_counts_falling):
         mean_rising_pop = np.mean(pop_counts_rising)
         mean_falling_pop = np.mean(pop_counts_falling)
-        var_rising_pop = np.var(pop_counts_rising, ddof=0)
-        var_falling_pop = np.var(pop_counts_falling, ddof=0)
+        var_rising_pop = np.var(pop_counts_rising, ddof=1)
+        var_falling_pop = np.var(pop_counts_falling, ddof=1)
         return mean_falling_pop, mean_rising_pop, var_falling_pop, var_rising_pop
 
     def __process_firsts_lasts__(self, firsts_rising, firsts_falling, lasts_rising, lasts_falling):
@@ -458,7 +458,7 @@ class TunableTDCSweeper():
             # Reset IP and start
             self.target_ip.perpetual=perpetual
             ip_sync_en = 0 if perpetual==True else 1
-            self.target_ip.reset()
+            self.target_ip.hold_reset()
         else:
             warnings.warn(f"Unsupported mode {mode}. Exiting!")
             return -1
