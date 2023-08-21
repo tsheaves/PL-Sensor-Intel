@@ -474,7 +474,7 @@ class TunableTDCSweeper():
                 }
             else:
                 fh = f"{out_dir}/phi_sweep_samples_{mode}_"
-                phi_sweep_plot_data = shelve.open(f"{fh}_0.pkl", \
+                phi_sweep_plot_data = shelve.open(f"{fh}_0", \
                                                   protocol=pickle.HIGHEST_PROTOCOL, writeback=False)
                 phi_sweep_plot_data["phi delay (ps) " + mode]  = []
                 phi_sweep_plot_data["falling samples " + mode] = []
@@ -495,7 +495,7 @@ class TunableTDCSweeper():
                 }
             else:
                 fh = f"{out_dir}/phi_sweep_samples_{mode}_"
-                phi_sweep_plot_data = shelve.open(f"{fh}_0.pkl", \
+                phi_sweep_plot_data = shelve.open(f"{fh}_0", \
                                                   protocol=pickle.HIGHEST_PROTOCOL, writeback=False)
                 phi_sweep_plot_data["phi delay (ps) " + mode]  = []
                 phi_sweep_plot_data["falling samples " + mode] = []
@@ -629,7 +629,7 @@ class TunableTDCSweeper():
                         phi_sweep_plot_data.close()
                     elif(ctr == n_packed_runs-1):
                         phi_sweep_plot_data.close()
-                        phi_sweep_plot_data = shelve.open(f"{fh}_{index}.pkl", \
+                        phi_sweep_plot_data = shelve.open(f"{fh}_{index}", \
                                                   protocol=pickle.HIGHEST_PROTOCOL, writeback=False)
                         phi_sweep_plot_data["phi delay (ps) " + mode]  = []
                         phi_sweep_plot_data["falling samples " + mode] = []
