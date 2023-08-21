@@ -28,11 +28,7 @@ class  altera_msgdma():
         # Divide return characters into words
         chunks, chunk_size = len(words), len(words)//(num_words)
         # Slice words
-        words = [words[i:i+chunk_size] for i in range(0, chunks, chunk_size) ]
-        # Convert to unisigned integers
-        words_uint = []
-        for word in words:
-            word_uint = int.from_bytes(word, byteorder='big', signed=False)
-            words_uint.append(word_uint)
+        words_uint = [int.from_bytes(words[i:i+chunk_size], byteorder='big', signed=False) \
+                      for i in range(0, chunks, chunk_size) ]
         return words_uint
         
