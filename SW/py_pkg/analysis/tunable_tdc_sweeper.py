@@ -634,7 +634,7 @@ class TunableTDCSweeper():
                         phi_sweep_plot_data["rising samples " + mode]  = rising_samples
                         phi_sweep_plot_data.close()
                         phi_sweep_plot_data = shelve.open(f"{fh}_{index}", writeback=False)
-                        phi_delay = []
+                        phi_delays = []
                         falling_samples = []
                         rising_samples = []
                         ctr = 0
