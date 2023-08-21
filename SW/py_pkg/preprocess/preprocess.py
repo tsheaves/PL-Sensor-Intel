@@ -75,6 +75,7 @@ class PLLPreProcessor():
                                           "stability metric"])
         
         df = df.sort_values(["delay", "Fvco"])
+        df = df.reset_index()
         
         return df
 
@@ -97,6 +98,7 @@ class PLLPreProcessor():
                     # Filter configurations with the highest stability metric
                     df_tmp = df_tmp[df_tmp["stability metric"] == df_tmp["stability metric"].max()]
                     opt_df = pd.concat([opt_df, df_tmp], axis=0)
-        
+                    
+        opt_df = opt_df.reset_index()
         return opt_df
 

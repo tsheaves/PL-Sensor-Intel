@@ -13,7 +13,7 @@
    {
       datum _sortIndex
       {
-         value = "4";
+         value = "5";
          type = "int";
       }
    }
@@ -60,7 +60,7 @@
    {
       datum _sortIndex
       {
-         value = "3";
+         value = "4";
          type = "int";
       }
       datum sopceditor_expanded
@@ -120,7 +120,7 @@
    {
       datum _sortIndex
       {
-         value = "1";
+         value = "2";
          type = "int";
       }
    }
@@ -136,7 +136,7 @@
    {
       datum _lockedAddress
       {
-         value = "0";
+         value = "1";
          type = "boolean";
       }
       datum baseAddress
@@ -236,7 +236,7 @@
    {
       datum _sortIndex
       {
-         value = "19";
+         value = "20";
          type = "int";
       }
    }
@@ -273,7 +273,7 @@
    {
       datum _sortIndex
       {
-         value = "18";
+         value = "19";
          type = "int";
       }
    }
@@ -323,7 +323,7 @@
    {
       datum _sortIndex
       {
-         value = "6";
+         value = "7";
          type = "int";
       }
    }
@@ -344,7 +344,7 @@
    {
       datum _sortIndex
       {
-         value = "11";
+         value = "12";
          type = "int";
       }
    }
@@ -352,7 +352,7 @@
    {
       datum _sortIndex
       {
-         value = "9";
+         value = "10";
          type = "int";
       }
    }
@@ -360,7 +360,7 @@
    {
       datum _sortIndex
       {
-         value = "10";
+         value = "11";
          type = "int";
       }
    }
@@ -368,7 +368,7 @@
    {
       datum _sortIndex
       {
-         value = "8";
+         value = "9";
          type = "int";
       }
    }
@@ -376,7 +376,7 @@
    {
       datum _sortIndex
       {
-         value = "2";
+         value = "3";
          type = "int";
       }
    }
@@ -928,7 +928,7 @@
    {
       datum _sortIndex
       {
-         value = "5";
+         value = "6";
          type = "int";
       }
    }
@@ -936,7 +936,7 @@
    {
       datum _sortIndex
       {
-         value = "20";
+         value = "1";
          type = "int";
       }
    }
@@ -944,7 +944,7 @@
    {
       datum _sortIndex
       {
-         value = "12";
+         value = "13";
          type = "int";
       }
    }
@@ -965,7 +965,7 @@
    {
       datum _sortIndex
       {
-         value = "7";
+         value = "8";
          type = "int";
       }
    }
@@ -973,7 +973,7 @@
    {
       datum _sortIndex
       {
-         value = "13";
+         value = "14";
          type = "int";
       }
    }
@@ -981,7 +981,7 @@
    {
       datum _sortIndex
       {
-         value = "17";
+         value = "18";
          type = "int";
       }
    }
@@ -1002,7 +1002,7 @@
    {
       datum _sortIndex
       {
-         value = "16";
+         value = "17";
          type = "int";
       }
    }
@@ -1023,7 +1023,7 @@
    {
       datum _sortIndex
       {
-         value = "14";
+         value = "15";
          type = "int";
       }
    }
@@ -1031,7 +1031,7 @@
    {
       datum _sortIndex
       {
-         value = "15";
+         value = "16";
          type = "int";
       }
    }
@@ -1903,7 +1903,7 @@
   <parameter name="gui_phase_shift7" value="0" />
   <parameter name="gui_phase_shift8" value="0" />
   <parameter name="gui_phase_shift9" value="0" />
-  <parameter name="gui_phase_shift_deg0" value="0.0" />
+  <parameter name="gui_phase_shift_deg0" value="90.0" />
   <parameter name="gui_phase_shift_deg1" value="90.0" />
   <parameter name="gui_phase_shift_deg10" value="0.0" />
   <parameter name="gui_phase_shift_deg11" value="0.0" />
@@ -1926,7 +1926,7 @@
   <parameter name="gui_pll_bandwidth_preset" value="Auto" />
   <parameter name="gui_pll_cascading_mode">Create an adjpllin signal to connect with an upstream PLL</parameter>
   <parameter name="gui_pll_mode" value="Integer-N PLL" />
-  <parameter name="gui_ps_units0" value="ps" />
+  <parameter name="gui_ps_units0" value="degrees" />
   <parameter name="gui_ps_units1" value="degrees" />
   <parameter name="gui_ps_units10" value="ps" />
   <parameter name="gui_ps_units11" value="ps" />
@@ -2643,7 +2643,7 @@
   <parameter name="gui_phase_shift7" value="0" />
   <parameter name="gui_phase_shift8" value="0" />
   <parameter name="gui_phase_shift9" value="0" />
-  <parameter name="gui_phase_shift_deg0" value="0.0" />
+  <parameter name="gui_phase_shift_deg0" value="45.0" />
   <parameter name="gui_phase_shift_deg1" value="90.0" />
   <parameter name="gui_phase_shift_deg10" value="0.0" />
   <parameter name="gui_phase_shift_deg11" value="0.0" />
@@ -2666,7 +2666,7 @@
   <parameter name="gui_pll_bandwidth_preset" value="Auto" />
   <parameter name="gui_pll_cascading_mode">Create an adjpllin signal to connect with an upstream PLL</parameter>
   <parameter name="gui_pll_mode" value="Integer-N PLL" />
-  <parameter name="gui_ps_units0" value="ps" />
+  <parameter name="gui_ps_units0" value="degrees" />
   <parameter name="gui_ps_units1" value="degrees" />
   <parameter name="gui_ps_units10" value="ps" />
   <parameter name="gui_ps_units11" value="ps" />
@@ -2857,7 +2857,7 @@
   <parameter name="gui_mif_generate" value="false" />
   <parameter name="gui_multiply_factor" value="64" />
   <parameter name="gui_number_of_clocks" value="2" />
-  <parameter name="gui_operation_mode" value="direct" />
+  <parameter name="gui_operation_mode" value="normal" />
   <parameter name="gui_output_clock_frequency0" value="300.0" />
   <parameter name="gui_output_clock_frequency1" value="100.0" />
   <parameter name="gui_output_clock_frequency10" value="100.0" />

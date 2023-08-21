@@ -67,6 +67,7 @@ SETUP/**/*.bak*
 !SW/**/*.sh
 !SW/**/*.xlsx
 !SW/**/*.csv
+!SW/**/*.db
 SW/**/*.BAK*
 SW/**/*.bak*
 
