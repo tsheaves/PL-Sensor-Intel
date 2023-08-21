@@ -77,7 +77,7 @@ class TunableTDCSweeper():
     #   Return all pop counts and pruned samples/pop_counts
     def __calc_pop_counts__(self, falling_samples, rising_samples):
         pop_counts_rising = [bin(n).count('1') for n in rising_samples] 
-        pop_counts_falling = [bin(n).count('1') for n in falling_samples]
+        pop_counts_falling = [self.tdc_len - bin(n).count('1') for n in falling_samples]
         return pop_counts_rising, pop_counts_falling
 
     def __decode_samples__(self, samples):
