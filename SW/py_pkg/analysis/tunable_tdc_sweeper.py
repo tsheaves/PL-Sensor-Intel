@@ -475,9 +475,9 @@ class TunableTDCSweeper():
             else:
                 fh = f"{out_dir}/phi_sweep_samples_{mode}_"
                 phi_sweep_plot_data = shelve.open(f"{fh}_0", writeback=False)
-                phi_sweep_plot_data["phi delay (ps) " + mode]  = []
-                phi_sweep_plot_data["falling samples " + mode] = []
-                phi_sweep_plot_data["rising samples " + mode]  = []
+                phi_delays  = []
+                falling_samples = []
+                rising_samples  = []
                 ctr = 0
                 closed = 0
             # Hold IP in reset during BG measurement
@@ -495,9 +495,9 @@ class TunableTDCSweeper():
             else:
                 fh = f"{out_dir}/phi_sweep_samples_{mode}_"
                 phi_sweep_plot_data = shelve.open(f"{fh}_0", writeback=False)
-                phi_sweep_plot_data["phi delay (ps) " + mode]  = []
-                phi_sweep_plot_data["falling samples " + mode] = []
-                phi_sweep_plot_data["rising samples " + mode]  = []
+                phi_delays  = []
+                falling_samples = []
+                rising_samples  = []
                 ctr = 0
                 closed = 0
             self.target_ip.perpetual=perpetual
@@ -620,17 +620,23 @@ class TunableTDCSweeper():
                     phi_sweep_plot_data["var rise " + mode].append(var_pop_rising_bg)
 
                 else:
-                    phi_sweep_plot_data["phi delay (ps) " + mode].append(delay_ps)
-                    phi_sweep_plot_data["falling samples " + mode].append(falling_samples)
-                    phi_sweep_plot_data["rising samples " + mode].append(rising_samples)
+                    phi_delays.append(delay_ps)
+                    falling_samples.append(falling_samples)
+                    rising_samples.append(rising_samples)
                     if(index == total_configs-1):
+                        phi_sweep_plot_data["phi delay (ps) " + mode]  = phi_delays
+                        phi_sweep_plot_data["falling samples " + mode] = falling_samples
+                        phi_sweep_plot_data["rising samples " + mode]  = rising_samples
                         phi_sweep_plot_data.close()
                     elif(ctr == n_packed_runs-1):
+                        phi_sweep_plot_data["phi delay (ps) " + mode]  = phi_delays
+                        phi_sweep_plot_data["falling samples " + mode] = falling_samples
+                        phi_sweep_plot_data["rising samples " + mode]  = rising_samples
                         phi_sweep_plot_data.close()
                         phi_sweep_plot_data = shelve.open(f"{fh}_{index}", writeback=False)
-                        phi_sweep_plot_data["phi delay (ps) " + mode]  = []
-                        phi_sweep_plot_data["falling samples " + mode] = []
-                        phi_sweep_plot_data["rising samples " + mode]  = []
+                        phi_delay = []
+                        falling_samples = []
+                        rising_samples = []
                         ctr = 0
                     else:
                         ctr += 1
