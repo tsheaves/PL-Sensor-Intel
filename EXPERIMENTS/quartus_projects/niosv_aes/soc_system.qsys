@@ -141,7 +141,7 @@
    {
       datum _sortIndex
       {
-         value = "25";
+         value = "27";
          type = "int";
       }
    }
@@ -149,7 +149,7 @@
    {
       datum _sortIndex
       {
-         value = "28";
+         value = "25";
          type = "int";
       }
    }
@@ -170,7 +170,7 @@
    {
       datum _sortIndex
       {
-         value = "27";
+         value = "28";
          type = "int";
       }
    }
@@ -1952,7 +1952,7 @@
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
   <parameter name="captureEdge" value="false" />
-  <parameter name="clockRate" value="100000000" />
+  <parameter name="clockRate" value="25000000" />
   <parameter name="direction" value="Output" />
   <parameter name="edgeType" value="RISING" />
   <parameter name="generateIRQ" value="false" />
@@ -2794,7 +2794,7 @@
   <parameter name="gui_mif_generate" value="false" />
   <parameter name="gui_multiply_factor" value="32" />
   <parameter name="gui_number_of_clocks" value="2" />
-  <parameter name="gui_operation_mode" value="direct" />
+  <parameter name="gui_operation_mode" value="normal" />
   <parameter name="gui_output_clock_frequency0" value="300.0" />
   <parameter name="gui_output_clock_frequency1" value="100.0" />
   <parameter name="gui_output_clock_frequency10" value="100.0" />
@@ -3293,11 +3293,6 @@
    kind="clock"
    version="22.1"
    start="shell_pll.outclk0"
-   end="niosv_reset_pio.clk" />
- <connection
-   kind="clock"
-   version="22.1"
-   start="shell_pll.outclk0"
    end="peripheral_mem.clk2" />
  <connection
    kind="clock"
@@ -3374,6 +3369,11 @@
    version="22.1"
    start="shell_pll.outclk1"
    end="intel_niosv_m_0.clk" />
+ <connection
+   kind="clock"
+   version="22.1"
+   start="shell_pll.outclk1"
+   end="niosv_reset_pio.clk" />
  <connection
    kind="clock"
    version="22.1"
