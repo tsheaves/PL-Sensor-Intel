@@ -7,6 +7,7 @@ import progressbar
 import matplotlib.pyplot as plt
 plt.rcParams['figure.dpi'] = 300
 from matplotlib.ticker import MultipleLocator
+from fractions import Fraction
 
 class TunableTDCSweeper():
     def __init__(
@@ -685,3 +686,42 @@ class TunableTDCSweeper():
             fall_vars_pop, rise_vars_pop, \
             fall_pop, rise_pop, "Hamming Weight")
         ax1.set_xlabel(r"$\theta$ ps")
+
+    def __phi_sweep_ps_to_rad__(self, delays_ps, target_f_mhz, n_pi):
+        target_pll_frequency = target_f_mhz*10**6
+        target_pll_period_ps = (1/target_pll_frequency)*10**12
+        delays_rad = []
+        for delay in delays:
+            delays_rad.append((delay/target_pll_period_ps) * 2 * math.pi)
+    
+    def __phi_sweep_ticks__(self, ax, n_ticks, target_f_mhz, n_pi):
+        target_ns = (1/(target_f_mhz*10**6))*10**9
+        denom = n_ticks*n_pi
+        mult = 1/denom
+        rad_ticks = [mult * n * n_pi * math.pi for n in range(n_ticks + 1)]
+        ns_ticks = [mult*target_ns*n for n in range(n_ticks + 1)]
+        ax.set_xticks(ns_ticks) 
+        fracs = [Fraction(n*n_pi/denom) for n in range(n_ticks + 1)]
+        str_ticks = []
+        for frac, ns in zip(fracs, ns_ticks):
+            if(frac.denominator == 1):
+                str_tick = fr"(${{{frac.numerator}}\pi}$, {ns})"
+            elif(frac.numerator == 1):
+                str_tick = fr"($\frac{{\pi}}{{{frac.denominator}}}$, {ns})"
+            else:
+                str_tick = fr"($\frac{{{frac.numerator}}\pi}{{{frac.denominator}}}$, {ns})"
+            str_ticks.append(str_tick)
+        ax.set_xticklabels(str_ticks)
+    
+    def __phi_subplot__(self, ax, delays, bg, active, label_bg, label_act, ylim):
+        ax.plot(delays, bg, label=label_bg, linewidth=0.5)
+        ax.plot(delays, active, label=label_act, linewidth=0.5)
+        ax.set_ylim()
+        
+    def plot_phi_sweep_data(self, sweep_data_fh):
+        phi_sweep_df = pd.read_csv(sweep_data_fh)
+        phi_sweep_dict  = phi_sweep_df.to_dict(orient='list')
+        plt.clf()
+        fig, (ax1, ax2, ax3, ax4, ax5, ax6, ax7, ax8) = plt.subplots(8, sharex=True)
+        self.__phi_subplot__(ax1, )
+        
